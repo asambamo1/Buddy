@@ -19,6 +19,16 @@
             </intent-filter>
         </activity>
         <activity
+            android:name=".Activities.FacebookActivity"
+            android:label="@string/facebook"
+            android:screenOrientation="portrait">
+        </activity>
+        <activity
+            android:name=".Activities.TwitterActivity"
+            android:label="@string/twitter"
+            android:screenOrientation="portrait">
+        </activity>
+        <activity
             android:name=".Activities.SettingsActivity"
             android:label="@string/settings"
             android:screenOrientation="portrait">
