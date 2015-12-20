@@ -49,6 +49,13 @@ public class MainActivity extends AppCompatActivity implements NavigationDrawerF
     public void onNavigationDrawerItemSelected(int position) {
         Intent intent = null;
         switch (position) {
+            case 0:
+                break;
+            case 1:
+                break;
+            case 2:
+                intent = new Intent(this, SettingsActivity.class);
+                break;
         }
         startActivity(intent);
     }
