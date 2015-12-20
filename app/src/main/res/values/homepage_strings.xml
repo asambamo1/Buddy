@@ -1,0 +1,24 @@
+<resources>
+    <string name="app_name">Blank Navigation Drawer</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="facebook">Facebook</string>
+    <string name="twitter">Twitter</string>
+    <string name="settings">Settings</string>
+    <string-array name="nav_drawer_tabs">
+        <item>@string/facebook</item>
+        <item>@string/twitter</item>
+        <item>@string/settings</item>
+    </string-array>
+
+    <!-- Font Awesome icons -->
+    <string name="facebook_icon">{fa-facebook-official}</string>
+    <string name="twitter_icon">{fa-twitter}</string>
+    <string name="settings_icon">{fa-gear}</string>
+    <string-array name="nav_drawer_icons">
+        <item>@string/facebook_icon</item>
+        <item>@string/twitter_icon</item>
+        <item>@string/settings_icon</item>
+    </string-array>
+</resources>
