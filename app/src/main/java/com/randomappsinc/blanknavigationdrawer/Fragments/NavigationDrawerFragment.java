@@ -16,8 +16,10 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import com.randomappsinc.blanknavigationdrawer.Adapters.FontAwesomeAdapter;
 import com.randomappsinc.blanknavigationdrawer.R;
@@ -38,6 +40,9 @@ public class NavigationDrawerFragment extends Fragment {
     private View mFragmentContainerView;
 
     @Bind(R.id.nav_drawer_tabs) ListView mDrawerListView;
+    @Bind(R.id.profile_picture) ImageView mProfilePicture;
+    @Bind(R.id.name)TextView mName;
+
 
     private int mCurrentSelectedPosition = 0;
 
@@ -65,6 +70,7 @@ public class NavigationDrawerFragment extends Fragment {
                 getResources().getStringArray(R.array.nav_drawer_tabs),
                 getResources().getStringArray(R.array.nav_drawer_icons)));
         mDrawerListView.setItemChecked(mCurrentSelectedPosition, true);
+        mName.setText("Aravind");
         return navDrawer;
     }
 
