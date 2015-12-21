@@ -11,6 +11,7 @@ import android.view.MenuItem;
 
 import com.randomappsinc.blanknavigationdrawer.Fragments.NavigationDrawerFragment;
 import com.randomappsinc.blanknavigationdrawer.R;
+import com.randomappsinc.blanknavigationdrawer.Utils.PreferencesManager;
 
 public class MainActivity extends AppCompatActivity implements NavigationDrawerFragment.NavigationDrawerCallbacks {
     private NavigationDrawerFragment mNavigationDrawerFragment;
@@ -19,6 +20,10 @@ public class MainActivity extends AppCompatActivity implements NavigationDrawerF
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        if(PreferencesManager.get().getId() == -1){
+            startActivity(new Intent(this, LocationActivity.class));
+        }
 
         setContentView(R.layout.homepage);
         mNavigationDrawerFragment = (NavigationDrawerFragment)

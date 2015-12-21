@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="welcome">Create Account</string>
+    <string name="welcome_message">Welcome to Carpool Buddy! Please enter your home address and work address.</string>
+    <string name="address_hint">Home Address</string>
+    <string name="work_hint">Work Address</string>
+    <string name="submit">Submit</string>
+</resources>
