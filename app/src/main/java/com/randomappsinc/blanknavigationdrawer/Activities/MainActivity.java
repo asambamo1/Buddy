@@ -50,10 +50,10 @@ public class MainActivity extends AppCompatActivity implements NavigationDrawerF
         Intent intent = null;
         switch (position) {
             case 0:
-                intent = new Intent(this, FacebookActivity.class);
+                intent = new Intent(this, MyProfileActivity.class);
                 break;
             case 1:
-                intent = new Intent(this, TwitterActivity.class);
+                intent = new Intent(this, ConnectionsActivity.class);
                 break;
             case 2:
                 intent = new Intent(this, SettingsActivity.class);

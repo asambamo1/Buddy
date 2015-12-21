@@ -19,13 +19,13 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".Activities.FacebookActivity"
-            android:label="@string/facebook"
+            android:name=".Activities.MyProfileActivity"
+            android:label="@string/my_profile"
             android:screenOrientation="portrait">
         </activity>
         <activity
-            android:name=".Activities.TwitterActivity"
-            android:label="@string/twitter"
+            android:name=".Activities.ConnectionsActivity"
+            android:label="@string/connections"
             android:screenOrientation="portrait">
         </activity>
         <activity
