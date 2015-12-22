@@ -1,9 +1,11 @@
 package com.randomappsinc.blanknavigationdrawer.Activities;
 
 import android.os.Bundle;
+import android.view.View;
 
 import com.randomappsinc.blanknavigationdrawer.R;
 
+import butterknife.Bind;
 import butterknife.ButterKnife;
 
 /**

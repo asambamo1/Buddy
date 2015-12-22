@@ -5,7 +5,7 @@
     <application
         android:name=".Utils.MyApplication"
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@mipmap/city_icon"
         android:supportsRtl="true"
         android:theme="@style/AppTheme" >
         <activity
@@ -33,7 +33,12 @@
             android:label="@string/settings"
             android:screenOrientation="portrait" >
         </activity>
-        <activity android:name=".Activities.LocationActivity"
+        <activity android:name=".LoginActivities.LocationActivity"
+            android:label="@string/welcome"
+            android:screenOrientation="portrait"
+            >
+        </activity>
+        <activity android:name=".LoginActivities.ProfileActivity"
             android:label="@string/welcome"
             android:screenOrientation="portrait"
             >

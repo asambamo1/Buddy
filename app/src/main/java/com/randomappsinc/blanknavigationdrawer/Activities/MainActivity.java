@@ -10,6 +10,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import com.randomappsinc.blanknavigationdrawer.Fragments.NavigationDrawerFragment;
+import com.randomappsinc.blanknavigationdrawer.LoginActivities.LocationActivity;
 import com.randomappsinc.blanknavigationdrawer.R;
 import com.randomappsinc.blanknavigationdrawer.Utils.PreferencesManager;
 

@@ -1,10 +1,160 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
-    android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    tools:context="com.randomappsinc.blanknavigationdrawer.Profile">
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/coordinator_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
 
-</RelativeLayout>
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="15dp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/welcome_message_two"
+            android:textColor="@color/black"
+            android:textSize="22dp" />
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp">
+
+            <EditText
+                android:id="@+id/name_input"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/text_input_border"
+                android:hint="@string/name_hint"
+                android:imeOptions="actionNext"
+                android:paddingBottom="10dp"
+                android:paddingLeft="35dp"
+                android:paddingRight="10dp"
+                android:paddingTop="10dp"
+                android:singleLine="true"
+                android:textColor="@color/dark_gray"
+                android:textSize="18dp" />
+
+            <com.joanzapata.iconify.widget.IconTextView
+                android:id="@+id/address_icon"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_gravity="center_vertical|left"
+                android:layout_margin="5dp"
+                android:gravity="center"
+                android:text="{fa-user}"
+                android:textColor="@color/app_blue"
+                android:textSize="22dp" />
+        </FrameLayout>
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp">
+
+            <EditText
+                android:id="@+id/aboutme_input"
+                android:layout_width="match_parent"
+                android:layout_height="110dp"
+                android:background="@drawable/text_input_border"
+                android:hint="@string/about_hint"
+                android:imeOptions="actionNext"
+                android:maxLines="4"
+                android:paddingBottom="10dp"
+                android:paddingLeft="35dp"
+                android:paddingRight="10dp"
+                android:paddingTop="10dp"
+                android:textColor="@color/dark_gray"
+                android:textSize="18dp" />
+
+            <com.joanzapata.iconify.widget.IconTextView
+                android:id="@+id/aboutme_icon"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_gravity="center_vertical|left"
+                android:layout_margin="5dp"
+                android:gravity="center"
+                android:text="{fa-info}"
+                android:textColor="@color/app_blue"
+                android:textSize="22dp" />
+        </FrameLayout>
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp">
+
+            <EditText
+                android:id="@+id/email"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/text_input_border"
+                android:hint="@string/email_hint"
+                android:imeOptions="actionNext"
+                android:paddingBottom="10dp"
+                android:paddingLeft="35dp"
+                android:paddingRight="10dp"
+                android:paddingTop="10dp"
+                android:singleLine="true"
+                android:textColor="@color/dark_gray"
+                android:textSize="18dp" />
+
+            <com.joanzapata.iconify.widget.IconTextView
+                android:id="@+id/email_icon"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_gravity="center_vertical|left"
+                android:layout_margin="5dp"
+                android:gravity="center"
+                android:text="{fa-envelope-o}"
+                android:textColor="@color/app_blue"
+                android:textSize="22dp" />
+        </FrameLayout>
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp">
+
+            <EditText
+                android:id="@+id/phonenumber"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/text_input_border"
+                android:hint="@string/phone_hint"
+                android:imeOptions="actionDone"
+                android:paddingBottom="10dp"
+                android:paddingLeft="35dp"
+                android:paddingRight="10dp"
+                android:paddingTop="10dp"
+                android:singleLine="true"
+                android:textColor="@color/dark_gray"
+                android:textSize="18dp" />
+
+            <com.joanzapata.iconify.widget.IconTextView
+                android:id="@+id/phone_icon"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_gravity="center_vertical|left"
+                android:layout_margin="5dp"
+                android:gravity="center"
+                android:text="{fa-phone}"
+                android:textColor="@color/app_blue"
+                android:textSize="22dp" />
+        </FrameLayout>
+
+
+        <com.rey.material.widget.Button
+            android:id="@+id/submit"
+            style="@style/ripple_button_style"
+            android:layout_marginTop="15dp"
+            android:text="@string/submit"
+            app:rd_style="@style/button_ripple_attributes" />
+
+
+    </LinearLayout>
+
+</android.support.design.widget.CoordinatorLayout>
