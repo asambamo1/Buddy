@@ -4,11 +4,15 @@ import android.app.Activity;
 import android.content.Context;
 import android.graphics.Color;
 import android.support.design.widget.Snackbar;
+import android.telephony.TelephonyManager;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.TextView;
 
 import com.randomappsinc.blanknavigationdrawer.R;
+
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 /**
  * Created by alexanderchiou on 12/20/15.
@@ -43,5 +47,61 @@ public class FormUtils {
             view = new View(activity);
         }
         imm.toggleSoftInputFromWindow(view.getWindowToken(), InputMethodManager.SHOW_FORCED, 0);
+    }
+
+    public static boolean isValidEmailAddress(String email) {
+        String ePattern = "^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@((\\[[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\])|(([a-zA-Z\\-0-9]+\\.)+[a-zA-Z]{2,}))$";
+        Pattern p = java.util.regex.Pattern.compile(ePattern);
+        Matcher m = p.matcher(email);
+        return m.matches();
+    }
+
+    public static String getPhoneNumber() {
+        TelephonyManager telephonyManager = (TelephonyManager) MyApplication.getAppContext()
+                .getSystemService(Context.TELEPHONY_SERVICE);
+        System.out.println(telephonyManager.getLine1Number());
+        return telephonyManager != null ? telephonyManager.getLine1Number() : "";
+    }
+
+    public static String formatUSNumber(String input) {
+        StringBuilder formattedString = new StringBuilder();
+
+        if (!input.isEmpty()) {
+            String strippedInput = input.substring(1);
+
+            // Parse out non-digits
+            strippedInput = strippedInput.replaceAll("[^0-9]+", "");
+            int totalDigitCount = strippedInput.length();
+
+            // The first 3 numbers beyond '1' must be enclosed in brackets "()"
+            if (totalDigitCount > 0) {
+                formattedString.append("(");
+                if (totalDigitCount < 3) {
+                    formattedString.append(strippedInput.substring(0, totalDigitCount));
+                } else {
+                    formattedString.append(strippedInput.substring(0, 3));
+                }
+            }
+            // There must be a '-' inserted after the next 3 numbers
+            if (totalDigitCount > 3) {
+                formattedString.append(") ");
+                if (totalDigitCount < 6) {
+                    formattedString.append(strippedInput.substring(3, totalDigitCount));
+                } else {
+                    formattedString.append(strippedInput.substring(3, 6));
+                }
+            }
+
+            // There must be a '-' inserted after the next 3 numbers
+            if (totalDigitCount > 6) {
+                formattedString.append("-");
+                if (totalDigitCount < 10) {
+                    formattedString.append(strippedInput.substring(6, totalDigitCount));
+                } else {
+                    formattedString.append(strippedInput.substring(6, 10));
+                }
+            }
+        }
+        return formattedString.toString();
     }
 }

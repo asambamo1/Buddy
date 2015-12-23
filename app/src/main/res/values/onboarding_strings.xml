@@ -3,12 +3,16 @@
     <string name="welcome">Create Account</string>
     <string name="welcome_message">Welcome to Carpool Buddy!
         To start, enter in the village you live in and the ZIP code of your work place.</string>
-    <string name="about_me_instructions">Now tell us a little bit about yourself.</string>
+    <string name="about_me_instructions">Now tell us a little bit about yourself.
+        This will help you get matched with people compatible with you.</string>
+     <string name="contact_info_instructions">Finally, let us know how carpool matches can contact you
+        (only one of the below is needed).</string>
 
     <string name="village_hint">Village</string>
     <string name="work_hint">Work ZIP code</string>
     <string name="name_hint">Name</string>
-    <string name="about_hint">About Me</string>
+    <string name="about_me_hint">About Me (What time you leave for work, what time you get off work,
+        your interests/hobbies, etc)</string>
     <string name="email_hint">Email Address</string>
     <string name="phone_hint">Phone Number</string>
 
@@ -25,10 +29,18 @@
 
     <string name="home_icon">{fa-home}</string>
     <string name="work_icon">{fa-building}</string>
+    <string name="about_me_icon">{fa-info-circle}</string>
+    <string name="phone_icon">{fa-phone}</string>
 
     <string name="next">Next</string>
     <string name="submit">Submit</string>
 
+    <!-- Error messages -->
     <string name="no_village">Please enter in your village.</string>
     <string name="invalid_zip">Please enter in a 5 digit ZIP code for your work.</string>
+    <string name="no_name">Please enter in your name.</string>
+    <string name="no_about_me">Please tell us a little bit about yourself.</string>
+    <string name="no_contact_info">Please give us at least 1 piece of your contact information.</string>
+    <string name="invalid_email">Please enter in a valid email address.</string>
+    <string name="invalid_phone">Please enter in a valid phone number.</string>
 </resources>

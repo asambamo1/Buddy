@@ -1,5 +1,6 @@
 package com.randomappsinc.blanknavigationdrawer.Activities.Onboarding;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
@@ -54,7 +55,7 @@ public class LocationActivity extends StandardActivity {
             FormUtils.showSnackbar(parent, getString(R.string.invalid_zip));
         }
         else {
-
+            startActivity(new Intent(this, AboutMeActivity.class));
         }
     }
 
