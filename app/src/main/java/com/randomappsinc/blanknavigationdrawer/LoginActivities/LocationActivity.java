@@ -4,10 +4,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
-import com.randomappsinc.blanknavigationdrawer.Activities.MyProfileActivity;
 import com.randomappsinc.blanknavigationdrawer.Activities.StandardActivity;
 import com.randomappsinc.blanknavigationdrawer.R;
-import com.randomappsinc.blanknavigationdrawer.Utils.FormUtils;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;

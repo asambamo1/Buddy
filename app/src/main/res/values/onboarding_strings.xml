@@ -1,14 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="welcome">Create Account</string>
-    <string name="welcome_message">Welcome to Carpool Buddy! Please enter your home address and work address.</string>
+    <string name="welcome_message">Welcome to Carpool Buddy!
+        Please enter the village you live in and the ZIP code of your work place.</string>
     <string name="welcome_message_two">Please enter your name, commute information, email, and phone number.</string>
-    <string name="address_hint">Home Address</string>
-    <string name="work_hint">Work Address</string>
+    <string name="village_hint">Village</string>
+    <string name="work_hint">Work ZIP code</string>
     <string name="Continue">Continue</string>
     <string name="submit">Submit</string>
     <string name="name_hint">Name</string>
     <string name="about_hint">About Commute</string>
     <string name="email_hint">Email</string>
     <string name="phone_hint">Phone Number</string>
+
+    <string-array name="villages">
+        <item>Wicklund</item>
+        <item>Bethany</item>
+        <item>Altamont</item>
+        <item>Questa</item>
+        <item>Trilogy</item>
+        <item>College Park</item>
+    </string-array>
+
+    <string name="home_icon">{fa-home}</string>
+    <string name="work_icon">{fa-building}</string>
 </resources>
