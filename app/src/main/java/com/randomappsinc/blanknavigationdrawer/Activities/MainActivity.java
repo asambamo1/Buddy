@@ -9,8 +9,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.randomappsinc.blanknavigationdrawer.Activities.Onboarding.LocationActivity;
 import com.randomappsinc.blanknavigationdrawer.Fragments.NavigationDrawerFragment;
-import com.randomappsinc.blanknavigationdrawer.LoginActivities.LocationActivity;
 import com.randomappsinc.blanknavigationdrawer.R;
 import com.randomappsinc.blanknavigationdrawer.Utils.PreferencesManager;
 
@@ -22,7 +22,7 @@ public class MainActivity extends AppCompatActivity implements NavigationDrawerF
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        if(PreferencesManager.get().getId() == -1){
+        if (PreferencesManager.get().getId() == -1) {
             startActivity(new Intent(this, LocationActivity.class));
         }
 

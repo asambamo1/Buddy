@@ -1,15 +1,15 @@
-package com.randomappsinc.blanknavigationdrawer.Activities;
+package com.randomappsinc.blanknavigationdrawer.Activities.Onboarding;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 
 import com.randomappsinc.blanknavigationdrawer.R;
 
-public class Contact_Information extends AppCompatActivity {
+public class ContactInfoActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_contact_information);
+        setContentView(R.layout.contact_info_form);
     }
 }

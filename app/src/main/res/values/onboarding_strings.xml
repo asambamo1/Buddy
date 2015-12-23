@@ -2,17 +2,17 @@
 <resources>
     <string name="welcome">Create Account</string>
     <string name="welcome_message">Welcome to Carpool Buddy!
-        Please enter the village you live in and the ZIP code of your work place.</string>
-    <string name="welcome_message_two">Please enter your name, commute information, email, and phone number.</string>
+        To start, enter in the village you live in and the ZIP code of your work place.</string>
+    <string name="about_me_instructions">Now tell us a little bit about yourself.</string>
+
     <string name="village_hint">Village</string>
     <string name="work_hint">Work ZIP code</string>
-    <string name="Continue">Continue</string>
-    <string name="submit">Submit</string>
     <string name="name_hint">Name</string>
-    <string name="about_hint">About Commute</string>
-    <string name="email_hint">Email</string>
+    <string name="about_hint">About Me</string>
+    <string name="email_hint">Email Address</string>
     <string name="phone_hint">Phone Number</string>
 
+    <string name="villages">Villages</string>
     <string-array name="villages">
         <item>Wicklund</item>
         <item>Bethany</item>
@@ -21,7 +21,14 @@
         <item>Trilogy</item>
         <item>College Park</item>
     </string-array>
+    <string name="choose">Choose</string>
 
     <string name="home_icon">{fa-home}</string>
     <string name="work_icon">{fa-building}</string>
+
+    <string name="next">Next</string>
+    <string name="submit">Submit</string>
+
+    <string name="no_village">Please enter in your village.</string>
+    <string name="invalid_zip">Please enter in a 5 digit ZIP code for your work.</string>
 </resources>

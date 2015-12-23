@@ -31,19 +31,14 @@
         <activity
             android:name=".Activities.SettingsActivity"
             android:label="@string/settings"
-            android:screenOrientation="portrait" >
+            android:screenOrientation="portrait">
         </activity>
-        <activity android:name=".LoginActivities.LocationActivity"
+        <activity android:name=".Activities.Onboarding.LocationActivity"
             android:label="@string/welcome"
             android:screenOrientation="portrait"
-            >
+            android:windowSoftInputMode="adjustResize">
         </activity>
-        <activity android:name=".LoginActivities.ProfileActivity"
-            android:label="@string/welcome"
-            android:screenOrientation="portrait"
-            >
-        </activity>
-        <activity android:name=".Activities.Contact_Information" >
+        <activity android:name=".Activities.Onboarding.ContactInfoActivity" >
         </activity>
     </application>
 
