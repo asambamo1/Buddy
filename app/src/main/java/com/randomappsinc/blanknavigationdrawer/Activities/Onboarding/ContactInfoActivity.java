@@ -50,5 +50,8 @@ public class ContactInfoActivity extends StandardActivity {
         else if (emailInput.isEmpty() && phoneInput.isEmpty()) {
             FormUtils.showSnackbar(parent, getString(R.string.no_contact_info));
         }
+        else {
+            finish();
+        }
     }
 }

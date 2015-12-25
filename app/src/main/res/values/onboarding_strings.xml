@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="sign_up">Sign Up</string>
+    <string name="log_in">Log In</string>
+
     <string name="welcome">Create Account</string>
     <string name="welcome_message">Welcome to Carpool Buddy!
         To start, enter in the village you live in and the ZIP code of your work place.</string>

@@ -26,6 +26,7 @@ public class LocationActivity extends StandardActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.location_form);
         ButterKnife.bind(this);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
 
     @OnClick(R.id.village_input)

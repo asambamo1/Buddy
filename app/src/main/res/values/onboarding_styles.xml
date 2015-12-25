@@ -35,4 +35,11 @@
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_marginTop">15dp</item>
     </style>
+
+    <style name="splash_ripple_button_style">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/app_blue</item>
+        <item name="android:background">@drawable/splash_ripple_button</item>
+    </style>
 </resources>
