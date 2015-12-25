@@ -9,6 +9,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.randomappsinc.blanknavigationdrawer.Activities.Onboarding.SplashScreenActivity;
 import com.randomappsinc.blanknavigationdrawer.Fragments.NavigationDrawerFragment;
 import com.randomappsinc.blanknavigationdrawer.R;
 import com.randomappsinc.blanknavigationdrawer.Utils.PreferencesManager;
@@ -21,8 +22,8 @@ public class MainActivity extends AppCompatActivity implements NavigationDrawerF
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        if(PreferencesManager.get().getId() == -1){
-            startActivity(new Intent(this, LocationActivity.class));
+        if (PreferencesManager.get().getId() == -1) {
+            startActivity(new Intent(this, SplashScreenActivity.class));
         }
 
         setContentView(R.layout.homepage);
@@ -73,6 +74,9 @@ public class MainActivity extends AppCompatActivity implements NavigationDrawerF
         actionBar.setDisplayShowTitleEnabled(true);
         actionBar.setTitle(mTitle);
     }
+
+    @Override
+    public void onBackPressed() {}
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

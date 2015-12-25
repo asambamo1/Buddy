@@ -1,11 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+<manifest
+    xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.randomappsinc.blanknavigationdrawer" >
+
+    <uses-permission android:name="android.permission.READ_SMS"/>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
 
     <application
         android:name=".Utils.MyApplication"
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@mipmap/city_icon"
         android:supportsRtl="true"
         android:theme="@style/AppTheme" >
         <activity
@@ -31,15 +35,42 @@
         <activity
             android:name=".Activities.SettingsActivity"
             android:label="@string/settings"
-            android:screenOrientation="portrait" >
+            android:screenOrientation="portrait">
         </activity>
-        <activity android:name=".Activities.LocationActivity"
-            android:label="@string/welcome"
+        <activity
+            android:name=".Activities.Onboarding.LocationActivity"
+            android:label="@string/create_account"
             android:screenOrientation="portrait"
-            >
+            android:windowSoftInputMode="adjustResize">
         </activity>
-        <activity android:name=".Activities.Contact_Information" >
+        <activity
+            android:name=".Activities.Onboarding.AboutMeActivity"
+            android:label="@string/create_account"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustResize|stateAlwaysHidden">
+        </activity>
+        <activity
+            android:name=".Activities.Onboarding.ContactInfoActivity"
+            android:label="@string/create_account"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustResize|stateAlwaysHidden">
+        </activity>
+        <activity
+            android:name=".Activities.Onboarding.PasswordActivity"
+            android:label="@string/log_in"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustResize|stateAlwaysHidden">
+        </activity>
+        <activity
+            android:name=".Activities.Onboarding.SplashScreenActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustResize">
+        </activity>
+        <activity
+            android:name=".Activities.Onboarding.LoginActivity"
+            android:label="@string/create_account"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustResize">
         </activity>
     </application>
-
 </manifest>

@@ -4,11 +4,15 @@ import android.app.Activity;
 import android.content.Context;
 import android.graphics.Color;
 import android.support.design.widget.Snackbar;
+import android.telephony.TelephonyManager;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.TextView;
 
 import com.randomappsinc.blanknavigationdrawer.R;
+
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 /**
  * Created by alexanderchiou on 12/20/15.
@@ -35,13 +39,65 @@ public class FormUtils {
         inputMethodManager.hideSoftInputFromWindow(view.getWindowToken(), 0);
     }
 
-    public static void showKeyboard(Activity activity) {
-        InputMethodManager imm = (InputMethodManager) activity.getSystemService(Context.INPUT_METHOD_SERVICE);
-        View view = activity.getCurrentFocus();
-        // If no view currently has focus, create a new one, just so we can grab a window token from it
-        if (view == null) {
-            view = new View(activity);
+    public static boolean isValidEmailAddress(String email) {
+        String ePattern = "^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@((\\[[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\])|(([a-zA-Z\\-0-9]+\\.)+[a-zA-Z]{2,}))$";
+        Pattern p = java.util.regex.Pattern.compile(ePattern);
+        Matcher m = p.matcher(email);
+        return m.matches();
+    }
+
+    public static boolean isValidPhoneNumber(String phoneNumber) {
+        String parsedPhoneNumber = phoneNumber.replaceAll("[^0-9]+", "");
+        return parsedPhoneNumber.length() == 10;
+    }
+
+    public static String getPhoneNumber() {
+        TelephonyManager telephonyManager = (TelephonyManager) MyApplication.getAppContext()
+                .getSystemService(Context.TELEPHONY_SERVICE);
+        if (telephonyManager != null) {
+            String phoneNumber = telephonyManager.getLine1Number();
+            return phoneNumber.length() == 11 ? phoneNumber.substring(1) : phoneNumber;
         }
-        imm.toggleSoftInputFromWindow(view.getWindowToken(), InputMethodManager.SHOW_FORCED, 0);
+        else {
+            return "";
+        }
+    }
+
+    public static String formatUSNumber(String input) {
+        StringBuilder formattedString = new StringBuilder();
+
+        // Parse out non-digits
+        input = input.replaceAll("[^0-9]+", "");
+        int totalDigitCount = input.length();
+
+        // The first 3 numbers beyond '1' must be enclosed in brackets "()"
+        if (totalDigitCount > 0) {
+            formattedString.append("(");
+            if (totalDigitCount < 3) {
+                formattedString.append(input.substring(0, totalDigitCount));
+            } else {
+                formattedString.append(input.substring(0, 3));
+            }
+        }
+        // There must be a '-' inserted after the next 3 numbers
+        if (totalDigitCount > 3) {
+            formattedString.append(") ");
+            if (totalDigitCount < 6) {
+                formattedString.append(input.substring(3, totalDigitCount));
+            } else {
+                formattedString.append(input.substring(3, 6));
+            }
+        }
+
+        // There must be a '-' inserted after the next 3 numbers
+        if (totalDigitCount > 6) {
+            formattedString.append("-");
+            if (totalDigitCount < 10) {
+                formattedString.append(input.substring(6, totalDigitCount));
+            } else {
+                formattedString.append(input.substring(6, 10));
+            }
+        }
+        return formattedString.toString();
     }
 }
