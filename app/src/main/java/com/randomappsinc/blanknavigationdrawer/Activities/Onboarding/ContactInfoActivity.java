@@ -1,5 +1,6 @@
 package com.randomappsinc.blanknavigationdrawer.Activities.Onboarding;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
 import android.view.View;
@@ -44,14 +45,17 @@ public class ContactInfoActivity extends StandardActivity {
     public void createAccount(View view) {
         String emailInput = emailForm.getText().toString();
         String phoneInput = phoneForm.getText().toString();
-        if (!FormUtils.isValidEmailAddress(emailInput)) {
+        if (!emailInput.isEmpty() && !FormUtils.isValidEmailAddress(emailInput)) {
             FormUtils.showSnackbar(parent, getString(R.string.invalid_email));
+        }
+        else if (!phoneInput.isEmpty() && !FormUtils.isValidPhoneNumber(phoneInput)) {
+            FormUtils.showSnackbar(parent, getString(R.string.invalid_phone));
         }
         else if (emailInput.isEmpty() && phoneInput.isEmpty()) {
             FormUtils.showSnackbar(parent, getString(R.string.no_contact_info));
         }
         else {
-            finish();
+            startActivity(new Intent(this, PasswordActivity.class));
         }
     }
 }

@@ -3,13 +3,14 @@
     <string name="sign_up">Sign Up</string>
     <string name="log_in">Log In</string>
 
-    <string name="welcome">Create Account</string>
+    <string name="create_account">Create Account</string>
     <string name="welcome_message">Welcome to Carpool Buddy!
         To start, enter in the village you live in and the ZIP code of your work place.</string>
     <string name="about_me_instructions">Now tell us a little bit about yourself.
         This will help you get matched with people compatible with you.</string>
-     <string name="contact_info_instructions">Finally, let us know how carpool matches can contact you
+    <string name="contact_info_instructions">Let us know how carpool matches can contact you
         (only one of the below is needed).</string>
+    <string name="password_instructions">You made it! Finally, set a password for your Carpool Buddy account.</string>
 
     <string name="village_hint">Village</string>
     <string name="work_hint">Work ZIP code</string>
@@ -49,6 +50,6 @@
     <string name="no_about_me">Please tell us a little bit about yourself.</string>
     <string name="no_contact_info">Please give us at least 1 piece of your contact information.</string>
     <string name="invalid_email">Please enter in a valid email address.</string>
-    <string name="invalid_phone">Please enter in a valid phone number.</string>
+    <string name="invalid_phone">Please enter in a valid American phone number.</string>
     <string name="non_matching_password">Your passwords do not match.</string>
 </resources>
