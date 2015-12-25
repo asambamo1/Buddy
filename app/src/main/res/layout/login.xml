@@ -14,43 +14,40 @@
         android:focusableInTouchMode="true"
         android:padding="15dp">
 
-        <TextView
-            android:text="@string/welcome_message"
-            style="@style/onboarding_instructions_style"/>
+        <FrameLayout
+            style="@style/input_container_style"
+            android:layout_marginTop="0dp">
 
-        <FrameLayout style="@style/input_container_style">
             <EditText
-                android:id="@+id/village_input"
-                android:hint="@string/village_hint"
-                android:focusable="false"
-                android:focusableInTouchMode="false"
+                android:id="@+id/username_input"
+                android:hint="@string/login_hint"
+                android:imeOptions="actionNext"
                 style="@style/onboarding_input_style"/>
 
             <com.joanzapata.iconify.widget.IconTextView
-                android:text="@string/home_icon"
+                android:text="@string/profile_icon"
                 style="@style/onboarding_icon_style"/>
         </FrameLayout>
 
         <FrameLayout style="@style/input_container_style">
             <EditText
-                android:id="@+id/work_input"
-                android:inputType="number"
-                android:hint="@string/work_hint"
+                android:id="@+id/password_input"
+                android:inputType="textPassword"
+                android:hint="@string/password_hint"
                 android:imeOptions="actionDone"
-                android:maxLength="5"
                 style="@style/onboarding_input_style"/>
 
             <com.joanzapata.iconify.widget.IconTextView
-                android:text="@string/work_icon"
+                android:text="@string/lock_icon"
                 style="@style/onboarding_icon_style"/>
         </FrameLayout>
 
         <com.rey.material.widget.Button
             xmlns:app="http://schemas.android.com/apk/res-auto"
-            android:id="@+id/next"
+            android:id="@+id/login"
             style="@style/ripple_button_style"
             android:layout_marginTop="15dp"
-            android:text="@string/next"
+            android:text="@string/log_in"
             app:rd_style="@style/button_ripple_attributes"/>
     </LinearLayout>
 </android.support.design.widget.CoordinatorLayout>

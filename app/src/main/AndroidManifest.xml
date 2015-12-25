@@ -60,5 +60,11 @@
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustResize">
         </activity>
+        <activity
+            android:name=".Activities.Onboarding.LoginActivity"
+            android:label="@string/log_in"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustResize">
+        </activity>
     </application>
 </manifest>

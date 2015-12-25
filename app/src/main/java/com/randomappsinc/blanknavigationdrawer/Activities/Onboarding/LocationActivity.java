@@ -59,7 +59,4 @@ public class LocationActivity extends StandardActivity {
             startActivity(new Intent(this, AboutMeActivity.class));
         }
     }
-
-    @Override
-    public void onBackPressed() {}
 }

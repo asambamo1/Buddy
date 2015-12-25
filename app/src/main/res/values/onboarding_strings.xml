@@ -16,8 +16,11 @@
     <string name="name_hint">Name</string>
     <string name="about_me_hint">About Me (What time you leave for work, what time you get off work,
         your interests/hobbies, etc)</string>
-    <string name="email_hint">Email Address</string>
+    <string name="email_hint">Email</string>
     <string name="phone_hint">Phone Number</string>
+    <string name="login_hint">Phone number or email</string>
+    <string name="password_hint">Password</string>
+    <string name="confirm_password_hint">Confirm password</string>
 
     <string name="villages">Villages</string>
     <string-array name="villages">
@@ -34,6 +37,7 @@
     <string name="work_icon">{fa-building}</string>
     <string name="about_me_icon">{fa-info-circle}</string>
     <string name="phone_icon">{fa-phone}</string>
+    <string name="lock_icon">{fa-lock}</string>
 
     <string name="next">Next</string>
     <string name="submit">Submit</string>
@@ -46,4 +50,5 @@
     <string name="no_contact_info">Please give us at least 1 piece of your contact information.</string>
     <string name="invalid_email">Please enter in a valid email address.</string>
     <string name="invalid_phone">Please enter in a valid phone number.</string>
+    <string name="non_matching_password">Your passwords do not match.</string>
 </resources>

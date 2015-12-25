@@ -59,47 +59,48 @@ public class FormUtils {
     public static String getPhoneNumber() {
         TelephonyManager telephonyManager = (TelephonyManager) MyApplication.getAppContext()
                 .getSystemService(Context.TELEPHONY_SERVICE);
-        System.out.println(telephonyManager.getLine1Number());
-        return telephonyManager != null ? telephonyManager.getLine1Number() : "";
+        if (telephonyManager != null) {
+            String phoneNumber = telephonyManager.getLine1Number();
+            return phoneNumber.length() == 11 ? phoneNumber.substring(1) : phoneNumber;
+        }
+        else {
+            return "";
+        }
     }
 
     public static String formatUSNumber(String input) {
         StringBuilder formattedString = new StringBuilder();
 
-        if (!input.isEmpty()) {
-            String strippedInput = input.substring(1);
+        // Parse out non-digits
+        input = input.replaceAll("[^0-9]+", "");
+        int totalDigitCount = input.length();
 
-            // Parse out non-digits
-            strippedInput = strippedInput.replaceAll("[^0-9]+", "");
-            int totalDigitCount = strippedInput.length();
-
-            // The first 3 numbers beyond '1' must be enclosed in brackets "()"
-            if (totalDigitCount > 0) {
-                formattedString.append("(");
-                if (totalDigitCount < 3) {
-                    formattedString.append(strippedInput.substring(0, totalDigitCount));
-                } else {
-                    formattedString.append(strippedInput.substring(0, 3));
-                }
+        // The first 3 numbers beyond '1' must be enclosed in brackets "()"
+        if (totalDigitCount > 0) {
+            formattedString.append("(");
+            if (totalDigitCount < 3) {
+                formattedString.append(input.substring(0, totalDigitCount));
+            } else {
+                formattedString.append(input.substring(0, 3));
             }
-            // There must be a '-' inserted after the next 3 numbers
-            if (totalDigitCount > 3) {
-                formattedString.append(") ");
-                if (totalDigitCount < 6) {
-                    formattedString.append(strippedInput.substring(3, totalDigitCount));
-                } else {
-                    formattedString.append(strippedInput.substring(3, 6));
-                }
+        }
+        // There must be a '-' inserted after the next 3 numbers
+        if (totalDigitCount > 3) {
+            formattedString.append(") ");
+            if (totalDigitCount < 6) {
+                formattedString.append(input.substring(3, totalDigitCount));
+            } else {
+                formattedString.append(input.substring(3, 6));
             }
+        }
 
-            // There must be a '-' inserted after the next 3 numbers
-            if (totalDigitCount > 6) {
-                formattedString.append("-");
-                if (totalDigitCount < 10) {
-                    formattedString.append(strippedInput.substring(6, totalDigitCount));
-                } else {
-                    formattedString.append(strippedInput.substring(6, 10));
-                }
+        // There must be a '-' inserted after the next 3 numbers
+        if (totalDigitCount > 6) {
+            formattedString.append("-");
+            if (totalDigitCount < 10) {
+                formattedString.append(input.substring(6, totalDigitCount));
+            } else {
+                formattedString.append(input.substring(6, 10));
             }
         }
         return formattedString.toString();

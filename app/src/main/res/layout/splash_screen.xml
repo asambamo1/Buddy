@@ -8,19 +8,19 @@
     android:background="@color/app_blue">
 
     <com.rey.material.widget.Button
-        android:id="@+id/signup"
-        style="@style/splash_ripple_button_style"
-        android:layout_marginTop="15dp"
-        android:layout_alignParentBottom="true"
-        android:text="@string/sign_up"
-        app:rd_style="@style/button_ripple_attributes"/>
-
-    <com.rey.material.widget.Button
         android:id="@+id/login"
         style="@style/splash_ripple_button_style"
         android:layout_marginTop="15dp"
-        android:layout_above="@+id/signup"
+        android:layout_alignParentBottom="true"
         android:text="@string/log_in"
+        app:rd_style="@style/button_ripple_attributes"/>
+
+    <com.rey.material.widget.Button
+        android:id="@+id/signup"
+        style="@style/splash_ripple_button_style"
+        android:layout_marginTop="15dp"
+        android:layout_above="@+id/login"
+        android:text="@string/sign_up"
         app:rd_style="@style/button_ripple_attributes"/>
 
     <TextView
@@ -30,7 +30,7 @@
         android:textColor="@color/white"
         android:textSize="32sp"
         android:text="@string/app_name"
-        android:layout_above="@+id/login"
+        android:layout_above="@+id/signup"
         android:layout_centerHorizontal="true"/>
 
     <FrameLayout
