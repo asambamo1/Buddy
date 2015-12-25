@@ -48,10 +48,10 @@
             </FrameLayout>
 
             <com.rey.material.widget.Button
-                android:id="@+id/submit"
+                android:id="@+id/next"
                 style="@style/ripple_button_style"
                 android:layout_marginTop="15dp"
-                android:text="@string/submit"
+                android:text="@string/next"
                 app:rd_style="@style/button_ripple_attributes" />
         </LinearLayout>
     </ScrollView>

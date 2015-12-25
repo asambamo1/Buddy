@@ -41,7 +41,7 @@ public class ContactInfoActivity extends StandardActivity {
         }
     }
 
-    @OnClick(R.id.submit)
+    @OnClick(R.id.next)
     public void createAccount(View view) {
         String emailInput = emailForm.getText().toString();
         String phoneInput = phoneForm.getText().toString();
