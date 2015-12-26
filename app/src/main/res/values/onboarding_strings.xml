@@ -56,6 +56,7 @@
     <string name="invalid_phone">Please enter in a valid American phone number.</string>
     <string name="non_matching_passwords">Your passwords do not match.</string>
     <string name="password_too_short">Passwords must be at least 6 characters long.</string>
+    <string name="invalid_username">Please enter in a valid email or phone number.</string>
 
     <!-- API messages -->
     <string name="create_account_failed">We failed to create your account. Please try again later.</string>

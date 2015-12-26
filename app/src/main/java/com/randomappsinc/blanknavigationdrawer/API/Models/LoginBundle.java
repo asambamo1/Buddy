@@ -7,7 +7,7 @@ import com.google.gson.annotations.SerializedName;
  * Created by alexanderchiou on 12/25/15.
  */
 public class LoginBundle {
-    @SerializedName("phoneNumber")
+    @SerializedName("phone_number")
     @Expose
     private String phoneNumber;
 

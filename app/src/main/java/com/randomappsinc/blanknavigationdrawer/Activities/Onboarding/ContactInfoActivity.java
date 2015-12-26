@@ -60,7 +60,7 @@ public class ContactInfoActivity extends StandardActivity {
         }
         else {
             user.setEmail(emailInput);
-            user.setPhoneNumber(phoneInput);
+            user.setPhoneNumber(phoneInput.replaceAll("[^0-9]+", ""));
 
             Intent intent = new Intent(this, PasswordActivity.class);
             intent.putExtra(Constants.USER_KEY, user);

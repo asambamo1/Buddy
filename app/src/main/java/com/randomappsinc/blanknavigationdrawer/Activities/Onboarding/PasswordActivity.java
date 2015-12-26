@@ -26,7 +26,7 @@ import de.greenrobot.event.EventBus;
  * Created by alexanderchiou on 12/25/15.
  */
 public class PasswordActivity extends StandardActivity {
-    public static final String SCREEN_TAG = "passwordActivity";
+    public static final String SCREEN_TAG = "PasswordActivity";
 
     @Bind(R.id.parent) View parent;
     @Bind(R.id.password_input) EditText password;
