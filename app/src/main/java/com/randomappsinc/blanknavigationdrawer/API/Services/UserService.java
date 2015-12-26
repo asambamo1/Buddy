@@ -13,8 +13,8 @@ import retrofit.http.POST;
  */
 public interface UserService {
     @POST("/createAccount")
-    Call<UserId> addScore(@Body User run);
+    Call<UserId> createAccount(@Body User user);
 
     @POST("/login")
-    Call<User> addScore(@Body LoginBundle run);
+    Call<User> login(@Body LoginBundle loginBundle);
 }

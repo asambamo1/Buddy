@@ -30,7 +30,7 @@ public class User implements Parcelable {
     @Expose
     private int zipCode;
 
-    @SerializedName("phoneNumber")
+    @SerializedName("phone_number")
     @Expose
     private String phoneNumber;
 
