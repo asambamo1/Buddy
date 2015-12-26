@@ -120,4 +120,23 @@ public class FormUtils {
         catch (NoSuchAlgorithmException ignored) {}
         return hashtext;
     }
+
+    public static int getVillageIndex(String village) {
+        switch (village) {
+            case "Wicklund":
+                return 0;
+            case "Bethany":
+                return 1;
+            case "Altamont":
+                return 2;
+            case "Questa":
+                return 3;
+            case "Trilogy":
+                return 4;
+            case "College Park":
+                return 5;
+            default:
+                return 0;
+        }
+    }
 }

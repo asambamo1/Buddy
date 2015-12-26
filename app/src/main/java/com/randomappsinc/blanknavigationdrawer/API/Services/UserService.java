@@ -1,5 +1,6 @@
 package com.randomappsinc.blanknavigationdrawer.API.Services;
 
+import com.randomappsinc.blanknavigationdrawer.API.Models.IgnoredResponse;
 import com.randomappsinc.blanknavigationdrawer.API.Models.LoginBundle;
 import com.randomappsinc.blanknavigationdrawer.API.Models.User;
 import com.randomappsinc.blanknavigationdrawer.API.Models.UserId;
@@ -17,4 +18,7 @@ public interface UserService {
 
     @POST("/login")
     Call<User> login(@Body LoginBundle loginBundle);
+
+    @POST("/updateProfile")
+    Call<IgnoredResponse> updateProfile(@Body User user);
 }
