@@ -26,6 +26,7 @@
                     android:id="@+id/name_input"
                     android:inputType="textPersonName"
                     android:hint="@string/name_hint"
+                    android:maxLength="32"
                     style="@style/onboarding_input_style"/>
 
                 <com.joanzapata.iconify.widget.IconTextView
