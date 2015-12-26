@@ -51,5 +51,6 @@
     <string name="no_contact_info">Please give us at least 1 piece of your contact information.</string>
     <string name="invalid_email">Please enter in a valid email address.</string>
     <string name="invalid_phone">Please enter in a valid American phone number.</string>
-    <string name="non_matching_password">Your passwords do not match.</string>
+    <string name="non_matching_passwords">Your passwords do not match.</string>
+    <string name="password_too_short">Passwords must be at least 6 characters long.</string>
 </resources>

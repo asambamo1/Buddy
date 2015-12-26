@@ -6,8 +6,10 @@ import android.view.View;
 import android.widget.EditText;
 
 import com.afollestad.materialdialogs.MaterialDialog;
+import com.randomappsinc.blanknavigationdrawer.API.Models.User;
 import com.randomappsinc.blanknavigationdrawer.Activities.StandardActivity;
 import com.randomappsinc.blanknavigationdrawer.R;
+import com.randomappsinc.blanknavigationdrawer.Utils.Constants;
 import com.randomappsinc.blanknavigationdrawer.Utils.FormUtils;
 
 import butterknife.Bind;
@@ -48,15 +50,22 @@ public class LocationActivity extends StandardActivity {
 
     @OnClick(R.id.next)
     public void nextPage(View view) {
+        String enteredVillage = villageInput.getText().toString();
         String zipInput = workInput.getText().toString();
-        if (villageInput.getText().toString().isEmpty()) {
+        if (enteredVillage.isEmpty()) {
             FormUtils.showSnackbar(parent, getString(R.string.no_village));
         }
         else if (zipInput.isEmpty() || zipInput.length() < 5) {
             FormUtils.showSnackbar(parent, getString(R.string.invalid_zip));
         }
         else {
-            startActivity(new Intent(this, AboutMeActivity.class));
+            User user = new User();
+            user.setVillage(enteredVillage);
+            user.setZipCode(Integer.parseInt(zipInput));
+
+            Intent intent = new Intent(this, AboutMeActivity.class);
+            intent.putExtra(Constants.USER_KEY, user);
+            startActivity(intent);
         }
     }
 }

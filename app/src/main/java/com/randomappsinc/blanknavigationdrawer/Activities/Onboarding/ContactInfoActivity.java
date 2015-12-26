@@ -6,8 +6,10 @@ import android.text.Editable;
 import android.view.View;
 import android.widget.EditText;
 
+import com.randomappsinc.blanknavigationdrawer.API.Models.User;
 import com.randomappsinc.blanknavigationdrawer.Activities.StandardActivity;
 import com.randomappsinc.blanknavigationdrawer.R;
+import com.randomappsinc.blanknavigationdrawer.Utils.Constants;
 import com.randomappsinc.blanknavigationdrawer.Utils.FormUtils;
 
 import butterknife.Bind;
@@ -21,6 +23,7 @@ public class ContactInfoActivity extends StandardActivity {
     @Bind(R.id.phone_input) EditText phoneForm;
 
     private String lastSeenPhoneNumber;
+    private User user;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,6 +31,7 @@ public class ContactInfoActivity extends StandardActivity {
         setContentView(R.layout.contact_info_form);
         ButterKnife.bind(this);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        user = getIntent().getParcelableExtra(Constants.USER_KEY);
         phoneForm.setText(FormUtils.getPhoneNumber());
     }
 
@@ -55,7 +59,12 @@ public class ContactInfoActivity extends StandardActivity {
             FormUtils.showSnackbar(parent, getString(R.string.no_contact_info));
         }
         else {
-            startActivity(new Intent(this, PasswordActivity.class));
+            user.setEmail(emailInput);
+            user.setPhoneNumber(phoneInput);
+
+            Intent intent = new Intent(this, PasswordActivity.class);
+            intent.putExtra(Constants.USER_KEY, user);
+            startActivity(intent);
         }
     }
 }
