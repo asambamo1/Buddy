@@ -13,7 +13,7 @@ public class ConnectionsActivity extends StandardActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.twitter);
+        setContentView(R.layout.connections);
         ButterKnife.bind(this);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }

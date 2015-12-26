@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="save_changes">Save Changes</string>
+    <string name="profile_update_success">Your profile was successfully updated.</string>
+    <string name="profile_update_failed">We failed to update your profile. Please try again later.</string>
+    <string name="updating_your_profile">Updating your profile&#8230;</string>
+</resources>
