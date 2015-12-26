@@ -22,7 +22,7 @@ public class MainActivity extends AppCompatActivity implements NavigationDrawerF
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        if (PreferencesManager.get().getId() == -1) {
+        if (PreferencesManager.get().getProfile().getUserId() == -1) {
             startActivity(new Intent(this, SplashScreenActivity.class));
         }
 

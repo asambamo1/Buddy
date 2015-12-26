@@ -43,7 +43,10 @@
     <string name="next">Next</string>
     <string name="submit">Submit</string>
 
-    <!-- Error messages -->
+    <string name="logging_you_in">Logging you in&#8230;</string>
+    <string name="creating_your_account">Creating your account&#8230;</string>
+
+    <!-- Invalid input messages -->
     <string name="no_village">Please enter in your village.</string>
     <string name="invalid_zip">Please enter in a 5 digit ZIP code for your work.</string>
     <string name="no_name">Please enter in your name.</string>
@@ -51,5 +54,12 @@
     <string name="no_contact_info">Please give us at least 1 piece of your contact information.</string>
     <string name="invalid_email">Please enter in a valid email address.</string>
     <string name="invalid_phone">Please enter in a valid American phone number.</string>
-    <string name="non_matching_password">Your passwords do not match.</string>
+    <string name="non_matching_passwords">Your passwords do not match.</string>
+    <string name="password_too_short">Passwords must be at least 6 characters long.</string>
+
+    <!-- API messages -->
+    <string name="create_account_failed">We failed to create your account. Please try again later.</string>
+    <string name="email_already_used">There is already an account associated with the email you entered in.</string>
+    <string name="login_failed">We failed to log you in. Please try again later.</string>
+    <string name="login_invalid">Invalid credentials.</string>
 </resources>

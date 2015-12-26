@@ -3,6 +3,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.randomappsinc.blanknavigationdrawer" >
 
+    <uses-permission android:name="android.permission.INTERNET"/>
     <uses-permission android:name="android.permission.READ_SMS"/>
     <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
 
@@ -57,7 +58,7 @@
         </activity>
         <activity
             android:name=".Activities.Onboarding.PasswordActivity"
-            android:label="@string/log_in"
+            android:label="@string/create_account"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustResize|stateAlwaysHidden">
         </activity>
@@ -68,7 +69,7 @@
         </activity>
         <activity
             android:name=".Activities.Onboarding.LoginActivity"
-            android:label="@string/create_account"
+            android:label="@string/log_in"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustResize">
         </activity>

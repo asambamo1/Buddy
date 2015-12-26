@@ -16,13 +16,13 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 
 import com.randomappsinc.blanknavigationdrawer.Adapters.FontAwesomeAdapter;
 import com.randomappsinc.blanknavigationdrawer.R;
+import com.randomappsinc.blanknavigationdrawer.Utils.PreferencesManager;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -40,7 +40,6 @@ public class NavigationDrawerFragment extends Fragment {
     private View mFragmentContainerView;
 
     @Bind(R.id.nav_drawer_tabs) ListView mDrawerListView;
-    @Bind(R.id.profile_picture) ImageView mProfilePicture;
     @Bind(R.id.name)TextView mName;
 
 
@@ -70,8 +69,13 @@ public class NavigationDrawerFragment extends Fragment {
                 getResources().getStringArray(R.array.nav_drawer_tabs),
                 getResources().getStringArray(R.array.nav_drawer_icons)));
         mDrawerListView.setItemChecked(mCurrentSelectedPosition, true);
-        mName.setText("Aravind");
         return navDrawer;
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        mName.setText(PreferencesManager.get().getProfile().getName());
     }
 
     @OnItemClick(R.id.nav_drawer_tabs)
@@ -97,7 +101,7 @@ public class NavigationDrawerFragment extends Fragment {
         ActionBar actionBar = getActionBar();
         actionBar.setDisplayHomeAsUpEnabled(true);
         actionBar.setHomeButtonEnabled(true);
-        Toolbar toolbar = (android.support.v7.widget.Toolbar) getActivity().findViewById(R.id.toolbar);
+        Toolbar toolbar = (Toolbar) getActivity().findViewById(R.id.toolbar);
 
         // ActionBarDrawerToggle ties together the the proper interactions
         // between the navigation drawer and the action bar app icon.
