@@ -21,7 +21,7 @@ public class Suggestion {
 
     @SerializedName("zip_code")
     @Expose
-    private long zip_code;
+    private long zipCode;
 
     public long getUserId() {
         return userId;
@@ -35,7 +35,7 @@ public class Suggestion {
         return village;
     }
 
-    public long getZip_code() {
-        return zip_code;
+    public long getZipCode() {
+        return zipCode;
     }
 }
