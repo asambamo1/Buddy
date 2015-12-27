@@ -11,6 +11,7 @@ import android.view.MenuItem;
 
 import com.randomappsinc.blanknavigationdrawer.Activities.Onboarding.SplashScreenActivity;
 import com.randomappsinc.blanknavigationdrawer.Fragments.NavigationDrawerFragment;
+import com.randomappsinc.blanknavigationdrawer.Fragments.SuggestionsFragment;
 import com.randomappsinc.blanknavigationdrawer.R;
 import com.randomappsinc.blanknavigationdrawer.Utils.PreferencesManager;
 
@@ -35,8 +36,8 @@ public class MainActivity extends AppCompatActivity implements NavigationDrawerF
         mNavigationDrawerFragment.setUp(R.id.navigation_drawer, (DrawerLayout) findViewById(R.id.drawer_layout));
 
         FragmentManager fragmentManager = getFragmentManager();
-        // GlobalFeedFragment feedFragment = new GlobalFeedFragment();
-        // fragmentManager.beginTransaction().replace(R.id.container, feedFragment).commit();
+        SuggestionsFragment suggestionsFragment = new SuggestionsFragment();
+        fragmentManager.beginTransaction().replace(R.id.container, suggestionsFragment).commit();
     }
 
     @Override

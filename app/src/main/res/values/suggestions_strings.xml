@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="no_suggestions">No suggestions to display.</string>
+    <string name="suggestions_fetch_error">We failed to fetch carpool buddy suggestions for you.
+        Please try again later.</string>
+</resources>
