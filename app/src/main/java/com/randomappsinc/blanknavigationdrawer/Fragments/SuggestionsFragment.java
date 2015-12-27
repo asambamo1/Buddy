@@ -9,8 +9,13 @@ import android.view.ViewGroup;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.randomappsinc.blanknavigationdrawer.API.Callbacks.SuggestionsCallback;
+import com.randomappsinc.blanknavigationdrawer.API.Models.SuggestionsEvent;
+import com.randomappsinc.blanknavigationdrawer.API.RestClient;
 import com.randomappsinc.blanknavigationdrawer.Adapters.SuggestionsAdapter;
 import com.randomappsinc.blanknavigationdrawer.R;
+import com.randomappsinc.blanknavigationdrawer.Utils.FormUtils;
+import com.randomappsinc.blanknavigationdrawer.Utils.PreferencesManager;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -20,7 +25,7 @@ import de.greenrobot.event.EventBus;
  * Created by alexanderchiou on 12/27/15.
  */
 public class SuggestionsFragment extends Fragment implements SwipeRefreshLayout.OnRefreshListener {
-    @Bind(R.id.loading) View loadingStories;
+    @Bind(R.id.loading) View loadingSuggestions;
     @Bind(R.id.content) ListView suggestions;
     @Bind(R.id.parent) View parent;
     @Bind(R.id.fetch_new_content) SwipeRefreshLayout fetchNewStories;
@@ -45,9 +50,17 @@ public class SuggestionsFragment extends Fragment implements SwipeRefreshLayout.
     @Override
     public void onResume() {
         super.onResume();
+        long user_id = PreferencesManager.get().getProfile().getUserId();
+        if (user_id != -1) {
+            SuggestionsCallback callback = new SuggestionsCallback();
+            RestClient.getInstance().getSuggestionService().fetchSuggestions(String.valueOf(user_id)).enqueue(callback);
+        }
     }
 
-    public void onEvent(String basicEvent) {
+    public void onEvent(SuggestionsEvent response) {
+        loadingSuggestions.setVisibility(View.GONE);
+        if (response.getSuggestionList() == null)
+            FormUtils.showSnackbar(parent, getString(R.string.suggestions_fetch_error));
     }
 
     @Override
