@@ -19,7 +19,7 @@ public class SuggestionsCallback implements Callback<List<Suggestion>> {
     public void onResponse(Response<List<Suggestion>> response, Retrofit retrofit) {
         switch (response.code()) {
             case ApiConstants.HTTP_STATUS_OK:
-                
+                EventBus.getDefault().post(new SuggestionsEvent(null));
                 break;
             default:
                 EventBus.getDefault().post(new SuggestionsEvent(null));
