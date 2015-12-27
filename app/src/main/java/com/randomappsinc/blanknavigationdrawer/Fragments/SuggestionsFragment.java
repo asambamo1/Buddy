@@ -25,11 +25,11 @@ import de.greenrobot.event.EventBus;
  * Created by alexanderchiou on 12/27/15.
  */
 public class SuggestionsFragment extends Fragment implements SwipeRefreshLayout.OnRefreshListener {
+    @Bind(R.id.parent) View parent;
     @Bind(R.id.loading) View loadingSuggestions;
     @Bind(R.id.content) ListView suggestions;
-    @Bind(R.id.parent) View parent;
-    @Bind(R.id.fetch_new_content) SwipeRefreshLayout fetchNewStories;
-    @Bind(R.id.no_content) TextView noStories;
+    @Bind(R.id.fetch_new_content) SwipeRefreshLayout fetchNewSuggestions;
+    @Bind(R.id.no_content) TextView noSuggestions;
 
     private SuggestionsAdapter suggestionsAdapter;
 
@@ -41,8 +41,8 @@ public class SuggestionsFragment extends Fragment implements SwipeRefreshLayout.
 
         suggestionsAdapter = new SuggestionsAdapter(getActivity());
         suggestions.setAdapter(suggestionsAdapter);
-        fetchNewStories.setColorSchemeResources(R.color.red, R.color.yellow, R.color.green, R.color.app_blue);
-        fetchNewStories.setOnRefreshListener(this);
+        fetchNewSuggestions.setColorSchemeResources(R.color.red, R.color.yellow, R.color.green, R.color.app_blue);
+        fetchNewSuggestions.setOnRefreshListener(this);
 
         return rootView;
     }
