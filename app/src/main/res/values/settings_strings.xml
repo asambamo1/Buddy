@@ -2,19 +2,24 @@
 <resources>
     <string name="send_feedback">Send feedback</string>
     <string name="rate_this_app">Rate this app</string>
+    <string name="log_out">Log out</string>
     <array name="settings_options">
         <item>@string/send_feedback</item>
         <item>@string/rate_this_app</item>
+        <item>@string/log_out</item>
     </array>
     <string name="play_store_error">Unable to open the Play Store.</string>
-    <string name="feedback_subject">Sample App Feedback</string>
+    <string name="feedback_subject">Carpool Buddy Feedback</string>
     <string name="send_email">Send email</string>
+    <string name="logout_confirmation">Are you sure you want to log out?</string>
 
     <!-- Font Awesome Icons -->
     <string name="email_icon">{fa-envelope}</string>
     <string name="rate_icon">{fa-thumbs-up}</string>
+    <string name="log_out_icon">{fa-sign-out}</string>
     <string-array name="settings_icons">
         <item>@string/email_icon</item>
         <item>@string/rate_icon</item>
+        <item>@string/log_out_icon</item>
     </string-array>
 </resources>

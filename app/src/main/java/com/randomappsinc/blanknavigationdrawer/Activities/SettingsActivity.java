@@ -3,13 +3,18 @@ package com.randomappsinc.blanknavigationdrawer.Activities;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
 
+import com.afollestad.materialdialogs.DialogAction;
+import com.afollestad.materialdialogs.MaterialDialog;
+import com.randomappsinc.blanknavigationdrawer.Activities.Onboarding.SplashScreenActivity;
 import com.randomappsinc.blanknavigationdrawer.Adapters.FontAwesomeAdapter;
 import com.randomappsinc.blanknavigationdrawer.R;
 import com.randomappsinc.blanknavigationdrawer.Utils.FormUtils;
+import com.randomappsinc.blanknavigationdrawer.Utils.PreferencesManager;
 
 import butterknife.Bind;
 import butterknife.BindString;
@@ -20,7 +25,7 @@ import butterknife.OnItemClick;
  * Created by alexanderchiou on 12/20/15.
  */
 public class SettingsActivity extends StandardActivity {
-    public static final String SUPPORT_EMAIL = "rick@morty.com";
+    public static final String SUPPORT_EMAIL = "aravind.arasam@gmail.com";
 
     @Bind(R.id.parent) View parent;
     @Bind(R.id.settings_options) ListView settingsOptions;
@@ -41,8 +46,8 @@ public class SettingsActivity extends StandardActivity {
     }
 
     @OnItemClick(R.id.settings_options)
-    public void onItemClick(AdapterView<?> adapterView, View view, final int position, long id) {
-        Intent intent = null;
+    public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
+        Intent intent;
         switch (position) {
             case 0:
                 String uriText = "mailto:" + SUPPORT_EMAIL + "?subject=" + Uri.encode(feedbackSubject);
@@ -58,8 +63,28 @@ public class SettingsActivity extends StandardActivity {
                     FormUtils.showSnackbar(parent, playStoreError);
                     return;
                 }
+                startActivity(intent);
+                break;
+            case 2:
+                new MaterialDialog.Builder(this)
+                        .content(R.string.logout_confirmation)
+                        .positiveText(android.R.string.yes)
+                        .negativeText(android.R.string.no)
+                        .onPositive(new MaterialDialog.SingleButtonCallback() {
+                            @Override
+                            public void onClick(@NonNull MaterialDialog dialog, @NonNull DialogAction which) {
+                                logout();
+                            }
+                        })
+                        .show();
                 break;
         }
+    }
+
+    public void logout() {
+        PreferencesManager.get().logout();
+        Intent intent = new Intent(this, SplashScreenActivity.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
         startActivity(intent);
     }
 }
