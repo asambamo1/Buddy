@@ -1,10 +1,13 @@
 package com.randomappsinc.blanknavigationdrawer.Activities;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 
 import com.randomappsinc.blanknavigationdrawer.API.Callbacks.ProfileCallback;
+import com.randomappsinc.blanknavigationdrawer.API.Models.Profile;
 import com.randomappsinc.blanknavigationdrawer.API.Models.ProfileEvent;
 import com.randomappsinc.blanknavigationdrawer.API.RestClient;
 import com.randomappsinc.blanknavigationdrawer.R;
@@ -14,6 +17,7 @@ import com.randomappsinc.blanknavigationdrawer.Utils.PreferencesManager;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 import de.greenrobot.event.EventBus;
 
 /**
@@ -30,6 +34,8 @@ public class ProfileActivity extends StandardActivity {
     @Bind(R.id.email) TextView email;
     @Bind(R.id.phone_number) TextView phoneNumber;
 
+    private Profile userProfile;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,10 +44,10 @@ public class ProfileActivity extends StandardActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         EventBus.getDefault().register(this);
-        String my_id = String.valueOf(PreferencesManager.get().getProfile().getUserId());
-        String target_id = String.valueOf(getIntent().getLongExtra(Constants.USER_ID_KEY, 0));
+        String myId = String.valueOf(PreferencesManager.get().getProfile().getUserId());
+        String targetId = String.valueOf(getIntent().getLongExtra(Constants.USER_ID_KEY, 0));
         ProfileCallback callback = new ProfileCallback();
-        RestClient.getInstance().getSuggestionService().getProfile(my_id, target_id).enqueue(callback);
+        RestClient.getInstance().getSuggestionService().getProfile(myId, targetId).enqueue(callback);
     }
 
     @Override
@@ -51,6 +57,7 @@ public class ProfileActivity extends StandardActivity {
     }
 
     public void onEvent(ProfileEvent response) {
+        userProfile = response.getProfile();
         loading.setVisibility(View.GONE);
         profile.setVisibility(View.VISIBLE);
         if (response.getProfile() == null) {
@@ -72,5 +79,24 @@ public class ProfileActivity extends StandardActivity {
                     : FormUtils.formatUSNumber(response.getProfile().getPhoneNumber());
             phoneNumber.setText(userPhoneNumber);
         }
+    }
+
+    @OnClick(R.id.email_container)
+    public void openEmailPage(View view) {
+        String targetEmail = userProfile.getEmail();
+        String uriText = "mailto:" + targetEmail + "?subject=" + getString(R.string.lets_carpool);
+        Uri mailUri = Uri.parse(uriText);
+        Intent sendIntent = new Intent(Intent.ACTION_SENDTO, mailUri);
+        sendIntent.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
+        startActivity(Intent.createChooser(sendIntent, getString(R.string.send_email)));
+    }
+
+    @OnClick(R.id.phone_number_container)
+    public void openTextMessagePage(View view) {
+        Intent smsIntent = new Intent(Intent.ACTION_SENDTO);
+        smsIntent.addCategory(Intent.CATEGORY_DEFAULT);
+        smsIntent.setType("vnd.android-dir/mms-sms");
+        smsIntent.setData(Uri.parse("sms:" + userProfile.getPhoneNumber()));
+        startActivity(smsIntent);
     }
 }

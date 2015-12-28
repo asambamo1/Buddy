@@ -86,7 +86,10 @@
                 </LinearLayout>
             </LinearLayout>
 
-            <LinearLayout style="@style/profile_info_container">
+            <LinearLayout
+                android:id="@+id/email_container"
+                style="@style/profile_info_container">
+
                 <com.joanzapata.iconify.widget.IconTextView
                     android:text="@string/email_icon"
                     style="@style/user_data_icon"/>
@@ -96,7 +99,10 @@
                     style="@style/profile_text"/>
             </LinearLayout>
 
-            <LinearLayout style="@style/profile_info_container">
+            <LinearLayout
+                android:id="@+id/phone_number_container"
+                style="@style/profile_info_container">
+
                 <com.joanzapata.iconify.widget.IconTextView
                     android:text="@string/phone_icon"
                     style="@style/user_data_icon"/>

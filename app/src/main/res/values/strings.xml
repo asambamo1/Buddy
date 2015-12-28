@@ -2,4 +2,5 @@
     <string name="profile">Profile</string>
     <string name="none_added">None added.</string>
     <string name="profile_fetch_fail">We failed to fetch this user\'s profile. Please try again later.</string>
+    <string name="lets_carpool">Let\'s carpool!</string>
 </resources>

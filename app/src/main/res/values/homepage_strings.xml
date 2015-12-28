@@ -4,11 +4,11 @@
     <string name="navigation_drawer_close">Close navigation drawer</string>
 
     <string name="my_profile">My Profile</string>
-    <string name="connections">Connections</string>
+    <string name="requests">Requests</string>
     <string name="settings">Settings</string>
     <string-array name="nav_drawer_tabs">
         <item>@string/my_profile</item>
-        <item>@string/connections</item>
+        <item>@string/requests</item>
         <item>@string/settings</item>
     </string-array>
 
