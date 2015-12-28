@@ -9,6 +9,7 @@ import android.view.ViewGroup;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.randomappsinc.blanknavigationdrawer.API.Models.Events.UserThumbnailsEvent;
 import com.randomappsinc.blanknavigationdrawer.R;
 import com.randomappsinc.blanknavigationdrawer.Utils.Constants;
 
@@ -52,8 +53,7 @@ public class RequestsFragment extends Fragment implements SwipeRefreshLayout.OnR
         super.onResume();
     }
 
-    public void onEvent(String event) {
-
+    public void onEvent(UserThumbnailsEvent event) {
     }
 
     @Override
