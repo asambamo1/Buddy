@@ -62,7 +62,7 @@ public class SuggestionsFragment extends Fragment implements SwipeRefreshLayout.
         if (userId != -1) {
             fetchNewSuggestions.setRefreshing(true);
             UserThumbnailsCallback callback = new UserThumbnailsCallback(SCREEN_TAG);
-            RestClient.getInstance().getSuggestionService().fetchSuggestions(String.valueOf(userId)).enqueue(callback);
+            RestClient.getInstance().getMatchingService().fetchSuggestions(String.valueOf(userId)).enqueue(callback);
         }
     }
 
@@ -86,7 +86,7 @@ public class SuggestionsFragment extends Fragment implements SwipeRefreshLayout.
     public void onRefresh() {
         long userId = PreferencesManager.get().getProfile().getUserId();
         UserThumbnailsCallback callback = new UserThumbnailsCallback(SCREEN_TAG);
-        RestClient.getInstance().getSuggestionService().fetchSuggestions(String.valueOf(userId)).enqueue(callback);
+        RestClient.getInstance().getMatchingService().fetchSuggestions(String.valueOf(userId)).enqueue(callback);
     }
 
     @OnItemClick(R.id.content)

@@ -8,8 +8,8 @@ import android.widget.EditText;
 
 import com.afollestad.materialdialogs.MaterialDialog;
 import com.randomappsinc.blanknavigationdrawer.API.Callbacks.LoginCallback;
-import com.randomappsinc.blanknavigationdrawer.API.Models.LoginBundle;
 import com.randomappsinc.blanknavigationdrawer.API.Models.Events.SnackbarEvent;
+import com.randomappsinc.blanknavigationdrawer.API.Models.LoginBundle;
 import com.randomappsinc.blanknavigationdrawer.API.RestClient;
 import com.randomappsinc.blanknavigationdrawer.Activities.MainActivity;
 import com.randomappsinc.blanknavigationdrawer.Activities.StandardActivity;

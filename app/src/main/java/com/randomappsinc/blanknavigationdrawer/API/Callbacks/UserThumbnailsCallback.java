@@ -1,8 +1,8 @@
 package com.randomappsinc.blanknavigationdrawer.API.Callbacks;
 
 import com.randomappsinc.blanknavigationdrawer.API.ApiConstants;
-import com.randomappsinc.blanknavigationdrawer.API.Models.UserThumbnail;
 import com.randomappsinc.blanknavigationdrawer.API.Models.Events.UserThumbnailsEvent;
+import com.randomappsinc.blanknavigationdrawer.API.Models.UserThumbnail;
 
 import java.util.List;
 

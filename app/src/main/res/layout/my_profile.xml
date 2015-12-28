@@ -106,7 +106,7 @@
                 style="@style/ripple_button_style"
                 android:layout_marginTop="15dp"
                 android:text="@string/save_changes"
-                app:rd_style="@style/button_ripple_attributes" />
+                app:rd_style="@style/button_ripple_attributes"/>
         </LinearLayout>
     </ScrollView>
 </android.support.design.widget.CoordinatorLayout>

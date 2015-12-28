@@ -1,6 +1,6 @@
 package com.randomappsinc.blanknavigationdrawer.API;
 
-import com.randomappsinc.blanknavigationdrawer.API.Services.SuggestionService;
+import com.randomappsinc.blanknavigationdrawer.API.Services.MatchingService;
 import com.randomappsinc.blanknavigationdrawer.API.Services.UserService;
 
 import retrofit.GsonConverterFactory;
@@ -12,7 +12,7 @@ import retrofit.Retrofit;
 public class RestClient {
     private static RestClient instance;
     private UserService userService;
-    private SuggestionService suggestionService;
+    private MatchingService matchingService;
 
     public static RestClient getInstance() {
         if (instance == null) {
@@ -28,14 +28,14 @@ public class RestClient {
                 .build();
 
         userService = retrofit.create(UserService.class);
-        suggestionService = retrofit.create(SuggestionService.class);
+        matchingService = retrofit.create(MatchingService.class);
     }
 
     public UserService getUserService() {
         return userService;
     }
 
-    public SuggestionService getSuggestionService() {
-        return suggestionService;
+    public MatchingService getMatchingService() {
+        return matchingService;
     }
 }

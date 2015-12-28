@@ -1,8 +1,8 @@
 package com.randomappsinc.blanknavigationdrawer.API.Callbacks;
 
 import com.randomappsinc.blanknavigationdrawer.API.ApiConstants;
-import com.randomappsinc.blanknavigationdrawer.API.Models.Profile;
 import com.randomappsinc.blanknavigationdrawer.API.Models.Events.ProfileEvent;
+import com.randomappsinc.blanknavigationdrawer.API.Models.Profile;
 
 import de.greenrobot.event.EventBus;
 import retrofit.Callback;
