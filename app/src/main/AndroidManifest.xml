@@ -74,5 +74,10 @@
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustResize">
         </activity>
+        <activity
+            android:name=".Activities.ProfileActivity"
+            android:label="@string/profile"
+            android:screenOrientation="portrait">
+        </activity>
     </application>
 </manifest>

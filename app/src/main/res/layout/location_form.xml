@@ -24,11 +24,11 @@
                 android:hint="@string/village_hint"
                 android:focusable="false"
                 android:focusableInTouchMode="false"
-                style="@style/onboarding_input_style"/>
+                style="@style/profile_input"/>
 
             <com.joanzapata.iconify.widget.IconTextView
                 android:text="@string/home_icon"
-                style="@style/onboarding_icon_style"/>
+                style="@style/user_data_icon"/>
         </FrameLayout>
 
         <FrameLayout style="@style/input_container_style">
@@ -38,11 +38,11 @@
                 android:hint="@string/work_hint"
                 android:imeOptions="actionDone"
                 android:maxLength="5"
-                style="@style/onboarding_input_style"/>
+                style="@style/profile_input"/>
 
             <com.joanzapata.iconify.widget.IconTextView
                 android:text="@string/work_icon"
-                style="@style/onboarding_icon_style"/>
+                style="@style/user_data_icon"/>
         </FrameLayout>
 
         <com.rey.material.widget.Button

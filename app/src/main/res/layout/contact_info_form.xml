@@ -27,11 +27,11 @@
                     android:inputType="textEmailAddress"
                     android:hint="@string/email_hint"
                     android:imeOptions="actionNext"
-                    style="@style/onboarding_input_style"/>
+                    style="@style/profile_input"/>
 
                 <com.joanzapata.iconify.widget.IconTextView
                     android:text="@string/email_icon"
-                    style="@style/onboarding_icon_style"/>
+                    style="@style/user_data_icon"/>
             </FrameLayout>
 
             <FrameLayout style="@style/input_container_style">
@@ -40,11 +40,11 @@
                     android:inputType="phone"
                     android:hint="@string/phone_hint"
                     android:imeOptions="actionDone"
-                    style="@style/onboarding_input_style"/>
+                    style="@style/profile_input"/>
 
                 <com.joanzapata.iconify.widget.IconTextView
                     android:text="@string/phone_icon"
-                    style="@style/onboarding_icon_style"/>
+                    style="@style/user_data_icon"/>
             </FrameLayout>
 
             <com.rey.material.widget.Button

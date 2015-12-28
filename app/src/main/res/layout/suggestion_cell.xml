@@ -24,13 +24,12 @@
 
             <TextView
                 android:id="@+id/suggestion_name"
-                style="@style/suggestion_text"
-                android:layout_gravity="center_horizontal"/>
+                style="@style/profile_text"
+                android:layout_gravity="center_horizontal"
+                android:textSize="24sp"/>
 
             <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
+                style="@style/profile_info_container"
                 android:baselineAligned="false">
 
                 <LinearLayout
@@ -41,11 +40,11 @@
 
                     <com.joanzapata.iconify.widget.IconTextView
                         android:text="@string/home_icon"
-                        style="@style/onboarding_icon_style"/>
+                        style="@style/user_data_icon"/>
 
                     <TextView
                         android:id="@+id/village"
-                        style="@style/suggestion_text"/>
+                        style="@style/profile_text"/>
                 </LinearLayout>
 
                 <LinearLayout
@@ -56,11 +55,11 @@
 
                     <com.joanzapata.iconify.widget.IconTextView
                         android:text="@string/work_icon"
-                        style="@style/onboarding_icon_style"/>
+                        style="@style/user_data_icon"/>
 
                     <TextView
                         android:id="@+id/work_zip"
-                        style="@style/suggestion_text"/>
+                        style="@style/profile_text"/>
                 </LinearLayout>
             </LinearLayout>
         </LinearLayout>
