@@ -29,4 +29,7 @@ public interface UserService {
 
     @GET("connections/{userId}")
     Call< List<UserThumbnail>> fetchConnections(@Path("userId") String userId);
+
+    @GET("/connections/{mode}/{userId}")
+    Call<UserThumbnail> fetchRequests(@Path("mode") String mode, @Path("userId") String userId);
 }
