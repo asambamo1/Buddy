@@ -24,7 +24,7 @@ public class UserThumbnail {
     @Expose
     private int zipCode;
 
-    @SerializedName("statuc")
+    @SerializedName("status")
     @Expose
     private String status;
 
