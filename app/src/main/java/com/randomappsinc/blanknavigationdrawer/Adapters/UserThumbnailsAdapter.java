@@ -19,11 +19,11 @@ import butterknife.ButterKnife;
 /**
  * Created by alexanderchiou on 12/27/15.
  */
-public class SuggestionsAdapter extends BaseAdapter {
+public class UserThumbnailsAdapter extends BaseAdapter {
     private Context context;
     private List<UserThumbnail> suggestions;
 
-    public SuggestionsAdapter(Context context) {
+    public UserThumbnailsAdapter(Context context) {
         this.context = context;
         this.suggestions = new ArrayList<>();
     }

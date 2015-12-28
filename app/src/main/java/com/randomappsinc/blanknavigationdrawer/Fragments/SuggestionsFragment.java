@@ -15,7 +15,7 @@ import com.randomappsinc.blanknavigationdrawer.API.Callbacks.UserThumbnailsCallb
 import com.randomappsinc.blanknavigationdrawer.API.Models.Events.UserThumbnailsEvent;
 import com.randomappsinc.blanknavigationdrawer.API.RestClient;
 import com.randomappsinc.blanknavigationdrawer.Activities.ProfileActivity;
-import com.randomappsinc.blanknavigationdrawer.Adapters.SuggestionsAdapter;
+import com.randomappsinc.blanknavigationdrawer.Adapters.UserThumbnailsAdapter;
 import com.randomappsinc.blanknavigationdrawer.R;
 import com.randomappsinc.blanknavigationdrawer.Utils.Constants;
 import com.randomappsinc.blanknavigationdrawer.Utils.FormUtils;
@@ -38,7 +38,7 @@ public class SuggestionsFragment extends Fragment implements SwipeRefreshLayout.
     @Bind(R.id.fetch_new_content) SwipeRefreshLayout fetchNewSuggestions;
     @Bind(R.id.no_content) TextView noSuggestions;
 
-    private SuggestionsAdapter suggestionsAdapter;
+    private UserThumbnailsAdapter suggestionsAdapter;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -47,7 +47,7 @@ public class SuggestionsFragment extends Fragment implements SwipeRefreshLayout.
         EventBus.getDefault().register(this);
 
         noSuggestions.setText(R.string.no_suggestions);
-        suggestionsAdapter = new SuggestionsAdapter(getActivity());
+        suggestionsAdapter = new UserThumbnailsAdapter(getActivity());
         suggestions.setAdapter(suggestionsAdapter);
         fetchNewSuggestions.setColorSchemeResources(R.color.red, R.color.yellow, R.color.green, R.color.app_blue);
         fetchNewSuggestions.setOnRefreshListener(this);
