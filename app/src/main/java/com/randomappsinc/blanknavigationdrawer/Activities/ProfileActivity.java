@@ -3,9 +3,11 @@ package com.randomappsinc.blanknavigationdrawer.Activities;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.view.View;
 import android.widget.TextView;
 
+import com.afollestad.materialdialogs.DialogAction;
 import com.afollestad.materialdialogs.MaterialDialog;
 import com.randomappsinc.blanknavigationdrawer.API.Callbacks.ProfileCallback;
 import com.randomappsinc.blanknavigationdrawer.API.Callbacks.StatusChangeCallback;
@@ -147,12 +149,28 @@ public class ProfileActivity extends StandardActivity {
                 RestClient.getInstance().getMatchingService().sendRequest(bundle).enqueue(callback);
                 break;
             case Constants.REJECTED_BY_YOU:
+                new MaterialDialog.Builder(this)
+                        .title(R.string.undo_rejection_title)
+                        .content(R.string.undo_rejection_body)
+                        .positiveText(android.R.string.yes)
+                        .negativeText(android.R.string.no)
+                        .onPositive(new MaterialDialog.SingleButtonCallback() {
+                            @Override
+                            public void onClick(@NonNull MaterialDialog dialog, @NonNull DialogAction which) {
+                                acceptRequest();
+                            }
+                        })
+                        .show();
                 break;
         }
     }
 
     @OnClick(R.id.accept)
-    public void acceptRequest(View view) {
+    public void acceptClicked(View view) {
+        acceptRequest();
+    }
+
+    public void acceptRequest() {
         progressDialog.setContent(R.string.accepting_request);
         progressDialog.show();
         RequestBundle bundle = new RequestBundle();
@@ -162,7 +180,7 @@ public class ProfileActivity extends StandardActivity {
         RestClient.getInstance().getMatchingService().acceptRequest(bundle).enqueue(callback);
     }
 
-    @OnClick(R.id.accept)
+    @OnClick(R.id.reject)
     public void rejectRequest(View view) {
         progressDialog.setContent(R.string.rejecting_request);
         progressDialog.show();
