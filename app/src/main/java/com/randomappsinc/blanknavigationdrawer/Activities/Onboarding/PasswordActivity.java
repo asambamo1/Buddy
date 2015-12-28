@@ -8,7 +8,7 @@ import android.widget.EditText;
 
 import com.afollestad.materialdialogs.MaterialDialog;
 import com.randomappsinc.blanknavigationdrawer.API.Callbacks.CreateAccountCallback;
-import com.randomappsinc.blanknavigationdrawer.API.Models.SnackbarEvent;
+import com.randomappsinc.blanknavigationdrawer.API.Models.Events.SnackbarEvent;
 import com.randomappsinc.blanknavigationdrawer.API.Models.User;
 import com.randomappsinc.blanknavigationdrawer.API.RestClient;
 import com.randomappsinc.blanknavigationdrawer.Activities.MainActivity;

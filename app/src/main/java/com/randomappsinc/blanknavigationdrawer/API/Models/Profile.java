@@ -14,7 +14,7 @@ public class Profile {
 
     @SerializedName("about_me")
     @Expose
-    private String about_me;
+    private String aboutMe;
 
     @SerializedName("village")
     @Expose
@@ -22,7 +22,7 @@ public class Profile {
 
     @SerializedName("phone_number")
     @Expose
-    private String phone_number;
+    private String phoneNumber;
 
     @SerializedName("email")
     @Expose
@@ -40,16 +40,16 @@ public class Profile {
         return name;
     }
 
-    public String getAbout_me() {
-        return about_me;
+    public String getAboutMe() {
+        return aboutMe;
     }
 
     public String getVillage() {
         return village;
     }
 
-    public String getPhone_number() {
-        return phone_number;
+    public String getPhoneNumber() {
+        return phoneNumber;
     }
 
     public String getEmail() {

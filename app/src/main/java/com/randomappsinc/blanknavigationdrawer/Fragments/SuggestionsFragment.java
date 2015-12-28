@@ -11,8 +11,8 @@ import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.TextView;
 
-import com.randomappsinc.blanknavigationdrawer.API.Callbacks.SuggestionsCallback;
-import com.randomappsinc.blanknavigationdrawer.API.Models.SuggestionsEvent;
+import com.randomappsinc.blanknavigationdrawer.API.Callbacks.UserThumbnailsCallback;
+import com.randomappsinc.blanknavigationdrawer.API.Models.Events.UserThumbnailsEvent;
 import com.randomappsinc.blanknavigationdrawer.API.RestClient;
 import com.randomappsinc.blanknavigationdrawer.Activities.ProfileActivity;
 import com.randomappsinc.blanknavigationdrawer.Adapters.SuggestionsAdapter;
@@ -30,6 +30,8 @@ import de.greenrobot.event.EventBus;
  * Created by alexanderchiou on 12/27/15.
  */
 public class SuggestionsFragment extends Fragment implements SwipeRefreshLayout.OnRefreshListener {
+    public static final String SCREEN_TAG = "SuggestionsFragment";
+
     @Bind(R.id.parent) View parent;
     @Bind(R.id.loading) View loadingSuggestions;
     @Bind(R.id.content) ListView suggestions;
@@ -40,10 +42,11 @@ public class SuggestionsFragment extends Fragment implements SwipeRefreshLayout.
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View rootView = inflater.inflate(R.layout.suggestions, container, false);
+        View rootView = inflater.inflate(R.layout.single_list_layout, container, false);
         ButterKnife.bind(this, rootView);
         EventBus.getDefault().register(this);
 
+        noSuggestions.setText(R.string.no_suggestions);
         suggestionsAdapter = new SuggestionsAdapter(getActivity());
         suggestions.setAdapter(suggestionsAdapter);
         fetchNewSuggestions.setColorSchemeResources(R.color.red, R.color.yellow, R.color.green, R.color.app_blue);
@@ -57,31 +60,33 @@ public class SuggestionsFragment extends Fragment implements SwipeRefreshLayout.
         super.onResume();
         long userId = PreferencesManager.get().getProfile().getUserId();
         if (userId != -1) {
-            SuggestionsCallback callback = new SuggestionsCallback();
-            RestClient.getInstance().getSuggestionService().fetchSuggestions(String.valueOf(userId)).enqueue(callback);
+            fetchNewSuggestions.setRefreshing(true);
+            UserThumbnailsCallback callback = new UserThumbnailsCallback(SCREEN_TAG);
+            RestClient.getInstance().getMatchingService().fetchSuggestions(String.valueOf(userId)).enqueue(callback);
         }
     }
 
-    public void onEvent(SuggestionsEvent response) {
-        loadingSuggestions.setVisibility(View.GONE);
-        fetchNewSuggestions.setVisibility(View.VISIBLE);
-        fetchNewSuggestions.setRefreshing(false);
-        if (response.getSuggestionList() == null)
-            FormUtils.showSnackbar(parent, getString(R.string.suggestions_fetch_error));
-        else if (response.getSuggestionList().size() == 0) {
-            noSuggestions.setVisibility(View.VISIBLE);
-        }
-        else {
-            noSuggestions.setVisibility(View.GONE);
-            suggestionsAdapter.setSuggestions(response.getSuggestionList());
+    public void onEvent(UserThumbnailsEvent response) {
+        if (response.getScreen().equals(SCREEN_TAG)) {
+            loadingSuggestions.setVisibility(View.GONE);
+            fetchNewSuggestions.setVisibility(View.VISIBLE);
+            fetchNewSuggestions.setRefreshing(false);
+            if (response.getSuggestionList() == null)
+                FormUtils.showSnackbar(parent, getString(R.string.suggestions_fetch_error));
+            else if (response.getSuggestionList().size() == 0) {
+                noSuggestions.setVisibility(View.VISIBLE);
+            } else {
+                noSuggestions.setVisibility(View.GONE);
+                suggestionsAdapter.setSuggestions(response.getSuggestionList());
+            }
         }
     }
 
     @Override
     public void onRefresh() {
         long userId = PreferencesManager.get().getProfile().getUserId();
-        SuggestionsCallback callback = new SuggestionsCallback();
-        RestClient.getInstance().getSuggestionService().fetchSuggestions(String.valueOf(userId)).enqueue(callback);
+        UserThumbnailsCallback callback = new UserThumbnailsCallback(SCREEN_TAG);
+        RestClient.getInstance().getMatchingService().fetchSuggestions(String.valueOf(userId)).enqueue(callback);
     }
 
     @OnItemClick(R.id.content)

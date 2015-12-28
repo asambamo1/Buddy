@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="received">Received</string>
+    <string name="sent">Sent</string>
+    <string-array name="request_types">
+        <item>@string/received</item>
+        <item>@string/sent</item>
+    </string-array>
+
+    <string name="no_requests">No connection requests to display.</string>
+    <string name="requests_fetch_fail">We failed to fetch your connection requests. Please try again later.</string>
+</resources>

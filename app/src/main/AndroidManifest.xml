@@ -29,8 +29,8 @@
             android:screenOrientation="portrait" >
         </activity>
         <activity
-            android:name=".Activities.ConnectionsActivity"
-            android:label="@string/connections"
+            android:name=".Activities.RequestsActivity"
+            android:label="@string/requests"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustResize">
         </activity>
@@ -77,6 +77,11 @@
         <activity
             android:name=".Activities.ProfileActivity"
             android:label="@string/profile"
+            android:screenOrientation="portrait">
+        </activity>
+        <activity
+            android:name=".Activities.ConnectionsActivity"
+            android:label="@string/connections"
             android:screenOrientation="portrait">
         </activity>
     </application>

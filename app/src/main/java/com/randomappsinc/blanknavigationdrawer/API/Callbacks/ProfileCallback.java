@@ -1,12 +1,10 @@
 package com.randomappsinc.blanknavigationdrawer.API.Callbacks;
 
 import com.randomappsinc.blanknavigationdrawer.API.ApiConstants;
+import com.randomappsinc.blanknavigationdrawer.API.Models.Events.ProfileEvent;
 import com.randomappsinc.blanknavigationdrawer.API.Models.Profile;
-import com.randomappsinc.blanknavigationdrawer.API.Models.ProfileEvent;
-import com.randomappsinc.blanknavigationdrawer.API.Models.SuggestionsEvent;
 
 import de.greenrobot.event.EventBus;
-import retrofit.Call;
 import retrofit.Callback;
 import retrofit.Response;
 import retrofit.Retrofit;

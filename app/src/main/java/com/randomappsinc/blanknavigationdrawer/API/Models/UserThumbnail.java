@@ -5,8 +5,9 @@ import com.google.gson.annotations.SerializedName;
 
 /**
  * Created by jman0_000 on 12/27/2015.
+ * Used for connection requests, already existing connections, and suggestions
  */
-public class Suggestion {
+public class UserThumbnail {
     @SerializedName("user_id")
     @Expose
     private long userId;
@@ -23,6 +24,10 @@ public class Suggestion {
     @Expose
     private int zipCode;
 
+    @SerializedName("statuc")
+    @Expose
+    private String status;
+
     public long getUserId() {
         return userId;
     }
@@ -37,5 +42,9 @@ public class Suggestion {
 
     public int getZipCode() {
         return zipCode;
+    }
+
+    public String getStatus() {
+        return status;
     }
 }

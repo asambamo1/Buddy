@@ -1,4 +1,6 @@
-package com.randomappsinc.blanknavigationdrawer.API.Models;
+package com.randomappsinc.blanknavigationdrawer.API.Models.Events;
+
+import com.randomappsinc.blanknavigationdrawer.API.Models.Profile;
 
 /**
  * Created by jman0_000 on 12/27/2015.

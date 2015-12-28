@@ -7,7 +7,7 @@ import com.randomappsinc.blanknavigationdrawer.R;
 import butterknife.ButterKnife;
 
 /**
- * Created by alexanderchiou on 12/20/15.
+ * Created by alexanderchiou on 12/27/15.
  */
 public class ConnectionsActivity extends StandardActivity {
     @Override
