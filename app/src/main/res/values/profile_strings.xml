@@ -10,6 +10,9 @@
     <string name="reject">Reject</string>
     <string name="pending">Pending</string>
     <string name="rejected">Rejected</string>
+    <string name="undo_rejection_title">Undo rejection</string>
+    <string name="undo_rejection_body">Would you like to reverse your decision
+        and accept this user as a connection?</string>
 
     <string name="sending_request">Sending connection request&#8230;</string>
     <string name="accepting_request">Accepting connection request&#8230;</string>
