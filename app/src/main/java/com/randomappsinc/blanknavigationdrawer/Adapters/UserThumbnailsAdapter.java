@@ -49,27 +49,27 @@ public class UserThumbnailsAdapter extends BaseAdapter {
         return getItem(position).hashCode();
     }
 
-    public class SuggestionViewHolder {
+    public class UserThumbnailViewHolder {
         @Bind(R.id.suggestion_name) TextView name;
         @Bind(R.id.village) TextView village;
         @Bind(R.id.work_zip) TextView workZip;
 
-        public SuggestionViewHolder(View view) {
+        public UserThumbnailViewHolder(View view) {
             ButterKnife.bind(this, view);
         }
     }
 
     @Override
     public View getView(int position, View view, ViewGroup parent) {
-        SuggestionViewHolder holder;
+        UserThumbnailViewHolder holder;
         if (view == null) {
             LayoutInflater vi = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-            view = vi.inflate(R.layout.suggestion_cell, parent, false);
-            holder = new SuggestionViewHolder(view);
+            view = vi.inflate(R.layout.user_thumbnail, parent, false);
+            holder = new UserThumbnailViewHolder(view);
             view.setTag(holder);
         }
         else {
-            holder = (SuggestionViewHolder) view.getTag();
+            holder = (UserThumbnailViewHolder) view.getTag();
         }
         holder.name.setText(getItem(position).getName());
         holder.village.setText(getItem(position).getVillage());
