@@ -108,8 +108,11 @@ public class ProfileActivity extends StandardActivity {
             case Constants.ACCEPTED:
                 emailContainer.setVisibility(View.VISIBLE);
                 phoneNumberContainer.setVisibility(View.VISIBLE);
-                buttonsContainer.setVisibility(View.GONE);
-                return;
+                acceptReject.setVisibility(View.GONE);
+                fullButton.setVisibility(View.VISIBLE);
+                fullButton.setBackgroundResource(R.drawable.green_ripple_button);
+                fullButton.setText(R.string.connected);
+                break;
             case Constants.PENDING:
                 acceptReject.setVisibility(View.GONE);
                 fullButton.setVisibility(View.VISIBLE);

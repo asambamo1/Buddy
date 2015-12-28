@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="no_connections">No connections to display.</string>
+    <string name="connections_fetch_fail">We failed to fetch your connections. Please try again later.</string>
+</resources>
