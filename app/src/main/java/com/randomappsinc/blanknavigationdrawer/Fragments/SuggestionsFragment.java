@@ -57,6 +57,7 @@ public class SuggestionsFragment extends Fragment implements SwipeRefreshLayout.
         super.onResume();
         long userId = PreferencesManager.get().getProfile().getUserId();
         if (userId != -1) {
+            fetchNewSuggestions.setRefreshing(true);
             SuggestionsCallback callback = new SuggestionsCallback();
             RestClient.getInstance().getSuggestionService().fetchSuggestions(String.valueOf(userId)).enqueue(callback);
         }
