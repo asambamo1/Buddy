@@ -52,13 +52,12 @@ public class RequestsAdapter extends BaseAdapter {
     }
 
     public class RequestViewHolder {
-        @Bind(R.id.suggestion_name)
-        TextView name;
+        @Bind(R.id.suggestion_name) TextView name;
         @Bind(R.id.village) TextView village;
         @Bind(R.id.work_zip) TextView workZip;
-        @Bind(R.id.status_icon) IconTextView status_icon;
+        @Bind(R.id.status_icon) IconTextView statusIcon;
         @Bind(R.id.status) TextView status;
-        @Bind(R.id.status_container) View status_container;
+        @Bind(R.id.status_container) View statusContainer;
 
         public RequestViewHolder(View view) {
             ButterKnife.bind(this, view);
@@ -80,22 +79,22 @@ public class RequestsAdapter extends BaseAdapter {
         holder.name.setText(getItem(position).getName());
         holder.village.setText(getItem(position).getVillage());
         holder.workZip.setText(String.valueOf(getItem(position).getZipCode()));
-        holder.status_container.setVisibility(View.VISIBLE);
+        holder.statusContainer.setVisibility(View.VISIBLE);
 
         switch(getItem(position).getStatus()) {
             case ApiConstants.ACCEPTED:
-                holder.status_icon.setText(context.getString(R.string.check_icon));
-                holder.status_icon.setTextColor(context.getResources().getColor(R.color.green));
+                holder.statusIcon.setText(context.getString(R.string.check_icon));
+                holder.statusIcon.setTextColor(context.getResources().getColor(R.color.green));
                 holder.status.setTextColor(context.getResources().getColor(R.color.green));
                 break;
             case ApiConstants.PENDING:
-                holder.status_icon.setText(context.getString(R.string.ellipsis_icon));
-                holder.status_icon.setTextColor(context.getResources().getColor(R.color.gold));
+                holder.statusIcon.setText(context.getString(R.string.ellipsis_icon));
+                holder.statusIcon.setTextColor(context.getResources().getColor(R.color.gold));
                 holder.status.setTextColor(context.getResources().getColor(R.color.gold));
                 break;
             case ApiConstants.REJECTED:
-                holder.status_icon.setText(context.getString(R.string.x_icon));
-                holder.status_icon.setTextColor(context.getResources().getColor(R.color.red));
+                holder.statusIcon.setText(context.getString(R.string.x_icon));
+                holder.statusIcon.setTextColor(context.getResources().getColor(R.color.red));
                 holder.status.setTextColor(context.getResources().getColor(R.color.red));
                 break;
             default:

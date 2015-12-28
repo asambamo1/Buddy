@@ -1,6 +1,5 @@
 package com.randomappsinc.blanknavigationdrawer.Fragments;
 
-import android.app.DownloadManager;
 import android.app.Fragment;
 import android.content.Intent;
 import android.os.Bundle;
@@ -84,14 +83,14 @@ public class RequestsFragment extends Fragment implements SwipeRefreshLayout.OnR
             loadingRequest.setVisibility(View.GONE);
             updateRequests.setVisibility(View.VISIBLE);
             updateRequests.setRefreshing(false);
-            if (response.getSuggestionList() == null)
+            if (response.getUserThumbnailsList() == null)
                 FormUtils.showSnackbar(parent, getString(R.string.connections_fetch_fail));
-            else if (response.getSuggestionList().size() == 0) {
+            else if (response.getUserThumbnailsList().size() == 0) {
                 noRequests.setVisibility(View.VISIBLE);
             }
             else {
                 noRequests.setVisibility(View.GONE);
-                requestsAdapter.setRequests(response.getSuggestionList());
+                requestsAdapter.setRequests(response.getUserThumbnailsList());
             }
         }
     }
