@@ -14,19 +14,27 @@
         android:focusableInTouchMode="true"
         android:padding="15dp">
 
-        <FrameLayout
-            style="@style/input_container_style"
-            android:layout_marginTop="0dp">
+        <TextView
+            android:text="@string/autofill_hint"
+            style="@style/onboarding_instructions_style"/>
 
+        <FrameLayout style="@style/input_container_style">
             <EditText
                 android:id="@+id/username_input"
                 android:hint="@string/login_hint"
                 android:imeOptions="actionNext"
+                android:paddingRight="35dp"
                 style="@style/profile_input"/>
 
             <com.joanzapata.iconify.widget.IconTextView
                 android:text="@string/profile_icon"
                 style="@style/user_data_icon"/>
+
+            <com.joanzapata.iconify.widget.IconTextView
+                android:id="@+id/autofill_phone"
+                android:text="@string/phone_icon"
+                style="@style/user_data_icon"
+                android:layout_gravity="end|center_vertical"/>
         </FrameLayout>
 
         <FrameLayout style="@style/input_container_style">
