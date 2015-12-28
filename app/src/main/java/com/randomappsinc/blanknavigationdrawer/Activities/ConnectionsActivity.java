@@ -56,16 +56,27 @@ public class ConnectionsActivity extends StandardActivity implements SwipeRefres
     }
 
     @Override
-    protected void onDestroy() {
-        EventBus.getDefault().unregister(this);
-        super.onDestroy();
+    public void onResume() {
+        super.onResume();
+        fetchNewConnections.setRefreshing(true);
+        refreshConnections();
     }
 
     @Override
     public void onRefresh() {
-        String user_id = String.valueOf(PreferencesManager.get().getProfile().getUserId());
+        refreshConnections();
+    }
+
+    public void refreshConnections() {
+        String userId = String.valueOf(PreferencesManager.get().getProfile().getUserId());
         UserThumbnailsCallback callback = new UserThumbnailsCallback(SCREEN_TAG);
-        RestClient.getInstance().getUserService().fetchConnections(user_id).enqueue(callback);
+        RestClient.getInstance().getUserService().fetchConnections(userId).enqueue(callback);
+    }
+
+    @Override
+    protected void onDestroy() {
+        EventBus.getDefault().unregister(this);
+        super.onDestroy();
     }
 
     public void onEvent(UserThumbnailsEvent response) {
@@ -73,13 +84,13 @@ public class ConnectionsActivity extends StandardActivity implements SwipeRefres
             loadingConnections.setVisibility(View.GONE);
             fetchNewConnections.setVisibility(View.VISIBLE);
             fetchNewConnections.setRefreshing(false);
-            if (response.getSuggestionList() == null)
+            if (response.getUserThumbnailsList() == null)
                 FormUtils.showSnackbar(parent, getString(R.string.connections_fetch_fail));
-            else if (response.getSuggestionList().size() == 0) {
+            else if (response.getUserThumbnailsList().size() == 0) {
                 noConnections.setVisibility(View.VISIBLE);
             } else {
                 noConnections.setVisibility(View.GONE);
-                connectionsAdapter.setSuggestions(response.getSuggestionList());
+                connectionsAdapter.setSuggestions(response.getUserThumbnailsList());
             }
         }
     }

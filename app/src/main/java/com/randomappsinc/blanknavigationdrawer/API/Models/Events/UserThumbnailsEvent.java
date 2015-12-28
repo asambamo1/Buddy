@@ -9,18 +9,18 @@ import java.util.List;
  */
 public class UserThumbnailsEvent {
     private String screen;
-    private List<UserThumbnail> suggestionList;
+    private List<UserThumbnail> userThumbnailsList;
 
-    public UserThumbnailsEvent(String screen, List<UserThumbnail> suggestionList) {
+    public UserThumbnailsEvent(String screen, List<UserThumbnail> userThumbnailsList) {
         this.screen = screen;
-        this.suggestionList = suggestionList;
+        this.userThumbnailsList = userThumbnailsList;
     }
 
     public String getScreen() {
         return screen;
     }
 
-    public List<UserThumbnail> getSuggestionList() {
-        return suggestionList;
+    public List<UserThumbnail> getUserThumbnailsList() {
+        return userThumbnailsList;
     }
 }
