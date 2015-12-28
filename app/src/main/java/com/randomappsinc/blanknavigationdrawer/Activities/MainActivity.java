@@ -63,6 +63,9 @@ public class MainActivity extends AppCompatActivity implements NavigationDrawerF
                 intent = new Intent(this, RequestsActivity.class);
                 break;
             case 2:
+                intent = new Intent(this, ConnectionsActivity.class);
+                break;
+            case 3:
                 intent = new Intent(this, SettingsActivity.class);
                 break;
         }

@@ -7,13 +7,13 @@ import com.randomappsinc.blanknavigationdrawer.R;
 import butterknife.ButterKnife;
 
 /**
- * Created by alexanderchiou on 12/20/15.
+ * Created by alexanderchiou on 12/27/15.
  */
-public class RequestsActivity extends StandardActivity {
+public class ConnectionsActivity extends StandardActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.requests);
+        setContentView(R.layout.connections);
         ButterKnife.bind(this);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }

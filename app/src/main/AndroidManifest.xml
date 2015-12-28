@@ -79,5 +79,10 @@
             android:label="@string/profile"
             android:screenOrientation="portrait">
         </activity>
+        <activity
+            android:name=".Activities.ConnectionsActivity"
+            android:label="@string/connections"
+            android:screenOrientation="portrait">
+        </activity>
     </application>
 </manifest>
