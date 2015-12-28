@@ -22,11 +22,11 @@
                 android:id="@+id/username_input"
                 android:hint="@string/login_hint"
                 android:imeOptions="actionNext"
-                style="@style/onboarding_input_style"/>
+                style="@style/profile_input"/>
 
             <com.joanzapata.iconify.widget.IconTextView
                 android:text="@string/profile_icon"
-                style="@style/onboarding_icon_style"/>
+                style="@style/user_data_icon"/>
         </FrameLayout>
 
         <FrameLayout style="@style/input_container_style">
@@ -35,11 +35,11 @@
                 android:inputType="textPassword"
                 android:hint="@string/password_hint"
                 android:imeOptions="actionDone"
-                style="@style/onboarding_input_style"/>
+                style="@style/profile_input"/>
 
             <com.joanzapata.iconify.widget.IconTextView
                 android:text="@string/lock_icon"
-                style="@style/onboarding_icon_style"/>
+                style="@style/user_data_icon"/>
         </FrameLayout>
 
         <com.rey.material.widget.Button

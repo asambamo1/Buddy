@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/parent"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <FrameLayout
+        android:id="@+id/loading"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.rey.material.widget.ProgressView
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_gravity="center"
+            app:pv_autostart="true"
+            app:pv_circular="true"
+            app:pv_progressStyle="@style/Material.Drawable.CircularProgress"
+            app:pv_progressMode="indeterminate"/>
+    </FrameLayout>
+
+    <ScrollView
+        android:id="@+id/profile"
+        android:visibility="gone"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:padding="15dp">
+
+            <TextView
+                android:id="@+id/name"
+                style="@style/profile_text"
+                android:layout_gravity="center_horizontal"
+                android:textSize="24sp"/>
+
+            <LinearLayout style="@style/profile_info_container">
+                <com.joanzapata.iconify.widget.IconTextView
+                    android:text="@string/about_me_icon"
+                    style="@style/user_data_icon"/>
+
+                <TextView
+                    android:id="@+id/about_me"
+                    style="@style/profile_text"/>
+            </LinearLayout>
+
+            <LinearLayout
+                style="@style/profile_info_container"
+                android:baselineAligned="false">
+
+                <LinearLayout
+                    android:layout_weight="1"
+                    android:orientation="horizontal"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content">
+
+                    <com.joanzapata.iconify.widget.IconTextView
+                        android:text="@string/home_icon"
+                        style="@style/user_data_icon"/>
+
+                    <TextView
+                        android:id="@+id/village"
+                        style="@style/profile_text"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_weight="1"
+                    android:orientation="horizontal"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content">
+
+                    <com.joanzapata.iconify.widget.IconTextView
+                        android:text="@string/work_icon"
+                        style="@style/user_data_icon"/>
+
+                    <TextView
+                        android:id="@+id/work_zip"
+                        style="@style/profile_text"/>
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout style="@style/profile_info_container">
+                <com.joanzapata.iconify.widget.IconTextView
+                    android:text="@string/email_icon"
+                    style="@style/user_data_icon"/>
+
+                <TextView
+                    android:id="@+id/email"
+                    style="@style/profile_text"/>
+            </LinearLayout>
+
+            <LinearLayout style="@style/profile_info_container">
+                <com.joanzapata.iconify.widget.IconTextView
+                    android:text="@string/phone_icon"
+                    style="@style/user_data_icon"/>
+
+                <TextView
+                    android:id="@+id/phone_number"
+                    style="@style/profile_text"/>
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+</android.support.design.widget.CoordinatorLayout>

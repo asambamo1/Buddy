@@ -1,24 +1,29 @@
 package com.randomappsinc.blanknavigationdrawer.Fragments;
 
 import android.app.Fragment;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.TextView;
 
 import com.randomappsinc.blanknavigationdrawer.API.Callbacks.SuggestionsCallback;
 import com.randomappsinc.blanknavigationdrawer.API.Models.SuggestionsEvent;
 import com.randomappsinc.blanknavigationdrawer.API.RestClient;
+import com.randomappsinc.blanknavigationdrawer.Activities.ProfileActivity;
 import com.randomappsinc.blanknavigationdrawer.Adapters.SuggestionsAdapter;
 import com.randomappsinc.blanknavigationdrawer.R;
+import com.randomappsinc.blanknavigationdrawer.Utils.Constants;
 import com.randomappsinc.blanknavigationdrawer.Utils.FormUtils;
 import com.randomappsinc.blanknavigationdrawer.Utils.PreferencesManager;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
+import butterknife.OnItemClick;
 import de.greenrobot.event.EventBus;
 
 /**
@@ -50,10 +55,10 @@ public class SuggestionsFragment extends Fragment implements SwipeRefreshLayout.
     @Override
     public void onResume() {
         super.onResume();
-        long user_id = PreferencesManager.get().getProfile().getUserId();
-        if (user_id != -1) {
+        long userId = PreferencesManager.get().getProfile().getUserId();
+        if (userId != -1) {
             SuggestionsCallback callback = new SuggestionsCallback();
-            RestClient.getInstance().getSuggestionService().fetchSuggestions(String.valueOf(user_id)).enqueue(callback);
+            RestClient.getInstance().getSuggestionService().fetchSuggestions(String.valueOf(userId)).enqueue(callback);
         }
     }
 
@@ -74,9 +79,16 @@ public class SuggestionsFragment extends Fragment implements SwipeRefreshLayout.
 
     @Override
     public void onRefresh() {
-        long user_id = PreferencesManager.get().getProfile().getUserId();
+        long userId = PreferencesManager.get().getProfile().getUserId();
         SuggestionsCallback callback = new SuggestionsCallback();
-        RestClient.getInstance().getSuggestionService().fetchSuggestions(String.valueOf(user_id)).enqueue(callback);
+        RestClient.getInstance().getSuggestionService().fetchSuggestions(String.valueOf(userId)).enqueue(callback);
+    }
+
+    @OnItemClick(R.id.content)
+    public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
+        Intent intent = new Intent(getActivity(), ProfileActivity.class);
+        intent.putExtra(Constants.USER_ID_KEY, suggestionsAdapter.getItem(position).getUserId());
+        getActivity().startActivity(intent);
     }
 
     @Override
