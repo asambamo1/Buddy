@@ -8,7 +8,7 @@ import android.widget.TextView;
 
 import com.randomappsinc.blanknavigationdrawer.API.Callbacks.ProfileCallback;
 import com.randomappsinc.blanknavigationdrawer.API.Models.Profile;
-import com.randomappsinc.blanknavigationdrawer.API.Models.ProfileEvent;
+import com.randomappsinc.blanknavigationdrawer.API.Models.Events.ProfileEvent;
 import com.randomappsinc.blanknavigationdrawer.API.RestClient;
 import com.randomappsinc.blanknavigationdrawer.R;
 import com.randomappsinc.blanknavigationdrawer.Utils.Constants;

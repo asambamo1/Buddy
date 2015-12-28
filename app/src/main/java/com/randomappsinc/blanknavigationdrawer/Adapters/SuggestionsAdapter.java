@@ -7,7 +7,7 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 
-import com.randomappsinc.blanknavigationdrawer.API.Models.Suggestion;
+import com.randomappsinc.blanknavigationdrawer.API.Models.UserThumbnail;
 import com.randomappsinc.blanknavigationdrawer.R;
 
 import java.util.ArrayList;
@@ -21,14 +21,14 @@ import butterknife.ButterKnife;
  */
 public class SuggestionsAdapter extends BaseAdapter {
     private Context context;
-    private List<Suggestion> suggestions;
+    private List<UserThumbnail> suggestions;
 
     public SuggestionsAdapter(Context context) {
         this.context = context;
         this.suggestions = new ArrayList<>();
     }
 
-    public void setSuggestions(List<Suggestion> suggestions) {
+    public void setSuggestions(List<UserThumbnail> suggestions) {
         this.suggestions.clear();
         this.suggestions.addAll(suggestions);
         notifyDataSetChanged();
@@ -40,7 +40,7 @@ public class SuggestionsAdapter extends BaseAdapter {
     }
 
     @Override
-    public Suggestion getItem(int position) {
+    public UserThumbnail getItem(int position) {
         return suggestions.get(position);
     }
 

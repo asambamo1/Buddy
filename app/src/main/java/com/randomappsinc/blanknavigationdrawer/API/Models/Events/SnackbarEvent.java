@@ -1,4 +1,4 @@
-package com.randomappsinc.blanknavigationdrawer.API.Models;
+package com.randomappsinc.blanknavigationdrawer.API.Models.Events;
 
 /**
  * Created by alexanderchiou on 12/25/15.

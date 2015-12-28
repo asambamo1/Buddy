@@ -3,7 +3,7 @@ package com.randomappsinc.blanknavigationdrawer.API.Callbacks;
 import android.content.Context;
 
 import com.randomappsinc.blanknavigationdrawer.API.ApiConstants;
-import com.randomappsinc.blanknavigationdrawer.API.Models.SnackbarEvent;
+import com.randomappsinc.blanknavigationdrawer.API.Models.Events.SnackbarEvent;
 import com.randomappsinc.blanknavigationdrawer.API.Models.User;
 import com.randomappsinc.blanknavigationdrawer.Activities.Onboarding.LoginActivity;
 import com.randomappsinc.blanknavigationdrawer.R;

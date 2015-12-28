@@ -11,8 +11,8 @@ import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.TextView;
 
-import com.randomappsinc.blanknavigationdrawer.API.Callbacks.SuggestionsCallback;
-import com.randomappsinc.blanknavigationdrawer.API.Models.SuggestionsEvent;
+import com.randomappsinc.blanknavigationdrawer.API.Callbacks.UserThumbnailsCallback;
+import com.randomappsinc.blanknavigationdrawer.API.Models.Events.UserThumbnailsEvent;
 import com.randomappsinc.blanknavigationdrawer.API.RestClient;
 import com.randomappsinc.blanknavigationdrawer.Activities.ProfileActivity;
 import com.randomappsinc.blanknavigationdrawer.Adapters.SuggestionsAdapter;
@@ -30,6 +30,8 @@ import de.greenrobot.event.EventBus;
  * Created by alexanderchiou on 12/27/15.
  */
 public class SuggestionsFragment extends Fragment implements SwipeRefreshLayout.OnRefreshListener {
+    public static final String SCREEN_TAG = "SuggestionsFragment";
+
     @Bind(R.id.parent) View parent;
     @Bind(R.id.loading) View loadingSuggestions;
     @Bind(R.id.content) ListView suggestions;
@@ -59,30 +61,31 @@ public class SuggestionsFragment extends Fragment implements SwipeRefreshLayout.
         long userId = PreferencesManager.get().getProfile().getUserId();
         if (userId != -1) {
             fetchNewSuggestions.setRefreshing(true);
-            SuggestionsCallback callback = new SuggestionsCallback();
+            UserThumbnailsCallback callback = new UserThumbnailsCallback(SCREEN_TAG);
             RestClient.getInstance().getSuggestionService().fetchSuggestions(String.valueOf(userId)).enqueue(callback);
         }
     }
 
-    public void onEvent(SuggestionsEvent response) {
-        loadingSuggestions.setVisibility(View.GONE);
-        fetchNewSuggestions.setVisibility(View.VISIBLE);
-        fetchNewSuggestions.setRefreshing(false);
-        if (response.getSuggestionList() == null)
-            FormUtils.showSnackbar(parent, getString(R.string.suggestions_fetch_error));
-        else if (response.getSuggestionList().size() == 0) {
-            noSuggestions.setVisibility(View.VISIBLE);
-        }
-        else {
-            noSuggestions.setVisibility(View.GONE);
-            suggestionsAdapter.setSuggestions(response.getSuggestionList());
+    public void onEvent(UserThumbnailsEvent response) {
+        if (response.getScreen().equals(SCREEN_TAG)) {
+            loadingSuggestions.setVisibility(View.GONE);
+            fetchNewSuggestions.setVisibility(View.VISIBLE);
+            fetchNewSuggestions.setRefreshing(false);
+            if (response.getSuggestionList() == null)
+                FormUtils.showSnackbar(parent, getString(R.string.suggestions_fetch_error));
+            else if (response.getSuggestionList().size() == 0) {
+                noSuggestions.setVisibility(View.VISIBLE);
+            } else {
+                noSuggestions.setVisibility(View.GONE);
+                suggestionsAdapter.setSuggestions(response.getSuggestionList());
+            }
         }
     }
 
     @Override
     public void onRefresh() {
         long userId = PreferencesManager.get().getProfile().getUserId();
-        SuggestionsCallback callback = new SuggestionsCallback();
+        UserThumbnailsCallback callback = new UserThumbnailsCallback(SCREEN_TAG);
         RestClient.getInstance().getSuggestionService().fetchSuggestions(String.valueOf(userId)).enqueue(callback);
     }
 

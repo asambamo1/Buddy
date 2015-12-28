@@ -1,7 +1,7 @@
 package com.randomappsinc.blanknavigationdrawer.API.Services;
 
 import com.randomappsinc.blanknavigationdrawer.API.Models.Profile;
-import com.randomappsinc.blanknavigationdrawer.API.Models.Suggestion;
+import com.randomappsinc.blanknavigationdrawer.API.Models.UserThumbnail;
 
 import java.util.List;
 
@@ -14,7 +14,7 @@ import retrofit.http.Path;
  */
 public interface SuggestionService {
     @GET("/suggestions/{userid}")
-    Call<List <Suggestion>> fetchSuggestions(@Path("userid") String userId);
+    Call<List <UserThumbnail>> fetchSuggestions(@Path("userid") String userId);
 
     @GET("/profile/{req_id}/{target_id}")
     Call<Profile> getProfile(@Path("req_id") String req_id, @Path("target_id") String target_id);
