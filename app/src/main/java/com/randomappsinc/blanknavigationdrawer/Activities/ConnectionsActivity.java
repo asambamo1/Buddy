@@ -8,11 +8,14 @@ import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.randomappsinc.blanknavigationdrawer.API.Callbacks.UserThumbnailsCallback;
 import com.randomappsinc.blanknavigationdrawer.API.Models.Events.UserThumbnailsEvent;
+import com.randomappsinc.blanknavigationdrawer.API.RestClient;
 import com.randomappsinc.blanknavigationdrawer.Adapters.UserThumbnailsAdapter;
 import com.randomappsinc.blanknavigationdrawer.R;
 import com.randomappsinc.blanknavigationdrawer.Utils.Constants;
 import com.randomappsinc.blanknavigationdrawer.Utils.FormUtils;
+import com.randomappsinc.blanknavigationdrawer.Utils.PreferencesManager;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -38,6 +41,7 @@ public class ConnectionsActivity extends StandardActivity implements SwipeRefres
         super.onCreate(savedInstanceState);
         setContentView(R.layout.single_list_layout);
         ButterKnife.bind(this);
+        EventBus.getDefault().register(this);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         noConnections.setText(R.string.no_suggestions);
@@ -45,6 +49,10 @@ public class ConnectionsActivity extends StandardActivity implements SwipeRefres
         connections.setAdapter(connectionsAdapter);
         fetchNewConnections.setColorSchemeResources(R.color.red, R.color.yellow, R.color.green, R.color.app_blue);
         fetchNewConnections.setOnRefreshListener(this);
+
+        String user_id = String.valueOf(PreferencesManager.get().getProfile().getUserId());
+        UserThumbnailsCallback callback = new UserThumbnailsCallback(SCREEN_TAG);
+        RestClient.getInstance().getUserService().fetchConnections(user_id).enqueue(callback);
     }
 
     @Override
@@ -55,7 +63,9 @@ public class ConnectionsActivity extends StandardActivity implements SwipeRefres
 
     @Override
     public void onRefresh() {
-
+        String user_id = String.valueOf(PreferencesManager.get().getProfile().getUserId());
+        UserThumbnailsCallback callback = new UserThumbnailsCallback(SCREEN_TAG);
+        RestClient.getInstance().getUserService().fetchConnections(user_id).enqueue(callback);
     }
 
     public void onEvent(UserThumbnailsEvent response) {
