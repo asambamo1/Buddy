@@ -71,13 +71,17 @@ public class SuggestionsFragment extends Fragment implements SwipeRefreshLayout.
             loadingSuggestions.setVisibility(View.GONE);
             fetchNewSuggestions.setVisibility(View.VISIBLE);
             fetchNewSuggestions.setRefreshing(false);
-            if (response.getUserThumbnailsList() == null)
+            if (response.getUserThumbnailsList() == null) {
                 FormUtils.showSnackbar(parent, getString(R.string.suggestions_fetch_error));
-            else if (response.getUserThumbnailsList().size() == 0) {
-                noSuggestions.setVisibility(View.VISIBLE);
-            } else {
-                noSuggestions.setVisibility(View.GONE);
+            }
+            else {
                 suggestionsAdapter.setSuggestions(response.getUserThumbnailsList());
+            }
+            if (suggestionsAdapter.getCount() == 0) {
+                noSuggestions.setVisibility(View.VISIBLE);
+            }
+            else {
+                noSuggestions.setVisibility(View.GONE);
             }
         }
     }

@@ -25,6 +25,7 @@ public class MainActivity extends AppCompatActivity implements NavigationDrawerF
 
         if (PreferencesManager.get().getProfile().getUserId() == -1) {
             startActivity(new Intent(this, SplashScreenActivity.class));
+            finish();
         }
 
         setContentView(R.layout.homepage);

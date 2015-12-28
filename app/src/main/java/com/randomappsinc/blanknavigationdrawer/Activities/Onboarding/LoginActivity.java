@@ -88,9 +88,7 @@ public class LoginActivity extends StandardActivity {
     public void onEvent(String basicEvent) {
         if (basicEvent.equals(LoginCallback.LOGIN_SUCCESS)) {
             progressDialog.dismiss();
-            Intent intent = new Intent(this, MainActivity.class);
-            intent.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
-            startActivity(intent);
+            startActivity(new Intent(this, MainActivity.class));
         }
     }
 
