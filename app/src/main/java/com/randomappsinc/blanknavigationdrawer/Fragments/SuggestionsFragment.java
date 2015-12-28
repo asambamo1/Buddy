@@ -40,10 +40,11 @@ public class SuggestionsFragment extends Fragment implements SwipeRefreshLayout.
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View rootView = inflater.inflate(R.layout.suggestions, container, false);
+        View rootView = inflater.inflate(R.layout.single_list_layout, container, false);
         ButterKnife.bind(this, rootView);
         EventBus.getDefault().register(this);
 
+        noSuggestions.setText(R.string.no_suggestions);
         suggestionsAdapter = new SuggestionsAdapter(getActivity());
         suggestions.setAdapter(suggestionsAdapter);
         fetchNewSuggestions.setColorSchemeResources(R.color.red, R.color.yellow, R.color.green, R.color.app_blue);

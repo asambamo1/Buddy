@@ -16,7 +16,6 @@
             android:layout_marginTop="75dp"
             android:layout_marginLeft="25dp"
             android:layout_marginRight="25dp"
-            android:text="@string/no_suggestions"
             android:textSize="24sp"
             android:textColor="@color/dark_gray"
             android:layout_gravity="center_horizontal"

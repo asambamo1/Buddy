@@ -14,6 +14,7 @@ public class Constants {
     public static final String EMAIL_KEY = "email";
     public static final String PHONE_NUMBER_KEY = "phoneNumber";
 
+    public static final String REQUEST_TYPE_KEY = "requestType";
     public static final String UNCONNECTED = "Unconnected";
     public static final String PENDING = "Pending";
     public static final String AWAITING_YOUR_APPROVAL = "Awaiting your approval";
