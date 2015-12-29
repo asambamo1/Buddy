@@ -78,7 +78,7 @@ public class PasswordActivity extends StandardActivity {
         if (basicEvent.equals(CreateAccountCallback.CREATE_ACCOUNT_SUCCESS)) {
             progressDialog.dismiss();
             Intent intent = new Intent(this, MainActivity.class);
-            intent.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
+            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
             startActivity(intent);
         }
     }

@@ -11,6 +11,7 @@
     <string name="contact_info_instructions">Let us know how carpool matches can contact you
         (only one of the below is needed).</string>
     <string name="password_instructions">You made it! Finally, set a password for your Carpool Buddy account.</string>
+    <string name="autofill_hint">You can click on the phone icon to auto-fill your phone number.</string>
 
     <string name="village_hint">Village</string>
     <string name="work_hint">Work ZIP code</string>
@@ -29,8 +30,7 @@
         <item>Bethany</item>
         <item>Altamont</item>
         <item>Questa</item>
-        <item>Trilogy</item>
-        <item>College Park</item>
+        <item>Hansen</item>
     </string-array>
     <string name="choose">Choose</string>
 

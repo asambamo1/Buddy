@@ -83,14 +83,17 @@ public class RequestsFragment extends Fragment implements SwipeRefreshLayout.OnR
             loadingRequest.setVisibility(View.GONE);
             updateRequests.setVisibility(View.VISIBLE);
             updateRequests.setRefreshing(false);
-            if (response.getUserThumbnailsList() == null)
+            if (response.getUserThumbnailsList() == null) {
                 FormUtils.showSnackbar(parent, getString(R.string.connections_fetch_fail));
-            else if (response.getUserThumbnailsList().size() == 0) {
+            }
+            else {
+                requestsAdapter.setRequests(response.getUserThumbnailsList());
+            }
+            if (requestsAdapter.getCount() == 0) {
                 noRequests.setVisibility(View.VISIBLE);
             }
             else {
                 noRequests.setVisibility(View.GONE);
-                requestsAdapter.setRequests(response.getUserThumbnailsList());
             }
         }
     }

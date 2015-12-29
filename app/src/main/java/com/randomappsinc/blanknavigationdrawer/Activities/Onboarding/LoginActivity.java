@@ -49,6 +49,13 @@ public class LoginActivity extends StandardActivity {
                 .build();
     }
 
+    @OnClick(R.id.autofill_phone)
+    public void autofillPhone(View view) {
+        String phoneNumber = FormUtils.formatUSNumber(FormUtils.getPhoneNumber());
+        username.setText(phoneNumber);
+        username.setSelection(phoneNumber.length());
+    }
+
     @OnClick(R.id.login)
     public void login(View view) {
         String usernameInput = username.getText().toString();
@@ -82,8 +89,9 @@ public class LoginActivity extends StandardActivity {
         if (basicEvent.equals(LoginCallback.LOGIN_SUCCESS)) {
             progressDialog.dismiss();
             Intent intent = new Intent(this, MainActivity.class);
-            intent.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
+            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
             startActivity(intent);
+            finish();
         }
     }
 

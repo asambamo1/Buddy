@@ -63,4 +63,8 @@ public class PreferencesManager {
 
         return user;
     }
+
+    public void logout() {
+        prefs.edit().clear().apply();
+    }
 }

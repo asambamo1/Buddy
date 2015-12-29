@@ -6,7 +6,6 @@ import android.os.Bundle;
 import android.view.View;
 
 import com.randomappsinc.blanknavigationdrawer.R;
-import com.randomappsinc.blanknavigationdrawer.Utils.FormUtils;
 
 import butterknife.ButterKnife;
 import butterknife.OnClick;
@@ -34,11 +33,13 @@ public class SplashScreenActivity extends Activity {
 
     @Override
     public void startActivityForResult(Intent intent, int requestCode) {
-        FormUtils.hideKeyboard(this);
         super.startActivityForResult(intent, requestCode);
         overridePendingTransition(R.anim.slide_left_out, R.anim.slide_left_in);
     }
 
     @Override
-    public void onBackPressed() {}
+    public void finish() {
+        super.finish();
+        overridePendingTransition(R.anim.slide_right_out, R.anim.slide_right_in);
+    }
 }

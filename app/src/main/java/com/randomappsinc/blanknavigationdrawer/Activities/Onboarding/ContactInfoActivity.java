@@ -31,6 +31,7 @@ public class ContactInfoActivity extends StandardActivity {
         setContentView(R.layout.contact_info_form);
         ButterKnife.bind(this);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
         user = getIntent().getParcelableExtra(Constants.USER_KEY);
         phoneForm.setText(FormUtils.getPhoneNumber());
     }
