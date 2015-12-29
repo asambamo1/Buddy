@@ -77,7 +77,9 @@ public class PasswordActivity extends StandardActivity {
     public void onEvent(String basicEvent) {
         if (basicEvent.equals(CreateAccountCallback.CREATE_ACCOUNT_SUCCESS)) {
             progressDialog.dismiss();
-            startActivity(new Intent(this, MainActivity.class));
+            Intent intent = new Intent(this, MainActivity.class);
+            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+            startActivity(intent);
         }
     }
 

@@ -24,8 +24,9 @@ public class MainActivity extends AppCompatActivity implements NavigationDrawerF
         super.onCreate(savedInstanceState);
 
         if (PreferencesManager.get().getProfile().getUserId() == -1) {
-            startActivity(new Intent(this, SplashScreenActivity.class));
-            finish();
+            Intent intent = new Intent(this, SplashScreenActivity.class);
+            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+            startActivity(intent);
         }
 
         setContentView(R.layout.homepage);
@@ -79,9 +80,6 @@ public class MainActivity extends AppCompatActivity implements NavigationDrawerF
         actionBar.setDisplayShowTitleEnabled(true);
         actionBar.setTitle(mTitle);
     }
-
-    @Override
-    public void onBackPressed() {}
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

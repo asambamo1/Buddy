@@ -84,13 +84,17 @@ public class ConnectionsActivity extends StandardActivity implements SwipeRefres
             loadingConnections.setVisibility(View.GONE);
             fetchNewConnections.setVisibility(View.VISIBLE);
             fetchNewConnections.setRefreshing(false);
-            if (response.getUserThumbnailsList() == null)
+            if (response.getUserThumbnailsList() == null) {
                 FormUtils.showSnackbar(parent, getString(R.string.connections_fetch_fail));
-            else if (response.getUserThumbnailsList().size() == 0) {
-                noConnections.setVisibility(View.VISIBLE);
-            } else {
-                noConnections.setVisibility(View.GONE);
+            }
+            else {
                 connectionsAdapter.setSuggestions(response.getUserThumbnailsList());
+            }
+            if (connectionsAdapter.getCount() == 0) {
+                noConnections.setVisibility(View.VISIBLE);
+            }
+            else {
+                noConnections.setVisibility(View.GONE);
             }
         }
     }
