@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="received">received</string>
+    <string name="sent">sent</string>
+    <string-array name="request_types">
+        <item>@string/received</item>
+        <item>@string/sent</item>
+    </string-array>
+
+    <string name="no_requests">No connection requests to display.</string>
+    <string name="requests_fetch_fail">We failed to fetch your connection requests. Please try again later.</string>
+
+    <!-- Icons -->
+    <string name="check_icon">{fa-check}</string>
+    <string name="x_icon">{fa-times}</string>
+    <string name="ellipsis_icon">{fa-ellipsis-h}</string>
+</resources>

@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/parent"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:padding="15dp">
+
+        <TextView
+            android:text="@string/autofill_hint"
+            style="@style/onboarding_instructions_style"/>
+
+        <FrameLayout style="@style/input_container_style">
+            <EditText
+                android:id="@+id/username_input"
+                android:hint="@string/login_hint"
+                android:imeOptions="actionNext"
+                android:paddingRight="35dp"
+                style="@style/profile_input"/>
+
+            <com.joanzapata.iconify.widget.IconTextView
+                android:text="@string/profile_icon"
+                style="@style/user_data_icon"/>
+
+            <com.joanzapata.iconify.widget.IconTextView
+                android:id="@+id/autofill_phone"
+                android:text="@string/phone_icon"
+                style="@style/user_data_icon"
+                android:layout_gravity="end|center_vertical"/>
+        </FrameLayout>
+
+        <FrameLayout style="@style/input_container_style">
+            <EditText
+                android:id="@+id/password_input"
+                android:inputType="textPassword"
+                android:hint="@string/password_hint"
+                android:imeOptions="actionDone"
+                style="@style/profile_input"/>
+
+            <com.joanzapata.iconify.widget.IconTextView
+                android:text="@string/lock_icon"
+                style="@style/user_data_icon"/>
+        </FrameLayout>
+
+        <com.rey.material.widget.Button
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/login"
+            style="@style/ripple_button_style"
+            android:layout_marginTop="15dp"
+            android:text="@string/log_in"
+            app:rd_style="@style/button_ripple_attributes"/>
+    </LinearLayout>
+</android.support.design.widget.CoordinatorLayout>

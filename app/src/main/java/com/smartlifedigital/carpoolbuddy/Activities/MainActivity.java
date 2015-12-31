@@ -1,0 +1,101 @@
+package com.smartlifedigital.carpoolbuddy.Activities;
+
+import android.app.FragmentManager;
+import android.content.Intent;
+import android.os.Bundle;
+import android.support.v4.widget.DrawerLayout;
+import android.support.v7.app.ActionBar;
+import android.support.v7.app.AppCompatActivity;
+import android.view.Menu;
+import android.view.MenuItem;
+
+import com.smartlifedigital.carpoolbuddy.Activities.Onboarding.SplashScreenActivity;
+import com.smartlifedigital.carpoolbuddy.Fragments.NavigationDrawerFragment;
+import com.smartlifedigital.carpoolbuddy.Fragments.SuggestionsFragment;
+import com.smartlifedigital.carpoolbuddy.R;
+import com.smartlifedigital.carpoolbuddy.Utils.PreferencesManager;
+
+/**
+ * Created by Aravind on 12/21/2015.
+ */
+public class MainActivity extends AppCompatActivity implements NavigationDrawerFragment.NavigationDrawerCallbacks {
+    private NavigationDrawerFragment mNavigationDrawerFragment;
+    private CharSequence mTitle;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+
+        if (PreferencesManager.get().getProfile().getUserId() == -1) {
+            Intent intent = new Intent(this, SplashScreenActivity.class);
+            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+            startActivity(intent);
+        }
+
+        setContentView(R.layout.homepage);
+        mNavigationDrawerFragment = (NavigationDrawerFragment)
+                getSupportFragmentManager().findFragmentById(R.id.navigation_drawer);
+        mTitle = getTitle();
+
+        // Set up the drawer.
+        mNavigationDrawerFragment.setUp(R.id.navigation_drawer, (DrawerLayout) findViewById(R.id.drawer_layout));
+
+        FragmentManager fragmentManager = getFragmentManager();
+        SuggestionsFragment suggestionsFragment = new SuggestionsFragment();
+        fragmentManager.beginTransaction().replace(R.id.container, suggestionsFragment).commit();
+    }
+
+    @Override
+    public void startActivityForResult(Intent intent, int requestCode) {
+        super.startActivityForResult(intent, requestCode);
+        overridePendingTransition(R.anim.slide_left_out, R.anim.slide_left_in);
+    }
+
+    @Override
+    public void finish() {
+        super.finish();
+        overridePendingTransition(R.anim.slide_right_out, R.anim.slide_right_in);
+    }
+
+    @Override
+    public void onNavigationDrawerItemSelected(int position) {
+        Intent intent = null;
+        switch (position) {
+            case 0:
+                intent = new Intent(this, MyProfileActivity.class);
+                break;
+            case 1:
+                intent = new Intent(this, RequestsActivity.class);
+                break;
+            case 2:
+                intent = new Intent(this, ConnectionsActivity.class);
+                break;
+            case 3:
+                intent = new Intent(this, SettingsActivity.class);
+                break;
+        }
+        startActivity(intent);
+    }
+
+    public void restoreActionBar() {
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_STANDARD);
+        actionBar.setDisplayShowTitleEnabled(true);
+        actionBar.setTitle(mTitle);
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        if (!mNavigationDrawerFragment.isDrawerOpen()) {
+            getMenuInflater().inflate(R.menu.menu_main, menu);
+            restoreActionBar();
+            return true;
+        }
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        return super.onOptionsItemSelected(item);
+    }
+}

@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/parent"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="15dp">
+
+            <TextView
+                android:text="@string/about_me_instructions"
+                style="@style/onboarding_instructions_style"/>
+
+            <FrameLayout style="@style/input_container_style">
+                <EditText
+                    android:id="@+id/name_input"
+                    android:inputType="textPersonName"
+                    android:hint="@string/name_hint"
+                    android:maxLength="32"
+                    style="@style/profile_input"/>
+
+                <com.joanzapata.iconify.widget.IconTextView
+                    android:text="@string/profile_icon"
+                    style="@style/user_data_icon"/>
+            </FrameLayout>
+
+            <FrameLayout style="@style/input_container_style">
+                <EditText
+                    android:id="@+id/about_me_input"
+                    android:hint="@string/about_me_hint"
+                    android:singleLine="false"
+                    android:lines="4"
+                    android:maxLength="1024"
+                    style="@style/profile_input"/>
+
+                <com.joanzapata.iconify.widget.IconTextView
+                    android:text="@string/about_me_icon"
+                    style="@style/user_data_icon" />
+            </FrameLayout>
+
+            <com.rey.material.widget.Button
+                android:id="@+id/next"
+                style="@style/ripple_button_style"
+                android:layout_marginTop="15dp"
+                android:text="@string/next"
+                app:rd_style="@style/button_ripple_attributes" />
+        </LinearLayout>
+    </ScrollView>
+</android.support.design.widget.CoordinatorLayout>

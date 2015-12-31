@@ -4,20 +4,24 @@
     <string name="navigation_drawer_close">Close navigation drawer</string>
 
     <string name="my_profile">My Profile</string>
+    <string name="requests">Requests</string>
     <string name="connections">Connections</string>
     <string name="settings">Settings</string>
     <string-array name="nav_drawer_tabs">
         <item>@string/my_profile</item>
+        <item>@string/requests</item>
         <item>@string/connections</item>
         <item>@string/settings</item>
     </string-array>
 
     <!-- Font Awesome icons -->
     <string name="profile_icon">{fa-user}</string>
-    <string name="connections_icon">{fa-user-plus}</string>
+    <string name="requests_icon">{fa-user-plus}</string>
+    <string name="connections_icon">{fa-users}</string>
     <string name="settings_icon">{fa-gear}</string>
     <string-array name="nav_drawer_icons">
         <item>@string/profile_icon</item>
+        <item>@string/requests_icon</item>
         <item>@string/connections_icon</item>
         <item>@string/settings_icon</item>
     </string-array>

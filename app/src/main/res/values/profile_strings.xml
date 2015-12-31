@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="profile">Profile</string>
+    <string name="none_added">None added.</string>
+    <string name="profile_fetch_fail">We failed to fetch this user\'s profile. Please try again later.</string>
+    <string name="lets_carpool">Let\'s carpool!</string>
+
+    <string name="connect">Connect</string>
+    <string name="connected">Connected</string>
+    <string name="accept">Accept</string>
+    <string name="reject">Reject</string>
+    <string name="pending">Pending</string>
+    <string name="rejected">Rejected</string>
+    <string name="undo_rejection_title">Undo rejection</string>
+    <string name="undo_rejection_body">Would you like to reverse your decision
+        and accept this user as a connection?</string>
+
+    <string name="sending_request">Sending connection request&#8230;</string>
+    <string name="accepting_request">Accepting connection request&#8230;</string>
+    <string name="rejecting_request">Rejecting connection request&#8230;</string>
+
+    <string name="status_change_fail">We failed to process your request. Please try again later.</string>
+</resources>

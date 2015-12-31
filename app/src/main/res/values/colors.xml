@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="app_blue">#2196F3</color>
-    <color name="light_blue">#90CAF9</color>
+    <color name="app_blue">#1E88E5</color>
+    <color name="dark_blue">#1565C0</color>
     <color name="white">#FFFFFF</color>
     <color name="dark_gray">#696969</color>
     <color name="light_gray">#ECEFF1</color>
@@ -9,5 +9,5 @@
     <color name="red">#F44336</color>
     <color name="green">#4CAF50</color>
     <color name="yellow">#FFEB3B</color>
-    <color name="twitter_blue">#0277BD</color>
+    <color name="gold">#FFC107</color>
 </resources>

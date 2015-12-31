@@ -1,4 +1,4 @@
-package com.randomappsinc.blanknavigationdrawer;
+package com.randomappsinc.carpoolbuddy;
 
 import org.junit.Test;
 
