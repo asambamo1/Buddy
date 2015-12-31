@@ -2,11 +2,7 @@
     <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
         <item name="colorPrimary">@color/app_blue</item>
-<<<<<<< HEAD
         <item name="colorPrimaryDark">@color/dark_blue</item>
-=======
-        <item name="colorPrimaryDark">@color/app_blue</item>
->>>>>>> refs/remotes/origin/master
         <item name="colorAccent">@color/app_blue</item>
     </style>
 
