@@ -5,7 +5,6 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 
-import com.afollestad.materialdialogs.MaterialDialog;
 import com.randomappsinc.blanknavigationdrawer.API.Models.User;
 import com.randomappsinc.blanknavigationdrawer.Activities.StandardActivity;
 import com.randomappsinc.blanknavigationdrawer.R;
@@ -18,10 +17,8 @@ import butterknife.OnClick;
 
 public class LocationActivity extends StandardActivity {
     @Bind(R.id.parent) View parent;
-    @Bind(R.id.village_input) EditText villageInput;
+    @Bind(R.id.home_input) EditText homeInput;
     @Bind(R.id.work_input) EditText workInput;
-
-    private int currentVillageIndex;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,37 +28,20 @@ public class LocationActivity extends StandardActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
 
-    @OnClick(R.id.village_input)
-    public void chooseVillage(View view) {
-        new MaterialDialog.Builder(this)
-                .title(R.string.villages)
-                .items(R.array.villages)
-                .itemsCallbackSingleChoice(currentVillageIndex, new MaterialDialog.ListCallbackSingleChoice() {
-                    @Override
-                    public boolean onSelection(MaterialDialog dialog, View view, int which, CharSequence text) {
-                        currentVillageIndex = which;
-                        villageInput.setText(text);
-                        return true;
-                    }
-                })
-                .positiveText(R.string.choose)
-                .show();
-    }
-
     @OnClick(R.id.next)
     public void nextPage(View view) {
-        String enteredVillage = villageInput.getText().toString();
-        String zipInput = workInput.getText().toString();
-        if (enteredVillage.isEmpty()) {
-            FormUtils.showSnackbar(parent, getString(R.string.no_village));
+        String homeZip = homeInput.getText().toString();
+        String workZip = workInput.getText().toString();
+        if (homeZip.isEmpty() || homeZip.length() < 5) {
+            FormUtils.showSnackbar(parent, getString(R.string.invalid_home_zip));
         }
-        else if (zipInput.isEmpty() || zipInput.length() < 5) {
-            FormUtils.showSnackbar(parent, getString(R.string.invalid_zip));
+        else if (workZip.isEmpty() || workZip.length() < 5) {
+            FormUtils.showSnackbar(parent, getString(R.string.invalid_work_zip));
         }
         else {
             User user = new User();
-            user.setVillage(enteredVillage);
-            user.setZipCode(Integer.parseInt(zipInput));
+            user.setHomeZip(Integer.parseInt(homeZip));
+            user.setWorkZip(Integer.parseInt(workZip));
 
             Intent intent = new Intent(this, AboutMeActivity.class);
             intent.putExtra(Constants.USER_KEY, user);

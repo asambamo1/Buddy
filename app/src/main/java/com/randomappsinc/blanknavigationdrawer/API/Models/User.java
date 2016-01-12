@@ -8,6 +8,7 @@ import com.google.gson.annotations.SerializedName;
 
 /**
  * Created by alexanderchiou on 12/25/15.
+ * Used for create account
  */
 public class User implements Parcelable {
     @SerializedName("user_id")
@@ -22,13 +23,17 @@ public class User implements Parcelable {
     @Expose
     private String aboutMe;
 
-    @SerializedName("village")
+    @SerializedName("src_zip")
     @Expose
-    private String village;
+    private int homeZip;
 
-    @SerializedName("zip_code")
+    @SerializedName("dest_zip")
     @Expose
-    private int zipCode;
+    private int workZip;
+
+    @SerializedName("gender")
+    @Expose
+    private String gender;
 
     @SerializedName("phone_number")
     @Expose
@@ -66,20 +71,28 @@ public class User implements Parcelable {
         this.aboutMe = aboutMe;
     }
 
-    public String getVillage() {
-        return village;
+    public int getHomeZip() {
+        return homeZip;
     }
 
-    public void setVillage(String village) {
-        this.village = village;
+    public void setHomeZip(int homeZip) {
+        this.homeZip = homeZip;
     }
 
-    public int getZipCode() {
-        return zipCode;
+    public int getWorkZip() {
+        return workZip;
     }
 
-    public void setZipCode(int zipCode) {
-        this.zipCode = zipCode;
+    public void setWorkZip(int workZip) {
+        this.workZip = workZip;
+    }
+
+    public String getGender() {
+        return gender;
+    }
+
+    public void setGender(String gender) {
+        this.gender = gender;
     }
 
     public String getPhoneNumber() {
@@ -98,10 +111,6 @@ public class User implements Parcelable {
         this.email = email;
     }
 
-    public String getPassword() {
-        return password;
-    }
-
     public void setPassword(String password) {
         this.password = password;
     }
@@ -112,8 +121,9 @@ public class User implements Parcelable {
         userId = in.readLong();
         name = in.readString();
         aboutMe = in.readString();
-        village = in.readString();
-        zipCode = in.readInt();
+        gender = in.readString();
+        homeZip = in.readInt();
+        workZip = in.readInt();
         phoneNumber = in.readString();
         email = in.readString();
         password = in.readString();
@@ -129,8 +139,9 @@ public class User implements Parcelable {
         dest.writeLong(userId);
         dest.writeString(name);
         dest.writeString(aboutMe);
-        dest.writeString(village);
-        dest.writeInt(zipCode);
+        dest.writeString(gender);
+        dest.writeInt(homeZip);
+        dest.writeInt(workZip);
         dest.writeString(phoneNumber);
         dest.writeString(email);
         dest.writeString(password);

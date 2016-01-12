@@ -53,7 +53,7 @@ public class RequestsAdapter extends BaseAdapter {
 
     public class RequestViewHolder {
         @Bind(R.id.suggestion_name) TextView name;
-        @Bind(R.id.village) TextView village;
+        @Bind(R.id.home_zip) TextView homeZip;
         @Bind(R.id.work_zip) TextView workZip;
         @Bind(R.id.status_icon) IconTextView statusIcon;
         @Bind(R.id.status) TextView status;
@@ -77,8 +77,8 @@ public class RequestsAdapter extends BaseAdapter {
             holder = (RequestViewHolder) view.getTag();
         }
         holder.name.setText(getItem(position).getName());
-        holder.village.setText(getItem(position).getVillage());
-        holder.workZip.setText(String.valueOf(getItem(position).getZipCode()));
+        holder.homeZip.setText(String.valueOf(getItem(position).getHomeZip()));
+        holder.workZip.setText(String.valueOf(getItem(position).getWorkZip()));
         holder.statusContainer.setVisibility(View.VISIBLE);
 
         switch(getItem(position).getStatus()) {

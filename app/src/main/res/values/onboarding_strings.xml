@@ -13,7 +13,8 @@
     <string name="password_instructions">You made it! Finally, set a password for your Carpool Buddy account.</string>
     <string name="autofill_hint">You can click on the phone icon to auto-fill your phone number.</string>
 
-    <string name="village_hint">Village</string>
+    <string name="gender_hint">Gender</string>
+    <string name="home_hint">Home ZIP code</string>
     <string name="work_hint">Work ZIP code</string>
     <string name="name_hint">Name</string>
     <string name="about_me_hint">About Me (What time you leave for work, what time you get off work,
@@ -24,18 +25,15 @@
     <string name="password_hint">Password</string>
     <string name="confirm_password_hint">Confirm password</string>
 
-    <string name="villages">Villages</string>
-    <string-array name="villages">
-        <item>Wicklund</item>
-        <item>Bethany</item>
-        <item>Altamont</item>
-        <item>Questa</item>
-        <item>Hansen</item>
+    <string-array name="genders">
+        <item>Male</item>
+        <item>Female</item>
     </string-array>
     <string name="choose">Choose</string>
 
     <string name="home_icon">{fa-home}</string>
     <string name="work_icon">{fa-building}</string>
+    <string name="gender_icon">{fa-intersex}</string>
     <string name="about_me_icon">{fa-info-circle}</string>
     <string name="phone_icon">{fa-phone}</string>
     <string name="lock_icon">{fa-lock}</string>
@@ -47,8 +45,8 @@
     <string name="creating_your_account">Creating your account&#8230;</string>
 
     <!-- Invalid input messages -->
-    <string name="no_village">Please enter in your village.</string>
-    <string name="invalid_zip">Please enter in a 5 digit ZIP code for your work.</string>
+    <string name="invalid_home_zip">Please enter in a 5 digit ZIP code for your home.</string>
+    <string name="invalid_work_zip">Please enter in a 5 digit ZIP code for your work.</string>
     <string name="no_name">Please enter in your name.</string>
     <string name="no_about_me">Please tell us a little bit about yourself.</string>
     <string name="no_contact_info">Please give us at least 1 piece of your contact information.</string>

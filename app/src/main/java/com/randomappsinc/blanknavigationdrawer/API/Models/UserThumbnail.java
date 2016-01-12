@@ -16,13 +16,17 @@ public class UserThumbnail {
     @Expose
     private String name;
 
-    @SerializedName("village")
+    @SerializedName("src_zip")
     @Expose
-    private String village;
+    private int homeZip;
 
-    @SerializedName("zip_code")
+    @SerializedName("dest_zip")
     @Expose
-    private int zipCode;
+    private int workZip;
+
+    @SerializedName("gender")
+    @Expose
+    private String gender;
 
     @SerializedName("status")
     @Expose
@@ -36,12 +40,16 @@ public class UserThumbnail {
         return name;
     }
 
-    public String getVillage() {
-        return village;
+    public int getWorkZip() {
+        return workZip;
     }
 
-    public int getZipCode() {
-        return zipCode;
+    public int getHomeZip() {
+        return homeZip;
+    }
+
+    public String getGender() {
+        return gender;
     }
 
     public String getStatus() {
