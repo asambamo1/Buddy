@@ -16,9 +16,13 @@ public class Profile {
     @Expose
     private String aboutMe;
 
-    @SerializedName("village")
+    @SerializedName("src_zip")
     @Expose
-    private String village;
+    private int homeZip;
+
+    @SerializedName("dest_zip")
+    @Expose
+    private int workZip;
 
     @SerializedName("phone_number")
     @Expose
@@ -28,13 +32,13 @@ public class Profile {
     @Expose
     private String email;
 
-    @SerializedName("zip_code")
-    @Expose
-    private int zipCode;
-
     @SerializedName("status")
     @Expose
     private String status;
+
+    @SerializedName("gender")
+    @Expose
+    private String gender;
 
     public String getName() {
         return name;
@@ -44,8 +48,12 @@ public class Profile {
         return aboutMe;
     }
 
-    public String getVillage() {
-        return village;
+    public int getHomeZip() {
+        return homeZip;
+    }
+
+    public int getWorkZip() {
+        return workZip;
     }
 
     public String getPhoneNumber() {
@@ -56,11 +64,11 @@ public class Profile {
         return email;
     }
 
-    public int getZipCode() {
-        return zipCode;
-    }
-
     public String getStatus() {
         return status;
+    }
+
+    public String getGender() {
+        return gender;
     }
 }

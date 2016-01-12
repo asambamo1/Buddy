@@ -36,6 +36,19 @@
 
             <FrameLayout style="@style/input_container_style">
                 <EditText
+                    android:id="@+id/gender_input"
+                    android:hint="@string/gender_hint"
+                    android:focusable="false"
+                    android:focusableInTouchMode="false"
+                    style="@style/profile_input"/>
+
+                <com.joanzapata.iconify.widget.IconTextView
+                    android:text="@string/gender_icon"
+                    style="@style/user_data_icon"/>
+            </FrameLayout>
+
+            <FrameLayout style="@style/input_container_style">
+                <EditText
                     android:id="@+id/about_me_input"
                     android:hint="@string/about_me_hint"
                     android:singleLine="false"

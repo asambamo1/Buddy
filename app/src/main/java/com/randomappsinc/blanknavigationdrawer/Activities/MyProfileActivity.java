@@ -28,13 +28,14 @@ public class MyProfileActivity extends StandardActivity {
 
     @Bind(R.id.parent) View parent;
     @Bind(R.id.name_input) EditText nameInput;
+    @Bind(R.id.gender_input) EditText genderInput;
     @Bind(R.id.about_me_input) EditText aboutMeInput;
-    @Bind(R.id.village_input) EditText villageInput;
+    @Bind(R.id.home_input) EditText homeZipInput;
     @Bind(R.id.work_input) EditText workZipInput;
     @Bind(R.id.email_input) EditText emailInput;
     @Bind(R.id.phone_input) EditText phoneInput;
 
-    private int currentVillageIndex;
+    private int currentGenderIndex;
     private String lastSeenPhoneNumber;
     private MaterialDialog progressDialog;
 
@@ -47,13 +48,14 @@ public class MyProfileActivity extends StandardActivity {
 
         User user = PreferencesManager.get().getProfile();
         nameInput.setText(user.getName());
+        genderInput.setText(user.getGender());
         aboutMeInput.setText(user.getAboutMe());
-        villageInput.setText(user.getVillage());
-        workZipInput.setText(String.valueOf(user.getZipCode()));
+        homeZipInput.setText(String.valueOf(user.getHomeZip()));
+        workZipInput.setText(String.valueOf(user.getWorkZip()));
         emailInput.setText(user.getEmail());
         phoneInput.setText(user.getPhoneNumber());
 
-        currentVillageIndex = FormUtils.getVillageIndex(user.getVillage());
+        currentGenderIndex = FormUtils.getGenderIndex(user.getGender());
 
         progressDialog = new MaterialDialog.Builder(this)
                 .content(R.string.updating_your_profile)
@@ -62,21 +64,38 @@ public class MyProfileActivity extends StandardActivity {
                 .build();
     }
 
-    @OnClick(R.id.village_input)
-    public void chooseVillage(View view) {
+    @OnClick(R.id.gender_input)
+    public void chooseGender(View view) {
         new MaterialDialog.Builder(this)
-                .title(R.string.villages)
-                .items(R.array.villages)
-                .itemsCallbackSingleChoice(currentVillageIndex, new MaterialDialog.ListCallbackSingleChoice() {
+                .items(R.array.genders)
+                .itemsCallbackSingleChoice(currentGenderIndex, new MaterialDialog.ListCallbackSingleChoice() {
                     @Override
                     public boolean onSelection(MaterialDialog dialog, View view, int which, CharSequence text) {
-                        currentVillageIndex = which;
-                        villageInput.setText(text);
+                        currentGenderIndex = which;
+                        genderInput.setText(text);
                         return true;
                     }
                 })
                 .positiveText(R.string.choose)
                 .show();
+    }
+
+    @OnClick({R.id.autofill_home, R.id.autofill_work})
+    public void autoFillCurrentZip(View view) {
+        String currentZip = FormUtils.getCurrentZip();
+        if (currentZip.isEmpty()) {
+            FormUtils.showSnackbar(parent, getString(R.string.need_gps));
+        }
+        else {
+            switch (view.getId()) {
+                case R.id.autofill_home:
+                    homeZipInput.setText(currentZip);
+                    break;
+                case R.id.autofill_work:
+                    workZipInput.setText(currentZip);
+                    break;
+            }
+        }
     }
 
     @OnTextChanged(value = R.id.phone_input, callback = OnTextChanged.Callback.AFTER_TEXT_CHANGED)
@@ -91,6 +110,7 @@ public class MyProfileActivity extends StandardActivity {
 
     @OnClick(R.id.save_changes)
     public void saveChanges(View view) {
+        String enteredHomeZip = homeZipInput.getText().toString();
         String enteredWorkZip = workZipInput.getText().toString();
         String enteredEmail = emailInput.getText().toString();
         String enteredPhoneNumber = phoneInput.getText().toString();
@@ -100,8 +120,11 @@ public class MyProfileActivity extends StandardActivity {
         else if (aboutMeInput.getText().toString().isEmpty()) {
             FormUtils.showSnackbar(parent, getString(R.string.no_about_me));
         }
+        else if (enteredHomeZip.isEmpty() || enteredHomeZip.length() < 5) {
+            FormUtils.showSnackbar(parent, getString(R.string.invalid_work_zip));
+        }
         else if (enteredWorkZip.isEmpty() || enteredWorkZip.length() < 5) {
-            FormUtils.showSnackbar(parent, getString(R.string.invalid_zip));
+            FormUtils.showSnackbar(parent, getString(R.string.invalid_work_zip));
         }
         else if (!enteredEmail.isEmpty() && !FormUtils.isValidEmailAddress(enteredEmail)) {
             FormUtils.showSnackbar(parent, getString(R.string.invalid_email));
@@ -119,9 +142,10 @@ public class MyProfileActivity extends StandardActivity {
             User user = new User();
             user.setUserId(PreferencesManager.get().getProfile().getUserId());
             user.setName(nameInput.getText().toString());
+            user.setGender(genderInput.getText().toString());
             user.setAboutMe(aboutMeInput.getText().toString());
-            user.setVillage(villageInput.getText().toString());
-            user.setZipCode(Integer.parseInt(enteredWorkZip));
+            user.setHomeZip(Integer.parseInt(enteredHomeZip));
+            user.setWorkZip(Integer.parseInt(enteredWorkZip));
             user.setEmail(enteredEmail);
             user.setPhoneNumber(enteredPhoneNumber.replaceAll("[^0-9]+", ""));
 

@@ -42,9 +42,10 @@ public class PreferencesManager {
 
     public void setProfile(User user) {
         prefs.edit().putLong(Constants.USER_ID_KEY, user.getUserId()).apply();
-        prefs.edit().putString(Constants.VILLAGE_KEY, user.getVillage()).apply();
-        prefs.edit().putInt(Constants.WORK_ZIP_KEY, user.getZipCode()).apply();
+        prefs.edit().putInt(Constants.HOME_ZIP_KEY, user.getHomeZip()).apply();
+        prefs.edit().putInt(Constants.WORK_ZIP_KEY, user.getWorkZip()).apply();
         prefs.edit().putString(Constants.NAME_KEY, user.getName()).apply();
+        prefs.edit().putString(Constants.GENDER_KEY, user.getGender()).apply();
         prefs.edit().putString(Constants.ABOUT_ME_KEY, user.getAboutMe()).apply();
         prefs.edit().putString(Constants.EMAIL_KEY, user.getEmail()).apply();
         prefs.edit().putString(Constants.PHONE_NUMBER_KEY, user.getPhoneNumber()).apply();
@@ -54,9 +55,10 @@ public class PreferencesManager {
         User user = new User();
 
         user.setUserId(prefs.getLong(Constants.USER_ID_KEY, -1));
-        user.setVillage(prefs.getString(Constants.VILLAGE_KEY, ""));
-        user.setZipCode(prefs.getInt(Constants.WORK_ZIP_KEY, 0));
+        user.setHomeZip(prefs.getInt(Constants.HOME_ZIP_KEY, 0));
+        user.setWorkZip(prefs.getInt(Constants.WORK_ZIP_KEY, 0));
         user.setName(prefs.getString(Constants.NAME_KEY, ""));
+        user.setGender(prefs.getString(Constants.GENDER_KEY, ""));
         user.setAboutMe(prefs.getString(Constants.ABOUT_ME_KEY, ""));
         user.setEmail(prefs.getString(Constants.EMAIL_KEY, NONE_ADDED));
         user.setPhoneNumber(prefs.getString(Constants.PHONE_NUMBER_KEY, NONE_ADDED));

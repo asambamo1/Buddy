@@ -5,7 +5,8 @@
 
     <string name="create_account">Create Account</string>
     <string name="welcome_message">Welcome to Carpool Buddy!
-        To start, enter in the village you live in and the ZIP code of your work place.</string>
+        To start, tell us where you live and where you work.
+        Click the map markers to auto-fill the ZIP of your current location.</string>
     <string name="about_me_instructions">Now tell us a little bit about yourself.
         This will help you get matched with people compatible with you.</string>
     <string name="contact_info_instructions">Let us know how carpool matches can contact you
@@ -13,29 +14,28 @@
     <string name="password_instructions">You made it! Finally, set a password for your Carpool Buddy account.</string>
     <string name="autofill_hint">You can click on the phone icon to auto-fill your phone number.</string>
 
-    <string name="village_hint">Village</string>
+    <string name="gender_hint">Gender</string>
+    <string name="home_hint">Home ZIP code</string>
     <string name="work_hint">Work ZIP code</string>
     <string name="name_hint">Name</string>
     <string name="about_me_hint">About Me (What time you leave for work, what time you get off work,
-        your interests/hobbies, etc)</string>
+        your interests/hobbies, what part of town you live in, etc)</string>
     <string name="email_hint">Email</string>
     <string name="phone_hint">Phone Number</string>
     <string name="login_hint">Phone number or email</string>
     <string name="password_hint">Password</string>
     <string name="confirm_password_hint">Confirm password</string>
 
-    <string name="villages">Villages</string>
-    <string-array name="villages">
-        <item>Wicklund</item>
-        <item>Bethany</item>
-        <item>Altamont</item>
-        <item>Questa</item>
-        <item>Hansen</item>
+    <string-array name="genders">
+        <item>Male</item>
+        <item>Female</item>
     </string-array>
     <string name="choose">Choose</string>
 
     <string name="home_icon">{fa-home}</string>
     <string name="work_icon">{fa-building}</string>
+    <string name="location_icon">{fa-map-marker}</string>
+    <string name="gender_icon">{fa-intersex}</string>
     <string name="about_me_icon">{fa-info-circle}</string>
     <string name="phone_icon">{fa-phone}</string>
     <string name="lock_icon">{fa-lock}</string>
@@ -47,9 +47,11 @@
     <string name="creating_your_account">Creating your account&#8230;</string>
 
     <!-- Invalid input messages -->
-    <string name="no_village">Please enter in your village.</string>
-    <string name="invalid_zip">Please enter in a 5 digit ZIP code for your work.</string>
+    <string name="invalid_home_zip">Please enter in a 5 digit ZIP code for your home.</string>
+    <string name="invalid_work_zip">Please enter in a 5 digit ZIP code for your work.</string>
+    <string name="need_gps">Please enable location services and allow the app to access your location.</string>
     <string name="no_name">Please enter in your name.</string>
+    <string name="no_gender">Please enter in your gender.</string>
     <string name="no_about_me">Please tell us a little bit about yourself.</string>
     <string name="no_contact_info">Please give us at least 1 piece of your contact information.</string>
     <string name="invalid_email">Please enter in a valid email address.</string>

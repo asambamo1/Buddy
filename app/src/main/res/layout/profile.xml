@@ -77,7 +77,7 @@
                 android:background="@color/white"
                 android:padding="15dp">
 
-                <TextView
+                <com.joanzapata.iconify.widget.IconTextView
                     android:id="@+id/name"
                     style="@style/profile_text"
                     android:layout_gravity="center_horizontal"
@@ -108,7 +108,7 @@
                             style="@style/user_data_icon"/>
 
                         <TextView
-                            android:id="@+id/village"
+                            android:id="@+id/home_zip"
                             style="@style/profile_text"/>
                     </LinearLayout>
 

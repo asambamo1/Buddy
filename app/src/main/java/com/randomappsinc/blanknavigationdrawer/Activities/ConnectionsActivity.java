@@ -44,7 +44,7 @@ public class ConnectionsActivity extends StandardActivity implements SwipeRefres
         EventBus.getDefault().register(this);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        noConnections.setText(R.string.no_suggestions);
+        noConnections.setText(R.string.no_connections);
         connectionsAdapter = new UserThumbnailsAdapter(this);
         connections.setAdapter(connectionsAdapter);
         fetchNewConnections.setColorSchemeResources(R.color.red, R.color.yellow, R.color.green, R.color.app_blue);

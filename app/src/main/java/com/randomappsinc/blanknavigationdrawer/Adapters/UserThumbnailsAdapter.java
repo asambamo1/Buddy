@@ -7,8 +7,10 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 
+import com.joanzapata.iconify.widget.IconTextView;
 import com.randomappsinc.blanknavigationdrawer.API.Models.UserThumbnail;
 import com.randomappsinc.blanknavigationdrawer.R;
+import com.randomappsinc.blanknavigationdrawer.Utils.FormUtils;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -50,8 +52,8 @@ public class UserThumbnailsAdapter extends BaseAdapter {
     }
 
     public class UserThumbnailViewHolder {
-        @Bind(R.id.suggestion_name) TextView name;
-        @Bind(R.id.village) TextView village;
+        @Bind(R.id.suggestion_name) IconTextView name;
+        @Bind(R.id.home_zip) TextView homeZip;
         @Bind(R.id.work_zip) TextView workZip;
 
         public UserThumbnailViewHolder(View view) {
@@ -71,9 +73,11 @@ public class UserThumbnailsAdapter extends BaseAdapter {
         else {
             holder = (UserThumbnailViewHolder) view.getTag();
         }
-        holder.name.setText(getItem(position).getName());
-        holder.village.setText(getItem(position).getVillage());
-        holder.workZip.setText(String.valueOf(getItem(position).getZipCode()));
+        UserThumbnail suggestion = getItem(position);
+        String nameTag = suggestion.getName() + "  " + FormUtils.getGenderIcon(suggestion.getGender());
+        holder.name.setText(nameTag);
+        holder.homeZip.setText(String.valueOf(suggestion.getHomeZip()));
+        holder.workZip.setText(String.valueOf(suggestion.getWorkZip()));
         return view;
     }
 }

@@ -22,7 +22,7 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <TextView
+            <com.joanzapata.iconify.widget.IconTextView
                 android:id="@+id/suggestion_name"
                 style="@style/profile_text"
                 android:layout_gravity="center_horizontal"
@@ -44,7 +44,7 @@
                         style="@style/user_data_icon"/>
 
                     <TextView
-                        android:id="@+id/village"
+                        android:id="@+id/home_zip"
                         style="@style/profile_text"/>
                 </LinearLayout>
 

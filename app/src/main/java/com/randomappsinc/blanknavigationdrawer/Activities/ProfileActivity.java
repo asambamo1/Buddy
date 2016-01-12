@@ -9,6 +9,7 @@ import android.widget.TextView;
 
 import com.afollestad.materialdialogs.DialogAction;
 import com.afollestad.materialdialogs.MaterialDialog;
+import com.joanzapata.iconify.widget.IconTextView;
 import com.randomappsinc.blanknavigationdrawer.API.Callbacks.ProfileCallback;
 import com.randomappsinc.blanknavigationdrawer.API.Callbacks.StatusChangeCallback;
 import com.randomappsinc.blanknavigationdrawer.API.Models.Events.ProfileEvent;
@@ -34,9 +35,9 @@ public class ProfileActivity extends StandardActivity {
     @Bind(R.id.parent) View parent;
     @Bind(R.id.loading) View loading;
     @Bind(R.id.profile) View profile;
-    @Bind(R.id.name) TextView name;
+    @Bind(R.id.name) IconTextView name;
     @Bind(R.id.about_me) TextView aboutMe;
-    @Bind(R.id.village) TextView village;
+    @Bind(R.id.home_zip) TextView homeZip;
     @Bind(R.id.work_zip) TextView workZip;
     @Bind(R.id.email_container) View emailContainer;
     @Bind(R.id.email) TextView email;
@@ -86,19 +87,22 @@ public class ProfileActivity extends StandardActivity {
             currentStatus = userProfile.getStatus();
             processStatus();
             profile.setVisibility(View.VISIBLE);
-            name.setText(response.getProfile().getName());
-            aboutMe.setText(response.getProfile().getAboutMe());
-            village.setText(response.getProfile().getVillage());
-            workZip.setText(String.valueOf(response.getProfile().getZipCode()));
 
-            String userEmail = response.getProfile().getEmail().isEmpty()
+            Profile profile = response.getProfile();
+            String nameTag = profile.getName() + "  " + FormUtils.getGenderIcon(profile.getGender());
+            name.setText(nameTag);
+            aboutMe.setText(profile.getAboutMe());
+            homeZip.setText(String.valueOf(profile.getHomeZip()));
+            workZip.setText(String.valueOf(profile.getWorkZip()));
+
+            String userEmail = profile.getEmail().isEmpty()
                     ? getString(R.string.none_added)
-                    : response.getProfile().getEmail();
+                    : profile.getEmail();
             email.setText(userEmail);
 
-            String userPhoneNumber = response.getProfile().getPhoneNumber().isEmpty()
+            String userPhoneNumber = profile.getPhoneNumber().isEmpty()
                     ? getString(R.string.none_added)
-                    : FormUtils.formatUSNumber(response.getProfile().getPhoneNumber());
+                    : FormUtils.formatUSNumber(profile.getPhoneNumber());
             phoneNumber.setText(userPhoneNumber);
         }
     }
