@@ -28,6 +28,24 @@ public class LocationActivity extends StandardActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
 
+    @OnClick({R.id.autofill_home, R.id.autofill_work})
+    public void autoFillCurrentZip(View view) {
+        String currentZip = FormUtils.getCurrentZip();
+        if (currentZip.isEmpty()) {
+            FormUtils.showSnackbar(parent, getString(R.string.need_gps));
+        }
+        else {
+            switch (view.getId()) {
+                case R.id.autofill_home:
+                    homeInput.setText(currentZip);
+                    break;
+                case R.id.autofill_work:
+                    workInput.setText(currentZip);
+                    break;
+            }
+        }
+    }
+
     @OnClick(R.id.next)
     public void nextPage(View view) {
         String homeZip = homeInput.getText().toString();

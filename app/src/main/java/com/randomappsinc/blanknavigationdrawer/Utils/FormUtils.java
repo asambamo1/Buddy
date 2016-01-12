@@ -3,6 +3,10 @@ package com.randomappsinc.blanknavigationdrawer.Utils;
 import android.app.Activity;
 import android.content.Context;
 import android.graphics.Color;
+import android.location.Address;
+import android.location.Geocoder;
+import android.location.Location;
+import android.location.LocationManager;
 import android.support.design.widget.Snackbar;
 import android.telephony.TelephonyManager;
 import android.view.View;
@@ -11,9 +15,12 @@ import android.widget.TextView;
 
 import com.randomappsinc.blanknavigationdrawer.R;
 
+import java.io.IOException;
 import java.math.BigInteger;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import java.util.List;
+import java.util.Locale;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -141,5 +148,36 @@ public class FormUtils {
             default:
                 return "{fa-male}";
         }
+    }
+
+    public static String getZipCodeFromLocation(Location location) {
+        Address address = getAddressFromLocation(location);
+        return address.getPostalCode() == null ? "" : address.getPostalCode();
+    }
+
+    public static Address getAddressFromLocation(Location location) {
+        Geocoder geocoder = new Geocoder(MyApplication.getAppContext());
+        Address address = new Address(Locale.getDefault());
+        try {
+            List<Address> addresses = geocoder.getFromLocation(location.getLatitude(), location.getLongitude(), 1);
+            if (addresses.size() > 0) {
+                address = addresses.get(0);
+            }
+        } catch (IOException ignored) {}
+        return address;
+    }
+
+    public static String getCurrentZip() {
+        LocationManager lm = (LocationManager) MyApplication.getAppContext().getSystemService(Context.LOCATION_SERVICE);
+        try {
+            Location location = lm.getLastKnownLocation(LocationManager.NETWORK_PROVIDER);
+            if (location != null) {
+                return getZipCodeFromLocation(location);
+            }
+        }
+        catch (SecurityException e) {
+            return "";
+        }
+        return "";
     }
 }

@@ -80,6 +80,24 @@ public class MyProfileActivity extends StandardActivity {
                 .show();
     }
 
+    @OnClick({R.id.autofill_home, R.id.autofill_work})
+    public void autoFillCurrentZip(View view) {
+        String currentZip = FormUtils.getCurrentZip();
+        if (currentZip.isEmpty()) {
+            FormUtils.showSnackbar(parent, getString(R.string.need_gps));
+        }
+        else {
+            switch (view.getId()) {
+                case R.id.autofill_home:
+                    homeZipInput.setText(currentZip);
+                    break;
+                case R.id.autofill_work:
+                    workZipInput.setText(currentZip);
+                    break;
+            }
+        }
+    }
+
     @OnTextChanged(value = R.id.phone_input, callback = OnTextChanged.Callback.AFTER_TEXT_CHANGED)
     public void phoneChanged(Editable s) {
         if (!s.toString().equals(lastSeenPhoneNumber)) {
