@@ -35,10 +35,7 @@
                     style="@style/user_data_icon"/>
             </FrameLayout>
 
-            <FrameLayout
-                style="@style/input_container_style"
-                android:layout_marginTop="0dp">
-
+            <FrameLayout style="@style/input_container_style">
                 <EditText
                     android:id="@+id/gender_input"
                     android:hint="@string/gender_hint"
