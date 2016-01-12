@@ -131,4 +131,15 @@ public class FormUtils {
                 return -1;
         }
     }
+
+    public static String getGenderIcon(String gender) {
+        switch (gender) {
+            case "Male":
+                return "{fa-male}";
+            case "Female":
+                return "{fa-female}";
+            default:
+                return "{fa-male}";
+        }
+    }
 }

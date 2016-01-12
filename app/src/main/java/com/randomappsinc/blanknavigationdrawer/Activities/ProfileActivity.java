@@ -87,19 +87,22 @@ public class ProfileActivity extends StandardActivity {
             currentStatus = userProfile.getStatus();
             processStatus();
             profile.setVisibility(View.VISIBLE);
-            name.setText(response.getProfile().getName());
-            aboutMe.setText(response.getProfile().getAboutMe());
-            homeZip.setText(String.valueOf(response.getProfile().getHomeZip()));
-            workZip.setText(String.valueOf(response.getProfile().getWorkZip()));
 
-            String userEmail = response.getProfile().getEmail().isEmpty()
+            Profile profile = response.getProfile();
+            String nameTag = profile.getName() + "  " + FormUtils.getGenderIcon(profile.getGender());
+            name.setText(nameTag);
+            aboutMe.setText(profile.getAboutMe());
+            homeZip.setText(String.valueOf(profile.getHomeZip()));
+            workZip.setText(String.valueOf(profile.getWorkZip()));
+
+            String userEmail = profile.getEmail().isEmpty()
                     ? getString(R.string.none_added)
-                    : response.getProfile().getEmail();
+                    : profile.getEmail();
             email.setText(userEmail);
 
-            String userPhoneNumber = response.getProfile().getPhoneNumber().isEmpty()
+            String userPhoneNumber = profile.getPhoneNumber().isEmpty()
                     ? getString(R.string.none_added)
-                    : FormUtils.formatUSNumber(response.getProfile().getPhoneNumber());
+                    : FormUtils.formatUSNumber(profile.getPhoneNumber());
             phoneNumber.setText(userPhoneNumber);
         }
     }

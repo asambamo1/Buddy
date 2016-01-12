@@ -11,6 +11,7 @@ import com.joanzapata.iconify.widget.IconTextView;
 import com.randomappsinc.blanknavigationdrawer.API.ApiConstants;
 import com.randomappsinc.blanknavigationdrawer.API.Models.UserThumbnail;
 import com.randomappsinc.blanknavigationdrawer.R;
+import com.randomappsinc.blanknavigationdrawer.Utils.FormUtils;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -52,7 +53,7 @@ public class RequestsAdapter extends BaseAdapter {
     }
 
     public class RequestViewHolder {
-        @Bind(R.id.suggestion_name) TextView name;
+        @Bind(R.id.suggestion_name) IconTextView name;
         @Bind(R.id.home_zip) TextView homeZip;
         @Bind(R.id.work_zip) TextView workZip;
         @Bind(R.id.status_icon) IconTextView statusIcon;
@@ -76,9 +77,11 @@ public class RequestsAdapter extends BaseAdapter {
         else {
             holder = (RequestViewHolder) view.getTag();
         }
-        holder.name.setText(getItem(position).getName());
-        holder.homeZip.setText(String.valueOf(getItem(position).getHomeZip()));
-        holder.workZip.setText(String.valueOf(getItem(position).getWorkZip()));
+        UserThumbnail suggestion = getItem(position);
+        String nameTag = suggestion.getName() + "  " + FormUtils.getGenderIcon(suggestion.getGender());
+        holder.name.setText(nameTag);
+        holder.homeZip.setText(String.valueOf(suggestion.getHomeZip()));
+        holder.workZip.setText(String.valueOf(suggestion.getWorkZip()));
         holder.statusContainer.setVisibility(View.VISIBLE);
 
         switch(getItem(position).getStatus()) {
