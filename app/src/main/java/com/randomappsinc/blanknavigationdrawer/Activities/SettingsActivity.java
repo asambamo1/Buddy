@@ -25,7 +25,8 @@ import butterknife.OnItemClick;
  * Created by alexanderchiou on 12/20/15.
  */
 public class SettingsActivity extends StandardActivity {
-    public static final String SUPPORT_EMAIL = "aravind.arasam@gmail.com";
+    public static final String SUPPORT_EMAIL = "support@smartlifedigital.com";
+    public static final String SUPPORT_WEBSITE = "http://www.smartlifedigital.com/carpool_buddy";
 
     @Bind(R.id.parent) View parent;
     @Bind(R.id.settings_options) ListView settingsOptions;
@@ -66,6 +67,11 @@ public class SettingsActivity extends StandardActivity {
                 startActivity(intent);
                 break;
             case 2:
+                Uri url = Uri.parse(SUPPORT_WEBSITE);
+                intent = new Intent(Intent.ACTION_VIEW, url);
+                startActivity(intent);
+                break;
+            case 3:
                 new MaterialDialog.Builder(this)
                         .content(R.string.logout_confirmation)
                         .positiveText(android.R.string.yes)
