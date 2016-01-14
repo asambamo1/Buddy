@@ -11,7 +11,7 @@
     <application
         android:name=".Utils.MyApplication"
         android:allowBackup="true"
-        android:icon="@mipmap/city_icon"
+        android:icon="@mipmap/sedan"
         android:supportsRtl="true"
         android:theme="@style/AppTheme" >
         <activity
