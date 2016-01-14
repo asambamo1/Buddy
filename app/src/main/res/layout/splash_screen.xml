@@ -41,7 +41,7 @@
         <ImageView
             android:layout_width="200dp"
             android:layout_height="200dp"
-            android:src="@mipmap/city_icon"
+            android:src="@mipmap/sedan"
             android:layout_gravity="center"/>
     </FrameLayout>
 </RelativeLayout>
