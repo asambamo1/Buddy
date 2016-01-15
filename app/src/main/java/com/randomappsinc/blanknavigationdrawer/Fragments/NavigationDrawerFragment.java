@@ -132,12 +132,16 @@ public class NavigationDrawerFragment extends Fragment {
         String msg = event.getResponse();
         myDialog.hide();
         if (msg.equals(getActivity().getString(R.string.success))) {
-            Toast.makeText(getActivity(), getActivity().getString(R.string.success), Toast.LENGTH_SHORT).show();
             boolean newVisibility = !PreferencesManager.get().getProfile().getVisible();
-            if (newVisibility == true)
+
+            if (newVisibility == true) {
+                Toast.makeText(getActivity(), getActivity().getString(R.string.visible), Toast.LENGTH_SHORT).show();
                 visible.setTextColor(getResources().getColor(R.color.black));
-            else
+            }
+            else {
+                Toast.makeText(getActivity(), getActivity().getString(R.string.invisible), Toast.LENGTH_SHORT).show();
                 visible.setTextColor(getResources().getColor(R.color.dark_gray));
+            }
             PreferencesManager.get().setVisibility(newVisibility);
         }
         else
