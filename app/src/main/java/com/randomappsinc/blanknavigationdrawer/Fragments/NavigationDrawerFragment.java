@@ -140,7 +140,7 @@ public class NavigationDrawerFragment extends Fragment {
             }
             else {
                 Toast.makeText(getActivity(), getActivity().getString(R.string.invisible), Toast.LENGTH_SHORT).show();
-                visible.setTextColor(getResources().getColor(R.color.dark_gray));
+                visible.setTextColor(getResources().getColor(R.color.light_gray));
             }
             PreferencesManager.get().setVisibility(newVisibility);
         }
