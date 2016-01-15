@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="success">You have changed your visibility.</string>
+    <string name="failure">Failed to change your visibility</string>
+
+    <string name="changing">Changing your visibility...</string>
+</resources>

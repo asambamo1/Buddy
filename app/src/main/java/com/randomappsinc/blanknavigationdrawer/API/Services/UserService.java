@@ -32,4 +32,7 @@ public interface UserService {
 
     @GET("/connections/{mode}/{userId}")
     Call< List<UserThumbnail>> fetchRequests(@Path("mode") String mode, @Path("userId") String userId);
+
+    @GET("changevisibility/{state}/{userId}")
+    Call<IgnoredResponse> changeVisibility(@Path("state") String visibility, @Path("userId") String userId);
 }

@@ -1,8 +1,10 @@
 package com.randomappsinc.blanknavigationdrawer.Fragments;
 
 import android.app.Activity;
+import android.app.ProgressDialog;
 import android.content.res.Configuration;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.v4.app.Fragment;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBar;
@@ -19,14 +21,24 @@ import android.widget.AdapterView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.joanzapata.iconify.fonts.FontAwesomeIcons;
+import com.joanzapata.iconify.fonts.FontAwesomeModule;
+import com.joanzapata.iconify.widget.IconTextView;
+import com.randomappsinc.blanknavigationdrawer.API.Callbacks.ChangeVisibilityCallback;
+import com.randomappsinc.blanknavigationdrawer.API.Models.Events.ChangeVisibilityEvent;
+import com.randomappsinc.blanknavigationdrawer.API.Models.Events.SnackbarEvent;
+import com.randomappsinc.blanknavigationdrawer.API.RestClient;
 import com.randomappsinc.blanknavigationdrawer.Adapters.FontAwesomeAdapter;
 import com.randomappsinc.blanknavigationdrawer.R;
 import com.randomappsinc.blanknavigationdrawer.Utils.PreferencesManager;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 import butterknife.OnItemClick;
+import de.greenrobot.event.EventBus;
 
 /**
  * Created by alexanderchiou on 12/20/15.
@@ -38,10 +50,11 @@ public class NavigationDrawerFragment extends Fragment {
 
     private DrawerLayout mDrawerLayout;
     private View mFragmentContainerView;
+    ProgressDialog myDialog;
 
     @Bind(R.id.nav_drawer_tabs) ListView mDrawerListView;
     @Bind(R.id.name)TextView mName;
-
+    @Bind(R.id.visibility) IconTextView visible;
 
     private int mCurrentSelectedPosition = 0;
 
@@ -69,6 +82,9 @@ public class NavigationDrawerFragment extends Fragment {
                 getResources().getStringArray(R.array.nav_drawer_tabs),
                 getResources().getStringArray(R.array.nav_drawer_icons)));
         mDrawerListView.setItemChecked(mCurrentSelectedPosition, true);
+        if (!PreferencesManager.get().getProfile().getVisible())
+            visible.setTextColor(getResources().getColor(R.color.light_gray));
+
         return navDrawer;
     }
 
@@ -78,9 +94,54 @@ public class NavigationDrawerFragment extends Fragment {
         mName.setText(PreferencesManager.get().getProfile().getName());
     }
 
+    @Override
+    public void onStart() {
+        super.onStart();
+        EventBus.getDefault().register(this);
+    }
+
+    @Override
+    public void onStop() {
+        super.onStop();
+        EventBus.getDefault().unregister(this);
+    }
+
     @OnItemClick(R.id.nav_drawer_tabs)
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
         selectItem(position);
+    }
+
+    @OnClick(R.id.visibility)
+    public void changeVisibility() {
+        String visible = Boolean.toString(!PreferencesManager.get().getProfile().getVisible());
+        //String visible = Boolean.toString(false);
+        String user_id = Long.toString(PreferencesManager.get().getProfile().getUserId());
+
+        myDialog = new ProgressDialog(getActivity());
+        myDialog.setMessage(getActivity().getString(R.string.changing));
+        myDialog.setCancelable(false);
+        myDialog.setCanceledOnTouchOutside(false);
+        myDialog.show();
+
+        ChangeVisibilityCallback callback = new ChangeVisibilityCallback();
+        RestClient.getInstance().getUserService().changeVisibility(visible, user_id).enqueue(callback);
+        //Toast.makeText(getActivity(), Boolean.toString(PreferencesManager.get().getVisiblity()), Toast.LENGTH_SHORT).show();
+    }
+
+    public void onEvent(ChangeVisibilityEvent event) {
+        String msg = event.getResponse();
+        myDialog.hide();
+        if (msg.equals(getActivity().getString(R.string.success))) {
+            Toast.makeText(getActivity(), getActivity().getString(R.string.success), Toast.LENGTH_SHORT).show();
+            boolean newVisibility = !PreferencesManager.get().getProfile().getVisible();
+            if (newVisibility == true)
+                visible.setTextColor(getResources().getColor(R.color.black));
+            else
+                visible.setTextColor(getResources().getColor(R.color.dark_gray));
+            PreferencesManager.get().setVisibility(newVisibility);
+        }
+        else
+            Toast.makeText(getActivity(), getActivity().getString(R.string.failure), Toast.LENGTH_SHORT).show();
     }
 
     @Override
