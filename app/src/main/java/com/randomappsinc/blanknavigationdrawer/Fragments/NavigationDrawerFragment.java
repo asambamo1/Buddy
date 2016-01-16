@@ -94,6 +94,7 @@ public class NavigationDrawerFragment extends Fragment {
         mName.setText(PreferencesManager.get().getProfile().getName());
     }
 
+    //The standard for eventbus is to register/uniregister on onStart/onStop
     @Override
     public void onStart() {
         super.onStart();
