@@ -27,6 +27,12 @@ public class SearchActivity extends AppCompatActivity {
     }
 
     @Override
+    public void finish() {
+        super.finish();
+        overridePendingTransition(0 , R.anim.slide_down_out);
+    }
+
+    @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
         if (id == android.R.id.home)

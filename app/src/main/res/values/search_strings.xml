@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="searching">Searching...</string>
+    <string name="empty_input">Please complete the search form.</string>
+    <string name="nomatches">No results match your specifications.</string>
+</resources>

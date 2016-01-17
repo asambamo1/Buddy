@@ -11,6 +11,7 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.randomappsinc.blanknavigationdrawer.API.Callbacks.UserThumbnailsCallback;
 import com.randomappsinc.blanknavigationdrawer.API.Models.Events.UserThumbnailsEvent;
@@ -74,6 +75,7 @@ public class SuggestionsFragment extends Fragment implements SwipeRefreshLayout.
     public void onSearch() {
         Intent intent = new Intent(getActivity(), SearchActivity.class);
         startActivity(intent);
+        getActivity().overridePendingTransition(R.anim.slide_up_in, R.anim.no_anim);
         //Toast.makeText(getActivity(), "Search!", Toast.LENGTH_SHORT).show();
     }
 
