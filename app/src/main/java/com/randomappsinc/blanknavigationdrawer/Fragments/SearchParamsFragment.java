@@ -76,6 +76,9 @@ public class SearchParamsFragment extends Fragment {
                 adapter.setSuggestions(response.getUserThumbnailsList());
             }
             if (adapter.getCount() == 0) {
+                Animation show =  new AlphaAnimation(0.0f, 1.0f);
+                show.setDuration(250);
+                noresult.startAnimation(show);
                 noresult.setVisibility(View.VISIBLE);
             }
             else {
@@ -86,8 +89,7 @@ public class SearchParamsFragment extends Fragment {
 
     @OnClick(R.id.gender_input)
     public void chooseGender(View view) {
-        new MaterialDialog.Builder(getActivity())
-                .items(R.array.genders)
+        new MaterialDialog.Builder(getActivity()).items(R.array.search_gender)
                 .itemsCallbackSingleChoice(currentGenderIndex, new MaterialDialog.ListCallbackSingleChoice() {
                     @Override
                     public boolean onSelection(MaterialDialog dialog, View view, int which, CharSequence text) {
@@ -149,8 +151,14 @@ public class SearchParamsFragment extends Fragment {
                 progressDialog.setCanceledOnTouchOutside(false);
                 progressDialog.show();
                 User yourInfo = PreferencesManager.get().getProfile();
+                String gender_pref;
+                if (currentGenderIndex == 2)
+                    gender_pref = getActivity().getString(R.string.nopref);
+                else
+                    gender_pref = genderInput.getText().toString();
+
                 UserThumbnailsCallback callback = new UserThumbnailsCallback(SCREEN_TAG);
-                RestClient.getInstance().getMatchingService().searchResults(Long.toString(yourInfo.getUserId()), genderInput.getText().toString(),
+                RestClient.getInstance().getMatchingService().searchResults(Long.toString(yourInfo.getUserId()), gender_pref,
                         homeZipInput.getText().toString(), workZipInput.getText().toString()).enqueue(callback);
             }
 
