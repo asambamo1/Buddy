@@ -1,4 +1,4 @@
-package com.randomappsinc.blanknavigationdrawer.Activities;
+package com.randomappsinc.blanknavigationdrawer.Activities.AppActivities;
 
 import android.app.FragmentManager;
 import android.content.Intent;

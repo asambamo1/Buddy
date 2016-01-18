@@ -14,7 +14,7 @@ import android.widget.TextView;
 import com.randomappsinc.blanknavigationdrawer.API.Callbacks.UserThumbnailsCallback;
 import com.randomappsinc.blanknavigationdrawer.API.Models.Events.UserThumbnailsEvent;
 import com.randomappsinc.blanknavigationdrawer.API.RestClient;
-import com.randomappsinc.blanknavigationdrawer.Activities.ProfileActivity;
+import com.randomappsinc.blanknavigationdrawer.Activities.AppActivities.ProfileActivity;
 import com.randomappsinc.blanknavigationdrawer.Adapters.RequestsAdapter;
 import com.randomappsinc.blanknavigationdrawer.R;
 import com.randomappsinc.blanknavigationdrawer.Utils.Constants;

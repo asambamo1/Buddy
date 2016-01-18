@@ -7,7 +7,7 @@ import android.widget.EditText;
 
 import com.afollestad.materialdialogs.MaterialDialog;
 import com.randomappsinc.blanknavigationdrawer.API.Models.User;
-import com.randomappsinc.blanknavigationdrawer.Activities.StandardActivity;
+import com.randomappsinc.blanknavigationdrawer.Activities.AppActivities.StandardActivity;
 import com.randomappsinc.blanknavigationdrawer.R;
 import com.randomappsinc.blanknavigationdrawer.Utils.Constants;
 import com.randomappsinc.blanknavigationdrawer.Utils.FormUtils;

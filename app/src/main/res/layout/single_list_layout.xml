@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.design.widget.CoordinatorLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/parent"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
@@ -48,4 +48,15 @@
             </ListView>
         </android.support.v4.widget.SwipeRefreshLayout>
     </FrameLayout>
+
+    <android.support.design.widget.FloatingActionButton
+        android:src="@drawable/ic_search"
+        android:id="@+id/search_button"
+        app:backgroundTint="@color/app_blue"
+        android:layout_marginRight="16dp"
+        android:layout_marginBottom="24dp"
+        android:scaleType="center"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="right|bottom"/>
 </android.support.design.widget.CoordinatorLayout>

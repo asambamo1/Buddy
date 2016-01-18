@@ -17,6 +17,7 @@ import com.randomappsinc.blanknavigationdrawer.R;
 public class PreferencesManager {
     private SharedPreferences prefs;
     private String NONE_ADDED;
+    private boolean DEFAULT_VIS = true;
 
     private static PreferencesManager instance;
 
@@ -40,6 +41,10 @@ public class PreferencesManager {
         NONE_ADDED = context.getString(R.string.none_added);
     }
 
+    public void setVisibility(boolean val) {
+        prefs.edit().putBoolean(Constants.VISIBLE, val).apply();
+    }
+
     public void setProfile(User user) {
         prefs.edit().putLong(Constants.USER_ID_KEY, user.getUserId()).apply();
         prefs.edit().putInt(Constants.HOME_ZIP_KEY, user.getHomeZip()).apply();
@@ -49,6 +54,7 @@ public class PreferencesManager {
         prefs.edit().putString(Constants.ABOUT_ME_KEY, user.getAboutMe()).apply();
         prefs.edit().putString(Constants.EMAIL_KEY, user.getEmail()).apply();
         prefs.edit().putString(Constants.PHONE_NUMBER_KEY, user.getPhoneNumber()).apply();
+        prefs.edit().putBoolean(Constants.VISIBLE, user.getVisible()).apply();
     }
 
     public User getProfile() {
@@ -62,6 +68,7 @@ public class PreferencesManager {
         user.setAboutMe(prefs.getString(Constants.ABOUT_ME_KEY, ""));
         user.setEmail(prefs.getString(Constants.EMAIL_KEY, NONE_ADDED));
         user.setPhoneNumber(prefs.getString(Constants.PHONE_NUMBER_KEY, NONE_ADDED));
+        user.setVisible(prefs.getBoolean(Constants.VISIBLE, DEFAULT_VIS));
 
         return user;
     }

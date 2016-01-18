@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string-array name="search_gender">
+        <item>Male</item>
+        <item>Female</item>
+        <item>No Preference</item>
+    </string-array>
+
+    <string name = "nopref">nopref</string>
+    <string name="searching">Searching...</string>
+    <string name="empty_input">Please complete the search form.</string>
+    <string name="nomatches">No results match your specifications.</string>
+</resources>

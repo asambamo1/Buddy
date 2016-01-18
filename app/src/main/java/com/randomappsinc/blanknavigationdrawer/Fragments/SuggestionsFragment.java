@@ -3,6 +3,7 @@ package com.randomappsinc.blanknavigationdrawer.Fragments;
 import android.app.Fragment;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -14,7 +15,8 @@ import android.widget.TextView;
 import com.randomappsinc.blanknavigationdrawer.API.Callbacks.UserThumbnailsCallback;
 import com.randomappsinc.blanknavigationdrawer.API.Models.Events.UserThumbnailsEvent;
 import com.randomappsinc.blanknavigationdrawer.API.RestClient;
-import com.randomappsinc.blanknavigationdrawer.Activities.ProfileActivity;
+import com.randomappsinc.blanknavigationdrawer.Activities.AppActivities.ProfileActivity;
+import com.randomappsinc.blanknavigationdrawer.Activities.AppActivities.SearchActivity;
 import com.randomappsinc.blanknavigationdrawer.Adapters.UserThumbnailsAdapter;
 import com.randomappsinc.blanknavigationdrawer.R;
 import com.randomappsinc.blanknavigationdrawer.Utils.Constants;
@@ -23,6 +25,7 @@ import com.randomappsinc.blanknavigationdrawer.Utils.PreferencesManager;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 import butterknife.OnItemClick;
 import de.greenrobot.event.EventBus;
 
@@ -35,6 +38,7 @@ public class SuggestionsFragment extends Fragment implements SwipeRefreshLayout.
     @Bind(R.id.parent) View parent;
     @Bind(R.id.loading) View loadingSuggestions;
     @Bind(R.id.content) ListView suggestions;
+    @Bind(R.id.search_button) FloatingActionButton search;
     @Bind(R.id.fetch_new_content) SwipeRefreshLayout fetchNewSuggestions;
     @Bind(R.id.no_content) TextView noSuggestions;
 
@@ -66,6 +70,15 @@ public class SuggestionsFragment extends Fragment implements SwipeRefreshLayout.
         }
     }
 
+    @OnClick(R.id.search_button)
+    public void onSearch() {
+        Intent intent = new Intent(getActivity(), SearchActivity.class);
+        startActivity(intent);
+        getActivity().overridePendingTransition(R.anim.slide_up_in, R.anim.no_anim);
+        //Toast.makeText(getActivity(), "Search!", Toast.LENGTH_SHORT).show();
+    }
+
+    //for handling changes to visbility
     public void onEvent(UserThumbnailsEvent response) {
         if (response.getScreen().equals(SCREEN_TAG)) {
             loadingSuggestions.setVisibility(View.GONE);

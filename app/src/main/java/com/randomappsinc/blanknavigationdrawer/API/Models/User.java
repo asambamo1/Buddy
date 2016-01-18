@@ -47,6 +47,10 @@ public class User implements Parcelable {
     @Expose
     private String password;
 
+    @SerializedName("visible")
+    @Expose
+    private boolean visible;
+
     public long getUserId() {
         return userId;
     }
@@ -115,6 +119,10 @@ public class User implements Parcelable {
         this.password = password;
     }
 
+    public boolean getVisible() { return visible; }
+
+    public void setVisible(boolean visible) { this.visible = visible; }
+
     public User() {}
 
     protected User(Parcel in) {
@@ -127,6 +135,7 @@ public class User implements Parcelable {
         phoneNumber = in.readString();
         email = in.readString();
         password = in.readString();
+        visible = (boolean) in.readValue(null);
     }
 
     @Override
@@ -145,6 +154,7 @@ public class User implements Parcelable {
         dest.writeString(phoneNumber);
         dest.writeString(email);
         dest.writeString(password);
+        dest.writeValue(visible);
     }
 
     @SuppressWarnings("unused")

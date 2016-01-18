@@ -1,4 +1,4 @@
-package com.randomappsinc.blanknavigationdrawer.Activities;
+package com.randomappsinc.blanknavigationdrawer.Activities.AppActivities;
 
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
