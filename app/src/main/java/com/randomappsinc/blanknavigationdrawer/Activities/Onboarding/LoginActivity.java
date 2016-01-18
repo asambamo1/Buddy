@@ -11,8 +11,8 @@ import com.randomappsinc.blanknavigationdrawer.API.Callbacks.LoginCallback;
 import com.randomappsinc.blanknavigationdrawer.API.Models.Events.SnackbarEvent;
 import com.randomappsinc.blanknavigationdrawer.API.Models.LoginBundle;
 import com.randomappsinc.blanknavigationdrawer.API.RestClient;
-import com.randomappsinc.blanknavigationdrawer.Activities.MainActivity;
-import com.randomappsinc.blanknavigationdrawer.Activities.StandardActivity;
+import com.randomappsinc.blanknavigationdrawer.Activities.AppActivities.MainActivity;
+import com.randomappsinc.blanknavigationdrawer.Activities.AppActivities.StandardActivity;
 import com.randomappsinc.blanknavigationdrawer.R;
 import com.randomappsinc.blanknavigationdrawer.Utils.FormUtils;
 

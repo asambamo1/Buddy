@@ -11,13 +11,12 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.randomappsinc.blanknavigationdrawer.API.Callbacks.UserThumbnailsCallback;
 import com.randomappsinc.blanknavigationdrawer.API.Models.Events.UserThumbnailsEvent;
 import com.randomappsinc.blanknavigationdrawer.API.RestClient;
-import com.randomappsinc.blanknavigationdrawer.Activities.ProfileActivity;
-import com.randomappsinc.blanknavigationdrawer.Activities.SearchActivity;
+import com.randomappsinc.blanknavigationdrawer.Activities.AppActivities.ProfileActivity;
+import com.randomappsinc.blanknavigationdrawer.Activities.AppActivities.SearchActivity;
 import com.randomappsinc.blanknavigationdrawer.Adapters.UserThumbnailsAdapter;
 import com.randomappsinc.blanknavigationdrawer.R;
 import com.randomappsinc.blanknavigationdrawer.Utils.Constants;

@@ -14,7 +14,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".Activities.MainActivity"
+            android:name=".Activities.AppActivities.MainActivity"
             android:label="@string/app_name"
             android:screenOrientation="portrait">
             <intent-filter>
@@ -24,16 +24,16 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".Activities.MyProfileActivity"
+            android:name=".Activities.AppActivities.MyProfileActivity"
             android:label="@string/my_profile"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".Activities.RequestsActivity"
+            android:name=".Activities.AppActivities.RequestsActivity"
             android:label="@string/requests"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustResize" />
         <activity
-            android:name=".Activities.SettingsActivity"
+            android:name=".Activities.AppActivities.SettingsActivity"
             android:label="@string/settings"
             android:screenOrientation="portrait" />
         <activity
@@ -66,14 +66,14 @@
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustResize" />
         <activity
-            android:name=".Activities.ProfileActivity"
+            android:name=".Activities.AppActivities.ProfileActivity"
             android:label="@string/profile"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".Activities.ConnectionsActivity"
+            android:name=".Activities.AppActivities.ConnectionsActivity"
             android:label="@string/connections"
             android:screenOrientation="portrait" />
-        <activity android:name=".Activities.SearchActivity"></activity>
+        <activity android:name=".Activities.AppActivities.SearchActivity"></activity>
     </application>
 
 </manifest>

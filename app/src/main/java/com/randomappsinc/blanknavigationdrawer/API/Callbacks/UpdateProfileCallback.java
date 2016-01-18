@@ -6,7 +6,7 @@ import com.randomappsinc.blanknavigationdrawer.API.ApiConstants;
 import com.randomappsinc.blanknavigationdrawer.API.Models.Events.SnackbarEvent;
 import com.randomappsinc.blanknavigationdrawer.API.Models.IgnoredResponse;
 import com.randomappsinc.blanknavigationdrawer.API.Models.User;
-import com.randomappsinc.blanknavigationdrawer.Activities.MyProfileActivity;
+import com.randomappsinc.blanknavigationdrawer.Activities.AppActivities.MyProfileActivity;
 import com.randomappsinc.blanknavigationdrawer.R;
 import com.randomappsinc.blanknavigationdrawer.Utils.MyApplication;
 import com.randomappsinc.blanknavigationdrawer.Utils.PreferencesManager;

@@ -19,7 +19,7 @@ import com.randomappsinc.blanknavigationdrawer.API.Callbacks.UserThumbnailsCallb
 import com.randomappsinc.blanknavigationdrawer.API.Models.Events.UserThumbnailsEvent;
 import com.randomappsinc.blanknavigationdrawer.API.Models.User;
 import com.randomappsinc.blanknavigationdrawer.API.RestClient;
-import com.randomappsinc.blanknavigationdrawer.Activities.ProfileActivity;
+import com.randomappsinc.blanknavigationdrawer.Activities.AppActivities.ProfileActivity;
 import com.randomappsinc.blanknavigationdrawer.Adapters.UserThumbnailsAdapter;
 import com.randomappsinc.blanknavigationdrawer.R;
 import com.randomappsinc.blanknavigationdrawer.Utils.Constants;
@@ -32,7 +32,7 @@ import butterknife.OnClick;
 import butterknife.OnItemClick;
 import de.greenrobot.event.EventBus;
 
-public class SearchParamsFragment extends Fragment {
+public class SearchFragment extends Fragment {
 
     @Bind(R.id.parent) View parent;
     @Bind(R.id.gender_input) EditText genderInput;
@@ -50,7 +50,7 @@ public class SearchParamsFragment extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup parentViewGroup, Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_search_params, parentViewGroup, false);
+        View view = inflater.inflate(R.layout.fragment_search, parentViewGroup, false);
         ButterKnife.bind(this, view);
         adapter = new UserThumbnailsAdapter(getActivity());
         results.setAdapter(adapter);
