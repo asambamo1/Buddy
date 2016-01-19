@@ -63,6 +63,7 @@ public class PasswordActivity extends StandardActivity {
                 .progress(true, 0)
                 .cancelable(false)
                 .build();
+        customTextView(tos);
     }
 
     @OnClick(R.id.create_account)
