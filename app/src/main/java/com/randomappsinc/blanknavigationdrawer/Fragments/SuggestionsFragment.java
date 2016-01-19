@@ -48,6 +48,8 @@ public class SuggestionsFragment extends Fragment implements SwipeRefreshLayout.
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.single_list_layout, container, false);
         ButterKnife.bind(this, rootView);
+        //Yay for recycling the same layout
+        search.setVisibility(View.VISIBLE);
         EventBus.getDefault().register(this);
 
         noSuggestions.setText(R.string.no_suggestions);
