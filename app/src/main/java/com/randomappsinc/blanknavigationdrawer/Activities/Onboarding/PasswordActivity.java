@@ -56,6 +56,7 @@ public class PasswordActivity extends StandardActivity {
 
         password.setTypeface(Typeface.DEFAULT);
         confirmPassword.setTypeface(Typeface.DEFAULT);
+        customTextView(tos);
 
         progressDialog = new MaterialDialog.Builder(this)
                 .content(R.string.creating_your_account)
