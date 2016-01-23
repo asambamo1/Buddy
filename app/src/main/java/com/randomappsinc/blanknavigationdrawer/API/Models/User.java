@@ -135,7 +135,7 @@ public class User implements Parcelable {
         phoneNumber = in.readString();
         email = in.readString();
         password = in.readString();
-        visible = (boolean) in.readValue(null);
+        visible = (in.readByte() != 0);
     }
 
     @Override
@@ -154,7 +154,7 @@ public class User implements Parcelable {
         dest.writeString(phoneNumber);
         dest.writeString(email);
         dest.writeString(password);
-        dest.writeValue(visible);
+        dest.writeValue((byte) (visible ? 1 : 0));
     }
 
     @SuppressWarnings("unused")
