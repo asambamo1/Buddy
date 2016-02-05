@@ -77,7 +77,6 @@ public class SuggestionsFragment extends Fragment implements SwipeRefreshLayout.
         Intent intent = new Intent(getActivity(), SearchActivity.class);
         startActivity(intent);
         getActivity().overridePendingTransition(R.anim.slide_up_in, R.anim.no_anim);
-        //Toast.makeText(getActivity(), "Search!", Toast.LENGTH_SHORT).show();
     }
 
     //for handling changes to visbility
