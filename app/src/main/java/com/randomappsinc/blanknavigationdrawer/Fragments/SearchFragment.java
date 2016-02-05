@@ -38,6 +38,7 @@ public class SearchFragment extends Fragment {
     @Bind(R.id.gender_input) EditText genderInput;
     @Bind(R.id.home_input) EditText homeZipInput;
     @Bind(R.id.work_input) EditText workZipInput;
+    @Bind(R.id.variance) EditText zipRange;
     @Bind(R.id.results) ListView results;
     @Bind(R.id.input) View input;
     @Bind(R.id.noresult) TextView noresult;
@@ -135,7 +136,7 @@ public class SearchFragment extends Fragment {
 
     private boolean emptyInput() {
         return genderInput.getText().toString().isEmpty() || homeZipInput.getText().toString().isEmpty() ||
-                workZipInput.getText().toString().isEmpty();
+                workZipInput.getText().toString().isEmpty() || zipRange.getText().toString().isEmpty();
     }
 
     @OnClick(R.id.search)
@@ -171,7 +172,8 @@ public class SearchFragment extends Fragment {
 
                 UserThumbnailsCallback callback = new UserThumbnailsCallback(SCREEN_TAG);
                 RestClient.getInstance().getMatchingService().searchResults(Long.toString(yourInfo.getUserId()), gender_pref,
-                        homeZipInput.getText().toString(), workZipInput.getText().toString()).enqueue(callback);
+                        zipRange.getText().toString(), homeZipInput.getText().toString(),
+                        workZipInput.getText().toString()).enqueue(callback);
             }
 
             @Override
