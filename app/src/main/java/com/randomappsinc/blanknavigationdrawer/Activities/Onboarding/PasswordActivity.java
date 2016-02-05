@@ -1,10 +1,18 @@
 package com.randomappsinc.blanknavigationdrawer.Activities.Onboarding;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.graphics.Typeface;
+import android.net.Uri;
 import android.os.Bundle;
+import android.text.SpannableStringBuilder;
+import android.text.method.LinkMovementMethod;
+import android.text.style.ClickableSpan;
+import android.text.style.ForegroundColorSpan;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import com.afollestad.materialdialogs.MaterialDialog;
 import com.randomappsinc.blanknavigationdrawer.API.Callbacks.CreateAccountCallback;
@@ -31,9 +39,12 @@ public class PasswordActivity extends StandardActivity {
     @Bind(R.id.parent) View parent;
     @Bind(R.id.password_input) EditText password;
     @Bind(R.id.confirm_password_input) EditText confirmPassword;
+    @Bind(R.id.tos) TextView tos;
 
     private User user;
     private MaterialDialog progressDialog;
+    private String TOS = "http://smartlifedigital.com/carpool_buddy_legal";
+    private String Privacy_Policy = "http://smartlifedigital.com/carpool_buddy_privacy";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,12 +56,14 @@ public class PasswordActivity extends StandardActivity {
 
         password.setTypeface(Typeface.DEFAULT);
         confirmPassword.setTypeface(Typeface.DEFAULT);
+        customTextView(tos);
 
         progressDialog = new MaterialDialog.Builder(this)
                 .content(R.string.creating_your_account)
                 .progress(true, 0)
                 .cancelable(false)
                 .build();
+        customTextView(tos);
     }
 
     @OnClick(R.id.create_account)
@@ -88,6 +101,33 @@ public class PasswordActivity extends StandardActivity {
             progressDialog.dismiss();
             FormUtils.showSnackbar(parent, event.getMessage());
         }
+    }
+
+    private void customTextView(TextView view) {
+        SpannableStringBuilder spanTxt = new SpannableStringBuilder(
+                "By creating an account and using Carpool Buddy you agree to our ");
+        spanTxt.append("Terms of Service");
+        spanTxt.setSpan(new ClickableSpan() {
+            @Override
+            public void onClick(View widget) {
+                Uri url = Uri.parse(TOS);
+                Intent intent = new Intent(Intent.ACTION_VIEW, url);
+                startActivity(intent);
+            }
+        }, spanTxt.length() - "Terms of Service".length(), spanTxt.length(), 0);
+        spanTxt.append(" and ");
+        spanTxt.append("Privacy Policy");
+        spanTxt.setSpan(new ClickableSpan() {
+            @Override
+            public void onClick(View widget) {
+                Uri url = Uri.parse(Privacy_Policy);
+                Intent intent = new Intent(Intent.ACTION_VIEW, url);
+                startActivity(intent);
+            }
+        }, spanTxt.length() - " Privacy Policy".length(), spanTxt.length(), 0);
+        spanTxt.append(".");
+        view.setMovementMethod(LinkMovementMethod.getInstance());
+        view.setText(spanTxt, TextView.BufferType.SPANNABLE);
     }
 
     @Override

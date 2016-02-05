@@ -13,7 +13,7 @@
         (only one of the below is needed).</string>
     <string name="password_instructions">You made it! Finally, set a password for your Carpool Buddy account.</string>
     <string name="autofill_hint">You can click on the phone icon to auto-fill your phone number.</string>
-
+    <string name="tos">By creating an account and using Carpool Buddy you agree to our Terms of Service and Privacy Policy.</string>
     <string name="gender_hint">Gender</string>
     <string name="home_hint">Home ZIP code</string>
     <string name="work_hint">Work ZIP code</string>
