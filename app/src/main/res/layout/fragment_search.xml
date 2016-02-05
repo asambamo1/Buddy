@@ -75,6 +75,24 @@
                 android:layout_gravity="end|center_vertical"/>
         </FrameLayout>
 
+        <FrameLayout style="@style/input_container_style"
+            android:id="@+id/frame4">
+
+            <EditText
+                android:id="@+id/variance"
+                android:inputType="number"
+                android:hint="@string/range"
+                android:imeOptions="actionDone"
+                android:maxLength="2"
+                android:paddingRight="35dp"
+                style="@style/profile_input"/>
+
+            <com.joanzapata.iconify.widget.IconTextView
+                android:text="@string/plus"
+                style="@style/user_data_icon"/>
+
+        </FrameLayout>
+
         <com.rey.material.widget.Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -84,6 +102,7 @@
             android:id="@+id/search"
             android:layout_gravity="right" />
     </LinearLayout>
+
 
     <ListView
         android:id="@+id/results"
@@ -95,6 +114,7 @@
         android:id="@+id/noresult"
         android:text="@string/nomatches"
         android:gravity="center"
+        android:textColor="@color/dark_gray"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:layout_marginTop="16dp"
         android:visibility="gone"
